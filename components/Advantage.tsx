@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Advantage() {
   return (
-    <section className="section section--mist" id="advantage">
+    <section className="section" id="advantage">
       <div className="wrap">
         <div className="section-head">
           <h2>Scaling B2B sales shouldn&apos;t take six months and seven figures.</h2>

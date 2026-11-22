@@ -121,7 +121,7 @@ export default function ClientImpact() {
   };
 
   return (
-    <section className="section" id="client-impact">
+    <section className="section section--mist" id="client-impact">
       <div className="wrap">
         <div className="section-head">
           <h2>Real partners. Real pipeline. Real results.</h2>

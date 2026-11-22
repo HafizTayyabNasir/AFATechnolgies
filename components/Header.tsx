@@ -16,7 +16,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const sections = ["solutions", "process", "client-impact", "why-afa", "about", "faq"];
+    const sections = ["client-impact", "solutions", "process", "why-afa", "about", "faq"];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -64,6 +64,13 @@ export default function Header() {
 
         <nav className={`nav ${isOpen ? "is-open" : ""}`} id="nav" aria-label="Primary">
           <a
+            href="#client-impact"
+            className={activeSection === "client-impact" ? "is-active" : ""}
+            onClick={() => setIsOpen(false)}
+          >
+            Client impact
+          </a>
+          <a
             href="#solutions"
             className={activeSection === "solutions" ? "is-active" : ""}
             onClick={() => setIsOpen(false)}
@@ -76,13 +83,6 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
           >
             How it works
-          </a>
-          <a
-            href="#client-impact"
-            className={activeSection === "client-impact" ? "is-active" : ""}
-            onClick={() => setIsOpen(false)}
-          >
-            Client impact
           </a>
           <a
             href="#why-afa"

@@ -19,10 +19,10 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Proof />
-        <Advantage />
+        <ClientImpact />
         <Solutions />
         <Process />
-        <ClientImpact />
+        <Advantage />
         <WhyAFA />
         <About />
         <FAQ />

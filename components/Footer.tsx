@@ -37,10 +37,13 @@ export default function Footer() {
                 <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#process">How it works</a>
+                <a href="#client-impact">Client impact</a>
               </li>
               <li>
-                <a href="#client-impact">Client impact</a>
+                <a href="#solutions">Solutions</a>
+              </li>
+              <li>
+                <a href="#process">How it works</a>
               </li>
               <li>
                 <a href="#why-afa">Why AFA Technologies</a>
