@@ -1,20 +1,20 @@
-/* ---------- Tokens (Harmonized with the official AFA Technologies logo) ---------- */
+/* ---------- Tokens (Lightened & Harmonized with the official AFA Technologies logo) ---------- */
 :root{
-  --navy-900:#04162e;   /* logo base deep midnight navy */
-  --navy-800:#062347;   /* logo dark facet navy */
-  --navy-700:#083262;   /* logo core brand navy */
-  --navy-600:#0a3d75;
-  --blue-600:#026cae;   /* logo rich cobalt blue */
-  --blue-500:#0082cb;   /* logo vibrant mid blue */
-  --azure:#009be3;      /* logo gradient transition */
-  --cyan:#00bdf2;       /* logo electric highlight cyan */
-  --cyan-soft:#8be5fb;  /* logo soft cyan tint */
-  --slate:#7a9cb5;      /* logo circuit nodes / traces */
-  --slate-light:#d8e8f2;
-  --mist:#f2f7fb;       /* logo clean mist background */
-  --line:#dce7f0;       /* logo clean borders */
-  --ink:#071f3d;        /* logo high-contrast brand ink */
-  --muted:#4b6782;      /* logo subtitle slate */
+  --navy-900:#0a254a;   /* lightened deep brand navy */
+  --navy-800:#0f3565;   /* lightened dark facet navy */
+  --navy-700:#144885;   /* lightened core brand navy */
+  --navy-600:#1a599e;
+  --blue-600:#0582ce;   /* lightened vibrant cobalt blue */
+  --blue-500:#0298eb;   /* lightened luminous mid blue */
+  --azure:#14aeff;      /* lightened sky azure */
+  --cyan:#0ad4ff;       /* lightened electric highlight cyan */
+  --cyan-soft:#b6f1ff;  /* soft cyan highlight */
+  --slate:#8faec4;      /* lightened circuit nodes / traces */
+  --slate-light:#e4f0f7;
+  --mist:#f6faff;       /* lightened ultra-clean mist background */
+  --line:#e1ebf4;       /* soft clean borders */
+  --ink:#0d284a;        /* softer high-contrast brand ink */
+  --muted:#597794;      /* softer subtitle slate */
   --white:#ffffff;
   --radius:14px;
   --display:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -48,8 +48,8 @@ ul{margin:0;padding:0;list-style:none}
 .btn:active{transform:translateY(1px)}
 .btn--cyan{background:var(--cyan);color:var(--navy-900)}
 .btn--cyan:hover{background:var(--cyan-soft)}
-.btn--navy{background:var(--navy-700);color:#fff}
-.btn--navy:hover{background:var(--blue-500)}
+.btn--navy{background:linear-gradient(135deg,var(--navy-700) 0%,var(--blue-600) 100%);color:#fff}
+.btn--navy:hover{background:linear-gradient(135deg,var(--blue-500) 0%,var(--blue-600) 100%);transform:translateY(-1px)}
 .btn--ghost{border-color:rgba(255,255,255,.38);color:#fff}
 .btn--ghost:hover{border-color:var(--cyan);color:var(--cyan)}
 .btn--sm{padding:12px 20px;font-size:.95rem}
@@ -75,12 +75,12 @@ ul{margin:0;padding:0;list-style:none}
 
 /* ---------- Hero (Modern White Banner with Brand Color Gradient & Form) ---------- */
 .hero{position:relative;overflow:hidden;color:var(--ink);background:#ffffff;padding-top:clamp(24px,3.5vw,44px);padding-bottom:clamp(56px,7vw,96px)}
-.hero-bg-accent{position:absolute;top:-10%;right:-180px;width:clamp(260px,28vw,420px);height:125%;background:linear-gradient(145deg,var(--navy-800) 0%,var(--navy-700) 100%);transform:skewX(-20deg);border-radius:44px;pointer-events:none;z-index:1}
+.hero-bg-accent{position:absolute;top:-10%;right:-180px;width:clamp(260px,28vw,420px);height:125%;background:linear-gradient(145deg,#133c6d 0%,#0a254a 100%);transform:skewX(-20deg);border-radius:44px;pointer-events:none;z-index:1;opacity:.95}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,0.82fr);gap:clamp(30px,5vw,64px);align-items:center;position:relative;z-index:2}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;font-weight:500;color:var(--muted);background:rgba(242,247,251,.95);border:1px solid var(--line);padding:7px 18px;border-radius:999px;margin-bottom:24px;box-shadow:0 1px 3px rgba(4,22,46,0.04)}
 .hero-pill svg{width:17px;height:17px;color:var(--blue-500);flex:none}
 .hero h1{font-size:clamp(2.1rem,3.8vw,3.5rem);font-weight:800;letter-spacing:-.035em;line-height:1.15;color:var(--ink);margin-bottom:20px}
-.hero-highlight{background:linear-gradient(135deg,#0082cb 0%,#00bdf2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block;white-space:nowrap;position:relative}
+.hero-highlight{background:linear-gradient(135deg,#0298eb 0%,#0ad4ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block;white-space:nowrap;position:relative}
 .cursor-blink{display:inline-block;width:3px;height:.82em;background-color:var(--cyan);margin-left:4px;vertical-align:-.05em;animation:cursorPulse 1s infinite}
 @keyframes cursorPulse{0%,49%{opacity:1}50%,100%{opacity:0}}
 .hero .lead{margin-top:18px;font-size:clamp(1.05rem,1.4vw,1.18rem);line-height:1.68;color:var(--muted);max-width:36rem}
