@@ -115,74 +115,93 @@ const cases: CaseStudy[] = [
   },
 ];
 
-// Custom Client Logos
-function ClientLogo({ id }: { id: string }) {
+// Authentic Client Brand Logos
+function ClientBrandLogo({
+  id,
+  context,
+}: {
+  id: string;
+  context: "tab" | "panel";
+}) {
   switch (id) {
     case "fortanixor":
       return (
         <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
+          viewBox="0 0 100 120"
           fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Fortanixor Logo"
+          style={{
+            height: context === "panel" ? "28px" : "24px",
+            width: "auto",
+            aspectRatio: "5 / 6",
+            display: "block",
+            flexShrink: 0,
+          }}
         >
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          <path d="m9 12 2 2 4-4" />
+          <path
+            d="M50 115C50 115 10 95 10 50V15L50 5L90 15V50C90 95 50 115 50 115Z"
+            fill="#4D79FF"
+          />
+          <path
+            d="M50 105C50 105 18 88 18 50V22L50 14L82 22V50C82 88 50 105 50 105Z"
+            fill="#0a0814"
+          />
+          <circle cx="50" cy="52" r="22" fill="#00BCD4" />
         </svg>
       );
     case "najoomi":
       return (
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14" />
-          <circle cx="12" cy="12" r="4" fill="currentColor" fillOpacity="0.2" />
-        </svg>
+        <Image
+          src="/logos/najoomi-logo.png"
+          alt="Najoomi Official Logo"
+          width={context === "panel" ? 110 : 40}
+          height={context === "panel" ? 30 : 22}
+          style={{
+            height: context === "panel" ? "26px" : "18px",
+            width: "auto",
+            objectFit: "contain",
+            display: "block",
+          }}
+        />
       );
     case "keystone":
       return (
         <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
+          viewBox="0 0 100 100"
           fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Keystone Logo"
+          style={{
+            height: context === "panel" ? "28px" : "24px",
+            width: "auto",
+            display: "block",
+            flexShrink: 0,
+          }}
         >
-          <path d="M4 20h16M7 20V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12M10 6l2-3 2 3M9 12h6" />
+          <path
+            d="M22 80V45C22 29.5 34.5 17 50 17C65.5 17 78 29.5 78 45V80H64V45C64 37.3 57.7 31 50 31C42.3 31 36 37.3 36 45V80H22Z"
+            fill="#F59E0B"
+            opacity="0.45"
+          />
+          <polygon points="38 15 62 15 57 40 43 40" fill="#F59E0B" />
+          <rect x="22" y="76" width="56" height="8" rx="2" fill="#F59E0B" />
         </svg>
       );
     case "accelerec":
       return (
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="m13 17 5-5-5-5M6 17l5-5-5-5" />
-        </svg>
+        <Image
+          src="/logos/accelerec-logo.png"
+          alt="Accelerec Official Logo"
+          width={context === "panel" ? 115 : 40}
+          height={context === "panel" ? 30 : 22}
+          style={{
+            height: context === "panel" ? "26px" : "18px",
+            width: "auto",
+            objectFit: "contain",
+            display: "block",
+          }}
+        />
       );
     default:
       return null;
@@ -250,8 +269,8 @@ export default function ClientImpact() {
                 onClick={() => setActiveTab(i)}
                 onKeyDown={(e) => handleKeyDown(e, i)}
               >
-                <div className="tab-icon-wrap" aria-hidden="true">
-                  <ClientLogo id={c.id} />
+                <div className="tab-logo-box" aria-hidden="true">
+                  <ClientBrandLogo id={c.id} context="tab" />
                 </div>
                 <div className="tab-info">
                   <b>{c.name}</b>
@@ -271,15 +290,33 @@ export default function ClientImpact() {
                 aria-labelledby={`tab-${c.id}`}
                 hidden={activeTab !== i}
               >
+                {/* Dynamic Cyber / Tech Animation Layers */}
                 <div className="panel-glow" aria-hidden="true"></div>
+                <div className="panel-scanline" aria-hidden="true"></div>
+                <div className="panel-border-beam" aria-hidden="true"></div>
+                {c.id === "najoomi" && (
+                  <div className="panel-orbital-ring" aria-hidden="true"></div>
+                )}
 
                 <div className="panel-top-bar">
-                  <div className="panel-brand-pill">
-                    <ClientLogo id={c.id} />
-                    <span>{c.name} &bull; {c.tagline}</span>
+                  <div className="panel-brand-identity">
+                    <div className="panel-logo-wrap">
+                      <ClientBrandLogo id={c.id} context="panel" />
+                    </div>
+                    <div className="panel-brand-meta">
+                      <span className="panel-brand-name">{c.name}</span>
+                      <span className="panel-brand-tagline">{c.tagline}</span>
+                    </div>
                   </div>
-                  <div className="panel-stat-badge">
-                    <span>{c.statPill}</span>
+
+                  <div className="panel-meta-badges">
+                    <div className="panel-live-beacon">
+                      <span className="beacon-dot"></span>
+                      <span>Verified Client Results</span>
+                    </div>
+                    <div className="panel-stat-badge">
+                      <span>{c.statPill}</span>
+                    </div>
                   </div>
                 </div>
 

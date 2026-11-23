@@ -385,92 +385,121 @@ ul{margin:0;padding:0;list-style:none}
 .cases{display:grid;grid-template-columns:minmax(240px,.36fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
 .tablist{display:flex;flex-direction:column;gap:8px}
 
-.tab{appearance:none;text-align:left;background:transparent;border:0;border-left:4px solid var(--line);padding:14px 18px;cursor:pointer;font:inherit;color:var(--muted);display:flex;align-items:center;gap:14px;border-radius:0 var(--radius) var(--radius) 0;transition:all .25s cubic-bezier(0.16,1,0.3,1)}
-.tab:hover{background:rgba(243,247,251,0.8);transform:translateX(4px)}
-.tab-icon-wrap{width:38px;height:38px;border-radius:10px;background:rgba(10,30,56,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--navy-700);transition:all .25s ease}
-.tab-icon-wrap svg{width:20px;height:20px}
+.tab{appearance:none;text-align:left;background:transparent;border:0;border-left:3.5px solid var(--line);padding:14px 18px;cursor:pointer;font:inherit;color:var(--muted);display:flex;align-items:center;gap:14px;border-radius:0 12px 12px 0;transition:all .25s cubic-bezier(0.16,1,0.3,1);position:relative}
+.tab:hover{background:rgba(10,30,56,0.035);transform:translateX(4px)}
+
+.tab-logo-box{width:46px;height:46px;border-radius:10px;background:rgba(10,30,56,0.04);border:1px solid rgba(10,30,56,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:6px;transition:all .25s ease;overflow:hidden}
+.tab-logo-box img{max-width:100%;max-height:100%;object-fit:contain}
+.tab-logo-box svg{max-width:26px;max-height:28px}
+
 .tab-info{flex:1;min-width:0}
 .tab-info b{display:block;font-family:var(--display);font-size:1.15rem;letter-spacing:-.02em;color:var(--ink);transition:color .25s ease}
 .tab-info span{display:block;font-size:0.82rem;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* Client Specific Active Tab States */
-.tab--fortanixor[aria-selected="true"]{border-left-color:#00f5a0;background:#ffffff;box-shadow:0 6px 22px rgba(0,245,160,0.14)}
-.tab--fortanixor[aria-selected="true"] .tab-info b{color:#009963}
-.tab--fortanixor[aria-selected="true"] .tab-icon-wrap{background:rgba(0,245,160,0.15);color:#00b072}
+/* Client Specific Active Tab States - Clean, Balanced & Non-overbright */
+.tab--fortanixor[aria-selected="true"]{border-left-color:#4D79FF;background:#ffffff;box-shadow:0 4px 18px rgba(77,121,255,0.12)}
+.tab--fortanixor[aria-selected="true"] .tab-info b{color:#1e3a8a}
+.tab--fortanixor[aria-selected="true"] .tab-logo-box{background:rgba(77,121,255,0.08);border-color:rgba(77,121,255,0.25)}
 
-.tab--najoomi[aria-selected="true"]{border-left-color:#a855f7;background:#ffffff;box-shadow:0 6px 22px rgba(168,85,247,0.14)}
-.tab--najoomi[aria-selected="true"] .tab-info b{color:#7c3aed}
-.tab--najoomi[aria-selected="true"] .tab-icon-wrap{background:rgba(168,85,247,0.15);color:#8b5cf6}
+.tab--najoomi[aria-selected="true"]{border-left-color:#8b5cf6;background:#ffffff;box-shadow:0 4px 18px rgba(139,92,246,0.12)}
+.tab--najoomi[aria-selected="true"] .tab-info b{color:#4c1d95}
+.tab--najoomi[aria-selected="true"] .tab-logo-box{background:rgba(139,92,246,0.08);border-color:rgba(139,92,246,0.25)}
 
-.tab--keystone[aria-selected="true"]{border-left-color:#f59e0b;background:#ffffff;box-shadow:0 6px 22px rgba(245,158,11,0.14)}
-.tab--keystone[aria-selected="true"] .tab-info b{color:#b45309}
-.tab--keystone[aria-selected="true"] .tab-icon-wrap{background:rgba(245,158,11,0.15);color:#d97706}
+.tab--keystone[aria-selected="true"]{border-left-color:#d97706;background:#ffffff;box-shadow:0 4px 18px rgba(217,119,6,0.12)}
+.tab--keystone[aria-selected="true"] .tab-info b{color:#78350f}
+.tab--keystone[aria-selected="true"] .tab-logo-box{background:rgba(217,119,6,0.08);border-color:rgba(217,119,6,0.25)}
 
-.tab--accelerec[aria-selected="true"]{border-left-color:#00bdf2;background:#ffffff;box-shadow:0 6px 22px rgba(0,189,242,0.14)}
-.tab--accelerec[aria-selected="true"] .tab-info b{color:#007aff}
-.tab--accelerec[aria-selected="true"] .tab-icon-wrap{background:rgba(0,189,242,0.15);color:#0082cb}
+.tab--accelerec[aria-selected="true"]{border-left-color:#0284c7;background:#ffffff;box-shadow:0 4px 18px rgba(2,132,199,0.12)}
+.tab--accelerec[aria-selected="true"] .tab-info b{color:#075985}
+.tab--accelerec[aria-selected="true"] .tab-logo-box{background:rgba(2,132,199,0.08);border-color:rgba(2,132,199,0.25)}
 
-/* Panel Structure & Fade-in Animation */
-.panel{border-radius:24px;padding:clamp(26px,4vw,48px);position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,3.5vw,44px);align-items:center;border:1.5px solid rgba(255,255,255,.1);transition:transform .4s cubic-bezier(0.16,1,0.3,1),box-shadow .4s ease;animation:panelFadeIn .4s cubic-bezier(0.16,1,0.3,1) forwards}
-@keyframes panelFadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+/* Panel Structure & Rich Tech Motion */
+.panel{border-radius:24px;padding:clamp(26px,4vw,48px);position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);gap:clamp(24px,3.5vw,44px);align-items:center;border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px -15px rgba(5,15,30,0.45);animation:panelFadeIn .4s cubic-bezier(0.16,1,0.3,1) forwards}
+@keyframes panelFadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .panel[hidden]{display:none!important}
 
-/* Themed Client Panels */
-.panel--fortanixor{background:linear-gradient(145deg,#051424 0%,#062322 55%,#031518 100%);border-color:rgba(0,245,160,0.38);box-shadow:0 20px 50px -15px rgba(0,245,160,0.22)}
-.panel--fortanixor .panel-glow{background:radial-gradient(circle,rgba(0,245,160,0.28),transparent 70%)}
-.panel--fortanixor .panel-brand-pill{background:rgba(0,245,160,0.12);color:#00f5a0;border:1px solid rgba(0,245,160,0.35)}
-.panel--fortanixor .panel-stat-badge{background:linear-gradient(90deg,rgba(0,245,160,0.18),rgba(6,182,212,0.2));color:#5effc4;border:1px solid rgba(0,245,160,0.4)}
-.panel--fortanixor .panel-grid h4{color:#00f5a0}
-.panel--fortanixor .outcome li svg{color:#00f5a0}
-.panel--fortanixor .panel-visual-tag{background:rgba(0,245,160,0.92);color:#051424}
+/* Flowing Border Light Beam (SaaS / Cyber signature) */
+.panel-border-beam{position:absolute;inset:0;border-radius:24px;pointer-events:none;padding:1px;background:linear-gradient(90deg,transparent 20%,rgba(255,255,255,0.32) 50%,transparent 80%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:borderBeam 7s linear infinite;opacity:.8}
+@keyframes borderBeam{0%{background-position:-200% 0}100%{background-position:200% 0}}
 
-.panel--najoomi{background:linear-gradient(145deg,#0d0826 0%,#1c0e3d 55%,#0c0620 100%);border-color:rgba(168,85,247,0.4);box-shadow:0 20px 50px -15px rgba(168,85,247,0.25)}
-.panel--najoomi .panel-glow{background:radial-gradient(circle,rgba(168,85,247,0.32),transparent 70%)}
-.panel--najoomi .panel-brand-pill{background:rgba(168,85,247,0.14);color:#c084fc;border:1px solid rgba(168,85,247,0.38)}
-.panel--najoomi .panel-stat-badge{background:linear-gradient(90deg,rgba(168,85,247,0.2),rgba(236,72,153,0.2));color:#e9d5ff;border:1px solid rgba(168,85,247,0.45)}
-.panel--najoomi .panel-grid h4{color:#c084fc}
-.panel--najoomi .outcome li svg{color:#c084fc}
-.panel--najoomi .panel-visual-tag{background:rgba(168,85,247,0.92);color:#ffffff}
+/* Moving Cyber Scanline */
+.panel-scanline{position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);animation:cyberScan 6s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes cyberScan{0%{transform:translateY(0);opacity:0}15%{opacity:.6}85%{opacity:.6}100%{transform:translateY(550px);opacity:0}}
 
-.panel--keystone{background:linear-gradient(145deg,#0b1728 0%,#1a1e28 55%,#1d1b0f 100%);border-color:rgba(251,191,36,0.4);box-shadow:0 20px 50px -15px rgba(251,191,36,0.22)}
-.panel--keystone .panel-glow{background:radial-gradient(circle,rgba(251,191,36,0.26),transparent 70%)}
-.panel--keystone .panel-brand-pill{background:rgba(251,191,36,0.14);color:#fbbf24;border:1px solid rgba(251,191,36,0.35)}
-.panel--keystone .panel-stat-badge{background:linear-gradient(90deg,rgba(251,191,36,0.18),rgba(217,119,6,0.2));color:#fef08a;border:1px solid rgba(251,191,36,0.4)}
-.panel--keystone .panel-grid h4{color:#fbbf24}
+/* Orbital Ring for Najoomi AI */
+.panel-orbital-ring{position:absolute;right:-70px;top:-70px;width:320px;height:320px;border-radius:50%;border:1px dashed rgba(168,85,247,0.22);pointer-events:none;animation:orbitRotate 20s linear infinite}
+.panel-orbital-ring::before{content:"";position:absolute;inset:35px;border-radius:50%;border:1px solid rgba(168,85,247,0.12)}
+@keyframes orbitRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Client Themed Panel Styling - Deep Luxury Midnight (Readable & Elegant) */
+.panel--fortanixor{background:linear-gradient(145deg,#070d18 0%,#0d1a2d 55%,#08111e 100%);border-color:rgba(77,121,255,0.28);box-shadow:0 24px 60px -15px rgba(10,25,55,0.5),inset 0 1px 0 rgba(77,121,255,0.2)}
+.panel--fortanixor .panel-glow{background:radial-gradient(circle,rgba(77,121,255,0.22),transparent 70%)}
+.panel--fortanixor .panel-logo-wrap{background:rgba(10,20,40,0.7);border:1px solid rgba(77,121,255,0.3)}
+.panel--fortanixor .panel-grid h4{color:#85a7ff}
+.panel--fortanixor .outcome li svg{color:#60a5fa}
+.panel--fortanixor .panel-visual-tag{background:rgba(77,121,255,0.92);color:#ffffff}
+
+.panel--najoomi{background:linear-gradient(145deg,#0c0919 0%,#17122b 55%,#0b0717 100%);border-color:rgba(139,92,246,0.28);box-shadow:0 24px 60px -15px rgba(25,12,50,0.5),inset 0 1px 0 rgba(139,92,246,0.2)}
+.panel--najoomi .panel-glow{background:radial-gradient(circle,rgba(139,92,246,0.22),transparent 70%)}
+.panel--najoomi .panel-logo-wrap{background:rgba(20,14,40,0.7);border:1px solid rgba(139,92,246,0.3)}
+.panel--najoomi .panel-grid h4{color:#c4b5fd}
+.panel--najoomi .outcome li svg{color:#a78bfa}
+.panel--najoomi .panel-visual-tag{background:rgba(139,92,246,0.92);color:#ffffff}
+
+.panel--keystone{background:linear-gradient(145deg,#0c121e 0%,#161f2c 55%,#0f1622 100%);border-color:rgba(245,158,11,0.25);box-shadow:0 24px 60px -15px rgba(20,25,35,0.5),inset 0 1px 0 rgba(245,158,11,0.2)}
+.panel--keystone .panel-glow{background:radial-gradient(circle,rgba(245,158,11,0.18),transparent 70%)}
+.panel--keystone .panel-logo-wrap{background:rgba(25,30,40,0.7);border:1px solid rgba(245,158,11,0.3)}
+.panel--keystone .panel-grid h4{color:#fcd34d}
 .panel--keystone .outcome li svg{color:#fbbf24}
-.panel--keystone .panel-visual-tag{background:rgba(251,191,36,0.92);color:#0b1728}
+.panel--keystone .panel-visual-tag{background:rgba(245,158,11,0.92);color:#0c121e}
 
-.panel--accelerec{background:linear-gradient(145deg,#051833 0%,#0a2d54 55%,#051426 100%);border-color:rgba(0,189,242,0.4);box-shadow:0 20px 50px -15px rgba(0,189,242,0.25)}
-.panel--accelerec .panel-glow{background:radial-gradient(circle,rgba(0,189,242,0.3),transparent 70%)}
-.panel--accelerec .panel-brand-pill{background:rgba(0,189,242,0.14);color:#38bdf8;border:1px solid rgba(0,189,242,0.35)}
-.panel--accelerec .panel-stat-badge{background:linear-gradient(90deg,rgba(0,189,242,0.2),rgba(0,122,255,0.22));color:#7ae0ff;border:1px solid rgba(0,189,242,0.45)}
-.panel--accelerec .panel-grid h4{color:#38bdf8}
+.panel--accelerec{background:linear-gradient(145deg,#061322 0%,#0c233c 55%,#061528 100%);border-color:rgba(2,132,199,0.28);box-shadow:0 24px 60px -15px rgba(8,28,55,0.5),inset 0 1px 0 rgba(2,132,199,0.2)}
+.panel--accelerec .panel-glow{background:radial-gradient(circle,rgba(2,132,199,0.22),transparent 70%)}
+.panel--accelerec .panel-logo-wrap{background:rgba(10,25,45,0.7);border:1px solid rgba(2,132,199,0.3)}
+.panel--accelerec .panel-grid h4{color:#7dd3fc}
 .panel--accelerec .outcome li svg{color:#38bdf8}
-.panel--accelerec .panel-visual-tag{background:rgba(0,189,242,0.92);color:#051426}
+.panel--accelerec .panel-visual-tag{background:rgba(2,132,199,0.92);color:#ffffff}
 
-/* Top bar with logo and stat badge */
-.panel-top-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;position:relative;z-index:2}
-.panel-brand-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;border-radius:999px;font-weight:700;font-size:0.84rem;letter-spacing:.03em}
-.panel-brand-pill svg{width:18px;height:18px;flex-shrink:0}
-.panel-stat-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;font-size:0.82rem;font-weight:600;letter-spacing:.02em;position:relative;overflow:hidden}
-.panel-stat-badge::after{content:"";position:absolute;top:-50%;left:-80%;width:50%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transform:rotate(25deg);animation:badgeShimmer 4s infinite}
+/* Top bar with real client identity & status */
+.panel-top-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px;position:relative;z-index:2}
+.panel-brand-identity{display:inline-flex;align-items:center;gap:12px}
+.panel-logo-wrap{height:42px;padding:6px 12px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.panel-logo-wrap img{height:24px;width:auto;object-fit:contain}
+.panel-logo-wrap svg{height:26px;width:auto}
+.panel-brand-meta{display:flex;flex-direction:column}
+.panel-brand-name{font-family:var(--display);font-weight:700;font-size:1.05rem;color:#ffffff;letter-spacing:-.01em;line-height:1.2}
+.panel-brand-tagline{font-size:0.8rem;color:#94a3b8;line-height:1.2}
+
+.panel-meta-badges{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.panel-live-beacon{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;font-size:0.78rem;font-weight:600;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);color:#e2e8f0}
+.beacon-dot{width:7px;height:7px;border-radius:50%;background:#10b981;position:relative}
+.beacon-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1.5px solid #10b981;animation:beaconPulse 2s cubic-bezier(0,0,0.2,1) infinite}
+@keyframes beaconPulse{0%{transform:scale(0.8);opacity:1}100%{transform:scale(2.4);opacity:0}}
+
+.panel-stat-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;color:#e2e8f0;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);position:relative;overflow:hidden}
+.panel-stat-badge::after{content:"";position:absolute;top:-50%;left:-80%;width:50%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);transform:rotate(25deg);animation:badgeShimmer 5s infinite}
 @keyframes badgeShimmer{0%,65%{left:-80%}100%{left:180%}}
 .panel-glow{position:absolute;right:-100px;top:-100px;width:380px;height:380px;border-radius:50%;pointer-events:none;animation:ambientPulse 6s ease-in-out infinite}
 
 .panel h3{color:#fff;font-size:clamp(1.5rem,2.6vw,2.2rem);margin-top:6px;max-width:32rem;position:relative;line-height:1.25}
 .panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,34px);margin-top:28px;position:relative}
 .panel h4{font-size:0.98rem;font-family:var(--body);font-weight:700;margin-bottom:6px;letter-spacing:0}
-.panel p{font-size:0.98rem;color:#d3e3ef;line-height:1.6}
+.panel p{font-size:0.98rem;color:#cbd5e1;line-height:1.6}
 .outcome{margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);position:relative}
 .outcome ul{display:grid;gap:12px;margin-top:6px}
 .outcome li{display:flex;gap:12px;align-items:flex-start;color:#fff;font-size:0.96rem;line-height:1.5;transition:transform .25s ease}
 .outcome li:hover{transform:translateX(3px)}
 .outcome li svg{flex:none;width:20px;height:20px;margin-top:2px}
-.panel-visual{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.35);transition:transform .35s ease}
-.panel-visual:hover{transform:scale(1.02)}
-.panel-visual img{width:100%;height:auto;display:block;border-radius:14px}
+
+/* Visual card with 3D perspective & reflection sheen */
+.panel-visual{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 16px 36px rgba(0,0,0,0.38);transition:transform .4s cubic-bezier(0.16,1,0.3,1),box-shadow .4s ease}
+.panel-visual:hover{transform:perspective(1000px) translateY(-3px) scale(1.01);box-shadow:0 22px 48px rgba(0,0,0,0.45)}
+.panel-visual img{width:100%;height:auto;display:block;border-radius:16px}
 .panel-visual-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.65) 100%)}
 .panel-visual-tag{position:absolute;bottom:12px;left:12px;padding:6px 12px;border-radius:6px;font-weight:700;font-size:0.75rem;letter-spacing:.04em;text-transform:uppercase}
+.panel-visual::after{content:"";position:absolute;top:-60%;left:-80%;width:50%;height:220%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.22),transparent);transform:rotate(30deg);transition:left .75s ease;pointer-events:none}
+.panel-visual:hover::after{left:140%}
+
 .cases-cta{margin-top:clamp(36px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px}
 .cases-cta p{font-family:var(--display);font-size:1.5rem;font-weight:600;color:var(--navy-700)}
 
