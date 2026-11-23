@@ -281,6 +281,63 @@ ul{margin:0;padding:0;list-style:none}
 .proof .metric strong{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:-.04em;line-height:1;color:#ffffff;text-shadow:0 4px 20px rgba(0,189,242,0.35)}
 .proof .metric span{display:block;margin-top:10px;color:#a4c4db;font-size:.98rem;max-width:15rem;line-height:1.5}
 
+/* ---------- Eyebrow Badge ---------- */
+.eyebrow-badge{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:var(--blue-500);background:rgba(0,122,255,0.08);border:1px solid rgba(0,122,255,0.18);padding:6px 14px;border-radius:999px;margin-bottom:16px;letter-spacing:.02em}
+.eyebrow-badge svg{color:var(--blue-500);flex:none}
+
+/* ---------- Modern Model Comparison Battle-Cards ---------- */
+.battle-container{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.5vw,44px);position:relative;margin-top:clamp(32px,4vw,52px);align-items:stretch}
+.battle-vs-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--navy-800);color:var(--cyan);border:3px solid #ffffff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.04em;box-shadow:0 8px 24px rgba(10,30,56,0.25),0 0 0 4px rgba(0,189,242,0.25);z-index:10;pointer-events:none}
+.battle-card{border-radius:20px;padding:clamp(28px,3.5vw,42px);display:flex;flex-direction:column;position:relative;transition:transform .25s ease,box-shadow .25s ease}
+.battle-card:hover{transform:translateY(-3px)}
+
+/* Traditional Card */
+.battle-card--traditional{background:#ffffff;border:1px solid rgba(164,196,219,0.45);box-shadow:0 10px 30px -10px rgba(10,30,56,0.08)}
+.battle-card--traditional .battle-card__title{color:#3b5066;font-size:clamp(1.4rem,2vw,1.75rem)}
+.battle-card--traditional .battle-card__desc{color:var(--muted);font-size:0.95rem;line-height:1.5;margin-top:8px}
+
+/* AFA Model Card (Featured / High-Impact Luminous) */
+.battle-card--afa{background:linear-gradient(155deg,var(--navy-800) 0%,var(--navy-900) 100%);color:#ffffff;border:2px solid var(--cyan);box-shadow:0 20px 48px -12px rgba(0,189,242,0.32),0 0 0 1px rgba(0,189,242,0.2);overflow:hidden}
+.battle-highlight-glow{position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(0,189,242,0.28),transparent 70%);pointer-events:none}
+.battle-card--afa .battle-card__title{color:#ffffff;font-size:clamp(1.4rem,2vw,1.75rem)}
+.battle-card--afa .battle-card__desc{color:#c0d8ea;font-size:0.95rem;line-height:1.5;margin-top:8px}
+
+/* Header Tags */
+.battle-card__header{padding-bottom:24px;border-bottom:1px solid rgba(0,0,0,0.08);margin-bottom:24px}
+.battle-card--afa .battle-card__header{border-bottom-color:rgba(255,255,255,0.12)}
+.battle-tag{display:inline-flex;align-items:center;gap:7px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 12px;border-radius:50px;margin-bottom:14px}
+.battle-tag--warning{background:rgba(239,68,68,0.08);color:#c53030;border:1px solid rgba(239,68,68,0.2)}
+.battle-tag--recommended{background:linear-gradient(90deg,rgba(0,189,242,0.18),rgba(0,122,255,0.22));color:var(--cyan-soft);border:1px solid rgba(0,189,242,0.45);box-shadow:0 2px 10px rgba(0,189,242,0.2)}
+
+/* Card Lists */
+.battle-card__list{display:flex;flex-direction:column;gap:20px;flex:1}
+.battle-item{display:flex;align-items:flex-start;gap:16px}
+.battle-item__icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.battle-item__icon--cross{background:rgba(239,68,68,0.1);color:#e53e3e;border:1px solid rgba(239,68,68,0.22)}
+.battle-item__icon--check{background:rgba(0,189,242,0.16);color:var(--cyan);border:1.5px solid var(--cyan);box-shadow:0 0 12px rgba(0,189,242,0.35)}
+.battle-item__content{flex:1}
+.battle-item__label{font-family:var(--display);font-size:1.08rem;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
+.battle-card--traditional .battle-item__label{color:var(--ink)}
+.battle-card--afa .battle-item__label{color:#ffffff}
+.battle-item__detail{font-size:0.92rem;line-height:1.5}
+.battle-card--traditional .battle-item__detail{color:var(--muted)}
+.battle-card--afa .battle-item__detail{color:#b0cee3}
+
+/* Bottom Action Banner */
+.battle-banner{margin-top:clamp(32px,4.5vw,56px);background:linear-gradient(135deg,var(--mist) 0%,#ffffff 100%);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,36px) clamp(24px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 8px 30px -10px rgba(10,30,56,0.08)}
+.battle-banner__title{font-family:var(--display);font-size:clamp(1.2rem,1.8vw,1.5rem);font-weight:700;color:var(--navy-800);margin-bottom:10px}
+.battle-banner__perks{display:flex;flex-wrap:wrap;gap:12px 22px}
+.battle-banner__perk{display:inline-flex;align-items:center;gap:6px;font-size:0.92rem;font-weight:600;color:var(--blue-500)}
+.battle-banner__action .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;font-size:1.02rem;box-shadow:0 4px 18px rgba(0,122,255,0.3)}
+
+@media (max-width:900px){
+  .battle-container{grid-template-columns:1fr;gap:32px}
+  .battle-vs-badge{position:relative;left:auto;top:auto;transform:none;margin:-10px auto}
+  .battle-banner{flex-direction:column;align-items:flex-start}
+  .battle-banner__action{width:100%}
+  .battle-banner__action .btn{width:100%;justify-content:center}
+}
+
 /* ---------- Compare ---------- */
 .compare{width:100%;border-collapse:separate;border-spacing:0}
 .compare th,.compare td{padding:22px clamp(16px,2.4vw,34px);text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
@@ -913,20 +970,191 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 6. PROBLEM VS ADVANTAGE ===================== -->
 <section class="section" id="advantage">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head text-center">
+      <div class="eyebrow-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        <span>Model Comparison</span>
+      </div>
       <h2>Scaling B2B sales shouldn't take six months and seven figures.</h2>
       <p>Hiring, training and managing an in-house sales team in Western markets is slow, expensive and high-risk. We replace guesswork with a plug-and-play revenue pod.</p>
     </div>
-    <table class="compare">
-      <thead><tr><th scope="col">The in-house struggle</th><th scope="col">The AFA Technologies model</th></tr></thead>
-      <tbody>
-        <tr><td><strong>3 to 6 months</strong>to recruit, onboard and ramp a single rep</td><td><strong>14-day deployment</strong>with trained, battle-tested sales talent</td></tr>
-        <tr><td><strong>$150K+ per rep</strong>in base salary, benefits and tools</td><td><strong>Up to 60% lower CAC</strong>with predictable monthly pod pricing</td></tr>
-        <tr><td><strong>Siloed prospecting</strong>with inconsistent CRM hygiene</td><td><strong>Full-stack RevOps</strong>with enriched data, multi-channel sequences and live reporting</td></tr>
-        <tr><td><strong>Single time zone</strong>limiting global outreach</td><td><strong>Cross-timezone agility</strong>covering EMEA, APAC and US East hours</td></tr>
-      </tbody>
-    </table>
-    <p class="compare-foot">Stop waiting on recruiters. Start filling your calendar.</p>
+
+    <div class="battle-container">
+      <div class="battle-vs-badge" aria-hidden="true">VS</div>
+
+      <!-- Traditional In-House Card -->
+      <div class="battle-card battle-card--traditional">
+        <div class="battle-card__header">
+          <span class="battle-tag battle-tag--warning">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            The Traditional Path
+          </span>
+          <h3 class="battle-card__title">The In-House Struggle</h3>
+          <p class="battle-card__desc">High friction, heavy fixed overhead, and months of recruitment delays with zero pipeline guarantee.</p>
+        </div>
+
+        <div class="battle-card__list">
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--cross">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">3 to 6 Months Ramp Time</div>
+              <p class="battle-item__detail">Protracted recruiting, endless interview rounds, tool onboarding, and extended SDR ramp before seeing first demos.</p>
+            </div>
+          </div>
+
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--cross">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">$150K+ Cost per Rep</div>
+              <p class="battle-item__detail">Steep fixed base salaries, healthcare benefits, enterprise tech seat licenses, plus 20%+ recruiter placement commissions.</p>
+            </div>
+          </div>
+
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--cross">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">Siloed Prospecting &amp; Data Churn</div>
+              <p class="battle-item__detail">Inconsistent CRM hygiene, unverified email lists, burnt domain reputations, and high sales rep turnover.</p>
+            </div>
+          </div>
+
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--cross">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">Single Time-Zone Limitation</div>
+              <p class="battle-item__detail">Outreach strictly restricted to local office hours, missing high-value enterprise accounts in international territories.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AFA Revenue Pod Card -->
+      <div class="battle-card battle-card--afa">
+        <div class="battle-highlight-glow" aria-hidden="true"></div>
+        <div class="battle-card__header">
+          <span class="battle-tag battle-tag--recommended">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            The Turnkey Solution
+          </span>
+          <h3 class="battle-card__title">The AFA Revenue Pod</h3>
+          <p class="battle-card__desc">Embedded, university-educated commercial sales talent with enterprise RevOps infrastructure ready from Day 1.</p>
+        </div>
+
+        <div class="battle-card__list">
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">14-Day Deployment Velocity</div>
+              <p class="battle-item__detail">Fully assembled, trained, and battle-tested commercial sales pod integrated directly into your Slack and CRM.</p>
+            </div>
+          </div>
+
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">Up to 60% Lower CAC</div>
+              <p class="battle-item__detail">Predictable, modular monthly pod fee including talent, full tech stack, and zero long-term severance liabilities.</p>
+            </div>
+          </div>
+
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">Full-Stack RevOps Engine</div>
+              <p class="battle-item__detail">Clean, verified ICP data, multi-channel cadences (Email, LinkedIn, Phone), domain protection, and live dashboards.</p>
+            </div>
+          </div>
+
+          <div class="battle-item">
+            <div class="battle-item__icon battle-item__icon--check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="battle-item__content">
+              <div class="battle-item__label">Cross-Timezone Global Agility</div>
+              <p class="battle-item__detail">Synchronized, real-time coverage across EMEA, APAC, and US East business hours without paying overtime rates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Banner -->
+    <div class="battle-banner">
+      <div class="battle-banner__info">
+        <h4 class="battle-banner__title">Stop waiting on recruiters. Start filling your calendar.</h4>
+        <div class="battle-banner__perks">
+          <span class="battle-banner__perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            14-day kick-off
+          </span>
+          <span class="battle-banner__perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Zero recruiter fees
+          </span>
+          <span class="battle-banner__perk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Live CRM transparency
+          </span>
+        </div>
+      </div>
+      <div class="battle-banner__action">
+        <a href="#contact" class="btn btn-primary">
+          Book a Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
