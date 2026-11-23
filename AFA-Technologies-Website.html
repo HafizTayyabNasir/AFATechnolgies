@@ -60,12 +60,17 @@ ul{margin:0;padding:0;list-style:none}
 .section--navy .section-head p{color:#a9c3d6}
 
 /* ---------- Buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 1rem/1 var(--body);padding:16px 26px;border-radius:999px;border:2px solid transparent;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
-.btn:active{transform:translateY(1px)}
-.btn--cyan{background:var(--cyan);color:var(--navy-900)}
-.btn--cyan:hover{background:var(--cyan-soft)}
-.btn--navy{background:linear-gradient(135deg,var(--navy-700) 0%,var(--blue-600) 100%);color:#fff}
-.btn--navy:hover{background:linear-gradient(135deg,var(--blue-500) 0%,var(--blue-600) 100%);transform:translateY(-1px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 1rem/1 var(--body);padding:16px 26px;border-radius:999px;border:2px solid transparent;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s cubic-bezier(0.16,1,0.3,1),box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(1px) scale(0.98)}
+.btn::after{content:"";position:absolute;top:-50%;left:-60%;width:35%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35),transparent);transform:rotate(25deg);pointer-events:none;transition:none}
+.btn:hover::after{left:140%;transition:left 0.75s cubic-bezier(0.16,1,0.3,1)}
+.btn--cyan{background:var(--cyan);color:var(--navy-900);box-shadow:0 4px 16px rgba(0,189,242,0.3)}
+.btn--cyan:hover{background:var(--cyan-soft);box-shadow:0 6px 24px rgba(0,189,242,0.45)}
+.btn--navy{background:linear-gradient(135deg,var(--navy-700) 0%,var(--blue-600) 100%);color:#fff;box-shadow:0 4px 16px rgba(10,30,56,0.2)}
+.btn--navy:hover{background:linear-gradient(135deg,var(--blue-500) 0%,var(--blue-600) 100%);box-shadow:0 6px 22px rgba(0,130,203,0.35)}
+.btn-primary{background:linear-gradient(135deg,var(--blue-500) 0%,var(--blue-600) 100%);color:#fff;border-color:transparent;box-shadow:0 4px 18px rgba(0,122,255,0.3)}
+.btn-primary:hover{background:linear-gradient(135deg,var(--azure) 0%,var(--blue-500) 100%);color:#fff;box-shadow:0 8px 26px rgba(0,122,255,0.45)}
 .btn--ghost{border-color:rgba(255,255,255,.38);color:#fff}
 .btn--ghost:hover{border-color:var(--cyan);color:var(--cyan)}
 .btn--sm{padding:12px 20px;font-size:.95rem}
@@ -267,8 +272,18 @@ ul{margin:0;padding:0;list-style:none}
 @keyframes label-in{to{opacity:1;transform:none}}
 
 /* ---------- Proof band (Deep Navy / Pro-Blue Contrast Band) ---------- */
-.proof{background:linear-gradient(165deg,var(--navy-800) 0%,var(--navy-900) 100%);color:#ffffff;padding-block:clamp(52px,6vw,84px) clamp(60px,7vw,98px);position:relative;border-top:1px solid rgba(0,189,242,0.18)}
+.proof{background:linear-gradient(165deg,var(--navy-800) 0%,var(--navy-900) 100%);color:#ffffff;padding-block:clamp(52px,6vw,84px) clamp(60px,7vw,98px);position:relative;border-top:1px solid rgba(0,189,242,0.18);overflow:hidden}
 .proof-title{text-align:center;color:var(--cyan-soft);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
+
+/* Infinite Silky Logo Marquee */
+.logos-marquee-wrapper{position:relative;width:100%;overflow:hidden;margin-top:28px;mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%)}
+.logos-marquee-track{display:flex;width:max-content;align-items:center;gap:clamp(36px,5.5vw,72px);animation:marqueeTrack 26s linear infinite;will-change:transform;list-style:none;margin:0;padding:10px 0}
+.logos-marquee-wrapper:hover .logos-marquee-track{animation-play-state:paused}
+@keyframes marqueeTrack{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.logos-marquee-track li{font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1;text-shadow:0 2px 10px rgba(0,0,0,0.3);color:#ffffff;opacity:.88;transition:opacity .25s ease,color .25s ease,transform .25s ease;cursor:default;user-select:none;flex-shrink:0}
+.logos-marquee-track li:hover{opacity:1;color:var(--cyan);transform:scale(1.05)}
+
 .proof .logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px clamp(28px,6vw,72px);margin-top:26px;color:#ffffff;opacity:.92}
 .proof .logos li{font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1;text-shadow:0 2px 10px rgba(0,0,0,0.3)}
 .wm-1{font-family:var(--display);font-weight:800;letter-spacing:-.04em}
@@ -276,9 +291,11 @@ ul{margin:0;padding:0;list-style:none}
 .wm-3{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-style:italic;letter-spacing:-.01em}
 .wm-4{font-family:var(--body);font-weight:700;letter-spacing:.14em;font-size:1.2rem!important}
 .proof .metrics{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(40px,5vw,64px);border-top:1px solid rgba(255,255,255,0.16);border-bottom:1px solid rgba(255,255,255,0.16)}
-.proof .metric{padding:30px clamp(14px,2vw,30px);border-left:1px solid rgba(255,255,255,0.16)}
+.proof .metric{padding:30px clamp(14px,2vw,30px);border-left:1px solid rgba(255,255,255,0.16);transition:transform .3s ease,background .3s ease}
+.proof .metric:hover{background:rgba(255,255,255,0.03);transform:translateY(-2px)}
 .proof .metric:first-child{border-left:0;padding-left:0}
-.proof .metric strong{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:-.04em;line-height:1;color:#ffffff;text-shadow:0 4px 20px rgba(0,189,242,0.35)}
+.proof .metric strong{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:-.04em;line-height:1;color:#ffffff;text-shadow:0 4px 20px rgba(0,189,242,0.35);transition:color .3s ease}
+.proof .metric:hover strong{color:var(--cyan-soft)}
 .proof .metric span{display:block;margin-top:10px;color:#a4c4db;font-size:.98rem;max-width:15rem;line-height:1.5}
 
 /* ---------- Eyebrow Badge ---------- */
@@ -610,7 +627,177 @@ ul{margin:0;padding:0;list-style:none}
   .pipeline .pl-l2{right:auto!important;left:3%!important;top:50%!important}
   .cover-row,.axis{grid-template-columns:64px 1fr}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+/* ========================================================
+   MODERN ACCELEREC / NAJOOMI STYLE ANIMATION ENGINE
+   ======================================================== */
+
+/* Entrance Scroll Reveal */
+.reveal{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale{
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-visible{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger Children Delays */
+.reveal-stagger > *:nth-child(1){ transition-delay: 0.04s; }
+.reveal-stagger > *:nth-child(2){ transition-delay: 0.12s; }
+.reveal-stagger > *:nth-child(3){ transition-delay: 0.20s; }
+.reveal-stagger > *:nth-child(4){ transition-delay: 0.28s; }
+.reveal-stagger > *:nth-child(5){ transition-delay: 0.36s; }
+.reveal-stagger > *:nth-child(6){ transition-delay: 0.44s; }
+
+/* Ambient Floating Keyframes */
+@keyframes floatSlow{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-7px); }
+}
+
+@keyframes floatRev{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(7px); }
+}
+
+@keyframes ambientPulse{
+  0%, 100%{ transform: scale(1); opacity: 0.22; }
+  50%{ transform: scale(1.15); opacity: 0.36; }
+}
+
+.anim-float{
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.anim-float-rev{
+  animation: floatRev 6s ease-in-out infinite;
+}
+
+.anim-glow{
+  animation: ambientPulse 6s ease-in-out infinite;
+}
+
+/* Element Floating Defaults */
+.hero-pill{
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.hero-badge{
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Micro-Interaction Card Hover States */
+.pod{
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius);
+}
+
+.pod:hover{
+  background-color: rgba(243, 247, 251, 0.7);
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px -10px rgba(10, 30, 56, 0.08);
+}
+
+.step{
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step:hover{
+  transform: translateY(-4px);
+}
+
+.step:hover::before{
+  box-shadow: 0 0 0 7px rgba(0, 189, 242, 0.22);
+  transition: box-shadow 0.3s ease;
+}
+
+.tab{
+  transition: border-color .25s cubic-bezier(0.16, 1, 0.3, 1), background .25s ease, color .25s ease, transform .25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab:hover{
+  transform: translateX(4px);
+}
+
+.panel{
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.panel:hover{
+  box-shadow: 0 24px 50px -15px rgba(0, 189, 242, 0.2);
+}
+
+.faq details{
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq details:hover{
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(10, 30, 56, 0.05);
+}
+
+.faq details summary svg{
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq details[open] summary svg{
+  transform: rotate(180deg);
+}
+
+.about-office-card{
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.about-office-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(10, 30, 56, 0.12);
+}
+
+.adv li{
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+}
+
+.adv li:hover{
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(4px);
+}
+
+.principles li{
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.principles li:hover{
+  transform: translateX(3px);
+}
+
+.form-card{
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.form-card:hover{
+  box-shadow: 0 20px 48px -10px rgba(10, 30, 56, 0.12);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.reveal, .reveal-scale{opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
@@ -738,14 +925,23 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 2. TRUST + METRICS ===================== -->
 <section class="proof" aria-label="Partners and key metrics">
   <div class="wrap">
-    <p class="proof-title">Trusted by high-growth technology and innovation leaders</p>
-    <ul class="logos">
-      <li class="wm-1">Fortanixor</li>
-      <li class="wm-2">Najoomi</li>
-      <li class="wm-3">Keystone</li>
-      <li class="wm-4">ACCELEREC</li>
-    </ul>
-    <div class="metrics">
+    <p class="proof-title reveal">Trusted by high-growth technology and innovation leaders</p>
+    
+    <!-- Infinite Smooth Logo Marquee -->
+    <div class="logos-marquee-wrapper" aria-label="Featured partner companies">
+      <ul class="logos-marquee-track">
+        <li class="wm-1">Fortanixor</li>
+        <li class="wm-2">Najoomi</li>
+        <li class="wm-3">Keystone</li>
+        <li class="wm-4">ACCELEREC</li>
+        <li class="wm-1">Fortanixor</li>
+        <li class="wm-2">Najoomi</li>
+        <li class="wm-3">Keystone</li>
+        <li class="wm-4">ACCELEREC</li>
+      </ul>
+    </div>
+
+    <div class="metrics reveal reveal-stagger">
       <div class="metric"><strong>14 days</strong><span>From kickoff to your first qualified meetings</span></div>
       <div class="metric"><strong>Up to 60%</strong><span>Lower customer acquisition cost than in-house hiring</span></div>
       <div class="metric"><strong>3 regions</strong><span>EMEA, APAC and North America covered across time zones</span></div>
@@ -757,11 +953,11 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 3. CLIENT IMPACT ===================== -->
 <section class="section section--mist" id="client-impact">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Real partners. Real pipeline. Real results.</h2>
       <p>See how AFA Technologies helps high-growth companies turn outbound into a reliable revenue channel.</p>
     </div>
-    <div class="cases">
+    <div class="cases reveal">
       <div class="tablist" role="tablist" aria-label="Client case studies">
         <button class="tab" role="tab" id="tab-fortanixor" aria-selected="true" aria-controls="panel-fortanixor"><b>Fortanixor</b><span>Cybersecurity and enterprise technology</span></button>
         <button class="tab" role="tab" id="tab-najoomi" aria-selected="false" aria-controls="panel-najoomi" tabindex="-1"><b>Najoomi</b><span>Digital platform and technology services</span></button>
@@ -857,11 +1053,11 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 4. SOLUTIONS ===================== -->
 <section class="section" id="solutions">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Modular revenue pods built for your growth stage.</h2>
       <p>Whether you need top-of-funnel pipeline velocity or end-to-end deal closing, deploy the exact capability your revenue team lacks.</p>
     </div>
-    <div class="pods">
+    <div class="pods reveal reveal-stagger">
       <article class="pod">
         <div>
           <h3>Outbound SDR and pipeline generation</h3>
@@ -930,11 +1126,11 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 5. HOW IT WORKS ===================== -->
 <section class="section section--mist" id="process">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>From kickoff to qualified meetings in 14 days.</h2>
       <p>A proven three-step deployment. No long hiring cycles, no ramp-up guesswork.</p>
     </div>
-    <ol class="steps" style="list-style:none;margin:0;padding:0">
+    <ol class="steps reveal reveal-stagger" style="list-style:none;margin:0;padding:0">
       <li class="step">
         <small>Days 1 to 4</small>
         <h3>GTM audit and ICP calibration</h3>
@@ -951,9 +1147,9 @@ ul{margin:0;padding:0;list-style:none}
         <p>Qualified meetings land on your calendar. We review conversion metrics every week, A/B test messaging and double down on the segments that win.</p>
       </li>
     </ol>
-    <div class="process-cta"><a class="btn btn--navy" href="#contact">Start your 14-day launch</a></div>
+    <div class="process-cta reveal"><a class="btn btn--navy" href="#contact">Start your 14-day launch</a></div>
     
-    <div class="process-visual-card">
+    <div class="process-visual-card reveal-scale">
       <div class="pvc-img-wrap">
         <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" alt="AFA Technologies commercial sales team collaborating with laptops in modern office" width="1180" height="320" loading="lazy">
         <div class="pvc-overlay">
@@ -970,7 +1166,7 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 6. PROBLEM VS ADVANTAGE ===================== -->
 <section class="section" id="advantage">
   <div class="wrap">
-    <div class="section-head text-center">
+    <div class="section-head text-center reveal">
       <div class="eyebrow-badge">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -981,7 +1177,7 @@ ul{margin:0;padding:0;list-style:none}
       <p>Hiring, training and managing an in-house sales team in Western markets is slow, expensive and high-risk. We replace guesswork with a plug-and-play revenue pod.</p>
     </div>
 
-    <div class="battle-container">
+    <div class="battle-container reveal reveal-stagger">
       <div class="battle-vs-badge" aria-hidden="true">VS</div>
 
       <!-- Traditional In-House Card -->
@@ -1121,7 +1317,7 @@ ul{margin:0;padding:0;list-style:none}
     </div>
 
     <!-- Action Banner -->
-    <div class="battle-banner">
+    <div class="battle-banner reveal">
       <div class="battle-banner__info">
         <h4 class="battle-banner__title">Stop waiting on recruiters. Start filling your calendar.</h4>
         <div class="battle-banner__perks">
@@ -1162,18 +1358,18 @@ ul{margin:0;padding:0;list-style:none}
 <section class="section section--navy" id="why-afa">
   <div class="wrap why">
     <div>
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2 style="color:#fff">Global standards. Unmatched capital efficiency.</h2>
         <p>Headquartered in Pakistan and built for international markets, AFA Technologies combines university-educated, English-fluent commercial talent with Western enterprise sales discipline. Our teams work inside your Slack, CRM and calendar, giving you the responsiveness of an internal team with the unit economics of a global delivery center.</p>
       </div>
-      <ul class="adv">
+      <ul class="adv reveal reveal-stagger">
         <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l12-6 12 6-12 6z"/><path d="M9 15.5V21c0 2 3.5 4 7 4s7-2 7-4v-5.5"/></svg><div><b>English-fluent, university-educated talent</b><span>Commercial professionals trained to sell to Western enterprise buyers.</span></div></li>
         <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>Time-zone overlap</b><span>Live coverage across EMEA, APAC and US East business hours.</span></div></li>
         <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l10 4v8c0 6-4.5 10.5-10 12-5.5-1.5-10-6-10-12V8z"/><path d="M11.5 16l3.5 3.5 6-7"/></svg><div><b>Enterprise-grade stack and compliance</b><span>HubSpot, Salesforce, secure workflows and proper email deliverability (SPF, DKIM, DMARC).</span></div></li>
         <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 24l7-8 5 4 10-12"/><path d="M20 8h7v7"/></svg><div><b>Capital efficiency</b><span>Predictable monthly pod pricing instead of six-figure hires.</span></div></li>
       </ul>
     </div>
-    <aside class="cover" aria-label="Time-zone coverage">
+    <aside class="cover reveal-scale" aria-label="Time-zone coverage">
       <h3>One team, three business days covered</h3>
       <p>Regional business hours (9 to 6) shown against a 24-hour day in Pakistan time.</p>
       <div class="cover-grid">
@@ -1197,12 +1393,12 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 8. ABOUT ===================== -->
 <section class="section section--mist" id="about">
   <div class="wrap about">
-    <div>
+    <div class="reveal">
       <h2>Your outsourced revenue engine, built to scale with you.</h2>
       <p class="body">AFA Technologies is a B2B Sales-as-a-Service company that builds, manages and scales predictable sales pipelines for global technology companies. We are not a call center and we are not a recruiter. We are a revenue partner: SDRs, Account Executives and RevOps specialists working as a seamless extension of your team, accountable to the same pipeline and revenue targets you are.</p>
       <p class="promise">Fewer hiring headaches. Faster pipeline. Measurable growth.</p>
       
-      <div class="about-office-card">
+      <div class="about-office-card reveal-scale">
         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Modern technology corporate office headquarters and commercial workspace" width="600" height="260" loading="lazy">
         <div class="about-office-badge">
           <b>AFA Technologies Commercial Delivery Center</b>
@@ -1210,7 +1406,7 @@ ul{margin:0;padding:0;list-style:none}
         </div>
       </div>
     </div>
-    <ul class="principles">
+    <ul class="principles reveal reveal-stagger">
       <li><b>Pipeline over activity</b><span>We measure success in qualified meetings and closed revenue, not emails sent.</span></li>
       <li><b>Radical transparency</b><span>Live CRM visibility and weekly performance reviews, always.</span></li>
       <li><b>Built around you</b><span>Your ICP, your messaging, your stack. We adapt to your business, not the other way around.</span></li>
@@ -1221,8 +1417,8 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ===================== 9. FAQ ===================== -->
 <section class="section" id="faq">
   <div class="wrap">
-    <div class="section-head"><h2>Questions? We've got answers.</h2></div>
-    <div class="faq">
+    <div class="section-head reveal"><h2>Questions? We've got answers.</h2></div>
+    <div class="faq reveal reveal-stagger">
       <details open><summary>How fast can we get started?</summary><p>Most engagements move from kickoff to qualified meetings in about 14 days: audit and ICP calibration, playbook training, then pod launch.</p></details>
       <details><summary>Do we need to change our CRM or tools?</summary><p>No. Our team works inside your existing HubSpot or Salesforce, Slack and calendar. If you don't have a CRM set up yet, our RevOps pod builds it for you.</p></details>
       <details><summary>Who owns the data, sequences and CRM setup?</summary><p>You do. Everything we build, from lists to workflows to reporting, stays with your business.</p></details>
@@ -1237,7 +1433,7 @@ ul{margin:0;padding:0;list-style:none}
 <section class="section section--mist" id="contact" style="padding-top:clamp(40px,6vw,80px)">
   <div class="wrap">
     <div class="contact-panel">
-      <div class="contact-copy">
+      <div class="contact-copy reveal">
         <h2>Ready to turn outbound into your most reliable growth channel?</h2>
         <p>Schedule a 25-minute GTM strategy session with our leadership team to map out a custom sales pod for your target market.</p>
         <ul class="agenda">
@@ -1256,7 +1452,7 @@ ul{margin:0;padding:0;list-style:none}
           </div>
         </div>
       </div>
-      <div class="form-card">
+      <div class="form-card reveal-scale">
         <form id="lead-form" novalidate>
           <h3>Tell us about your goals</h3>
           <div class="row2">
@@ -1344,6 +1540,25 @@ ul{margin:0;padding:0;list-style:none}
       });
     },{rootMargin:'-45% 0px -50% 0px'});
     ['client-impact','solutions','process','why-afa','about','faq'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  }
+
+  /* Scroll reveal animations (Accelerec / Najoomi style) */
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var revealObserver = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {rootMargin: '0px 0px -50px 0px', threshold: 0.1});
+    document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el){
+      revealObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el){
+      el.classList.add('is-visible');
+    });
   }
 
   /* Case study tabs */

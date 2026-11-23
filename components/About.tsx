@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section className="section section--mist" id="about">
       <div className="wrap about">
-        <div>
+        <div className="reveal">
           <h2>Your outsourced revenue engine, built to scale with you.</h2>
           <p className="body">
             AFA Technologies is a B2B Sales-as-a-Service company that builds,
@@ -19,7 +19,7 @@ export default function About() {
             Fewer hiring headaches. Faster pipeline. Measurable growth.
           </p>
 
-          <div className="about-office-card">
+          <div className="about-office-card reveal-scale">
             <Image
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
               alt="Modern technology corporate office headquarters and commercial workspace"
@@ -37,7 +37,7 @@ export default function About() {
           </div>
         </div>
 
-        <ul className="principles">
+        <ul className="principles reveal reveal-stagger">
           <li>
             <b>Pipeline over activity</b>
             <span>

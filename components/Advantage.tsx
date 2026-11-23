@@ -4,7 +4,7 @@ export default function Advantage() {
   return (
     <section className="section" id="advantage">
       <div className="wrap">
-        <div className="section-head text-center">
+        <div className="section-head text-center reveal">
           <div className="eyebrow-badge">
             <svg
               width="14"
@@ -29,7 +29,7 @@ export default function Advantage() {
           </p>
         </div>
 
-        <div className="battle-container">
+        <div className="battle-container reveal reveal-stagger">
           <div className="battle-vs-badge" aria-hidden="true">VS</div>
 
           {/* Traditional In-House Card */}
@@ -285,7 +285,7 @@ export default function Advantage() {
         </div>
 
         {/* Action Banner */}
-        <div className="battle-banner">
+        <div className="battle-banner reveal">
           <div className="battle-banner__info">
             <h4 className="battle-banner__title">
               Stop waiting on recruiters. Start filling your calendar.

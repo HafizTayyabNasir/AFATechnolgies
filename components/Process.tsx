@@ -5,14 +5,14 @@ export default function Process() {
   return (
     <section className="section section--mist" id="process">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head reveal">
           <h2>From kickoff to qualified meetings in 14 days.</h2>
           <p>
             A proven three-step deployment. No long hiring cycles, no ramp-up
             guesswork.
           </p>
         </div>
-        <ol className="steps" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+        <ol className="steps reveal reveal-stagger" style={{ listStyle: "none", margin: 0, padding: 0 }}>
           <li className="step">
             <small>Days 1 to 4</small>
             <h3>GTM audit and ICP calibration</h3>
@@ -41,7 +41,7 @@ export default function Process() {
             </p>
           </li>
         </ol>
-        <div className="process-cta">
+        <div className="process-cta reveal">
           <a className="btn btn--navy" href="#contact">
             Start your 14-day launch
           </a>

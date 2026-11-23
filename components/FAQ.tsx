@@ -4,10 +4,10 @@ export default function FAQ() {
   return (
     <section className="section" id="faq">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head reveal">
           <h2>Questions? We&apos;ve got answers.</h2>
         </div>
-        <div className="faq">
+        <div className="faq reveal reveal-stagger">
           <details open>
             <summary>How fast can we get started?</summary>
             <p>

@@ -5,14 +5,14 @@ export default function Solutions() {
   return (
     <section className="section" id="solutions">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head reveal">
           <h2>Modular revenue pods built for your growth stage.</h2>
           <p>
             Whether you need top-of-funnel pipeline velocity or end-to-end deal
             closing, deploy the exact capability your revenue team lacks.
           </p>
         </div>
-        <div className="pods">
+        <div className="pods reveal reveal-stagger">
           <article className="pod">
             <div>
               <h3>Outbound SDR and pipeline generation</h3>

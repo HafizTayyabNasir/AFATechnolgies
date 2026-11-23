@@ -4,16 +4,25 @@ export default function Proof() {
   return (
     <section className="proof" aria-label="Partners and key metrics">
       <div className="wrap">
-        <p className="proof-title">
+        <p className="proof-title reveal">
           Trusted by high-growth technology and innovation leaders
         </p>
-        <ul className="logos">
-          <li className="wm-1">Fortanixor</li>
-          <li className="wm-2">Najoomi</li>
-          <li className="wm-3">Keystone</li>
-          <li className="wm-4">ACCELEREC</li>
-        </ul>
-        <div className="metrics">
+        
+        {/* Infinite Smooth Logo Marquee */}
+        <div className="logos-marquee-wrapper" aria-label="Featured partner companies">
+          <ul className="logos-marquee-track">
+            <li className="wm-1">Fortanixor</li>
+            <li className="wm-2">Najoomi</li>
+            <li className="wm-3">Keystone</li>
+            <li className="wm-4">ACCELEREC</li>
+            <li className="wm-1">Fortanixor</li>
+            <li className="wm-2">Najoomi</li>
+            <li className="wm-3">Keystone</li>
+            <li className="wm-4">ACCELEREC</li>
+          </ul>
+        </div>
+
+        <div className="metrics reveal reveal-stagger">
           <div className="metric">
             <strong>14 days</strong>
             <span>From kickoff to your first qualified meetings</span>

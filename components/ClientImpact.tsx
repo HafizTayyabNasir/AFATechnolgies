@@ -123,14 +123,14 @@ export default function ClientImpact() {
   return (
     <section className="section section--mist" id="client-impact">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head reveal">
           <h2>Real partners. Real pipeline. Real results.</h2>
           <p>
             See how AFA Technologies helps high-growth companies turn outbound
             into a reliable revenue channel.
           </p>
         </div>
-        <div className="cases">
+        <div className="cases reveal">
           <div className="tablist" role="tablist" aria-label="Client case studies">
             {cases.map((c, i) => (
               <button
