@@ -10,14 +10,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AFA Technologies | B2B Sales-as-a-Service for Global Tech Companies",
+  title: "AFA Technologies | Dedicated B2B Sales Partner for Global Tech Companies",
   description:
-    "AFA Technologies embeds dedicated SDRs, full-cycle Account Executives and RevOps into your business to build a predictable global sales pipeline in 14 days.",
+    "We sell your B2B tech products and services to enterprise buyers worldwide. AFA Technologies acts as the dedicated commercial bridge between your technology and global enterprise decision-makers.",
   metadataBase: new URL("https://afatechnologies.com"),
   openGraph: {
-    title: "AFA Technologies | B2B Sales-as-a-Service",
+    title: "AFA Technologies | Dedicated B2B Sales Partner for Global Tech Companies",
     description:
-      "Build a predictable global sales pipeline without the overhead of an in-house team.",
+      "We sell your B2B tech products and services to enterprise buyers worldwide. Dedicated commercial sales pods live in 14 days without in-house hiring.",
     type: "website",
     locale: "en_US",
   },

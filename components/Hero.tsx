@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from "react";
 
 const typewriterWords = [
-  "Dedicated Sales Pods",
-  "Full-Cycle AEs",
-  "Predictable Pipeline",
-  "RevOps Architecture",
+  "To Enterprise Buyers",
+  "Across Global Markets",
+  "To C-Suite Decision-Makers",
+  "Without In-House Hiring",
 ];
 
 export default function Hero() {
@@ -95,15 +95,17 @@ export default function Hero() {
               strokeWidth="2.2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-              <path d="m9 12 2 2 4-4" />
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
             </svg>
-            <span>Trusted by businesses across EMEA, APAC &amp; North America</span>
+            <span>B2B Commercial Sales Partner &bull; The Bridge Between Tech &amp; Enterprise Buyers</span>
           </div>
 
           <h1>
-            Scale Your Pipeline With
+            We Sell Your Tech Products &amp; Services
             <br />
             <span className="hero-highlight">
               <span>{typewriterWords[wordIdx].substring(0, charIdx)}</span>
@@ -112,18 +114,15 @@ export default function Hero() {
           </h1>
 
           <p className="lead">
-            AFA Technologies embeds dedicated SDRs, full-cycle Account
-            Executives and RevOps infrastructure directly into your business,
-            accelerating enterprise pipeline and closed revenue across EMEA,
-            APAC and North America.
+            <strong>You build the technology &mdash; we generate the revenue.</strong> AFA Technologies does not build software; we are the commercial sales bridge between your B2B products or services and qualified enterprise buyers. Our dedicated outbound pods represent your brand, book high-intent meetings, and close deals across EMEA, APAC, and North America.
           </p>
 
           <div className="hero-cta">
             <a className="btn-talk" href="#hero-lead-form">
-              Book Strategy Call <span>&rarr;</span>
+              Get Sales Team Blueprint <span>&rarr;</span>
             </a>
             <a className="btn-explore" href="#solutions">
-              Explore Solutions
+              How We Sell For You
             </a>
           </div>
 
@@ -136,10 +135,11 @@ export default function Hero() {
                 strokeWidth="2.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <path d="M4 10.5l4 4 8-9" />
               </svg>
-              Live in 14 days
+              We sell your products for you (Dedicated Sales Pods)
             </li>
             <li>
               <svg
@@ -149,10 +149,11 @@ export default function Hero() {
                 strokeWidth="2.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <path d="M4 10.5l4 4 8-9" />
               </svg>
-              EMEA, APAC and US East coverage
+              Direct C-suite buyer access across EMEA, APAC &amp; US
             </li>
             <li>
               <svg
@@ -162,25 +163,25 @@ export default function Hero() {
                 strokeWidth="2.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <path d="M4 10.5l4 4 8-9" />
               </svg>
-              Works inside your CRM, Slack &amp; calendar
+              Live in 14 days &bull; Zero in-house hiring overhead
             </li>
           </ul>
         </div>
 
         {/* Right Side: Consultation Booking Form */}
-        <div className="hero-form-card" aria-label="Book a Growth Strategy Call">
+        <div className="hero-form-card" aria-label="Get a Dedicated Sales Team for Your Product">
           {!isSubmitted ? (
             <form id="hero-lead-form" noValidate onSubmit={handleSubmit}>
               <div className="hero-form-badge">
-                <span className="hfb-dot"></span> 14-Day Fast Track Pod
+                <span className="hfb-dot"></span> 14-Day Sales Pod Deployment
               </div>
-              <h3>Book a Growth Strategy Call</h3>
+              <h3>Get a Dedicated Sales Team for Your Product</h3>
               <p className="hero-form-desc">
-                Speak directly with our GTM leadership &mdash; receive a tailored
-                sales pod blueprint within 24 hours.
+                Tell us what tech product or service you want sold &mdash; our commercial leadership will deliver a buyer acquisition roadmap within 24 hours.
               </p>
 
               <div className="row2">
@@ -239,19 +240,19 @@ export default function Hero() {
                     onChange={handleChange}
                   >
                     <option value="" disabled>
-                      Select region
+                      Select buyer market
                     </option>
-                    <option value="North America">North America</option>
+                    <option value="North America">North America (US &amp; Canada)</option>
                     <option value="EMEA (UK & Europe)">EMEA (UK &amp; Europe)</option>
-                    <option value="APAC">APAC</option>
-                    <option value="Global Coverage">Global Coverage</option>
+                    <option value="APAC">APAC (Asia-Pacific)</option>
+                    <option value="Global Coverage">Global Multi-Region</option>
                   </select>
-                  <span className="err">Select a market.</span>
+                  <span className="err">Select a target market.</span>
                 </div>
               </div>
 
               <div className={`field ${errors.pod ? "has-error" : ""}`}>
-                <label htmlFor="hf-pod">Required capability</label>
+                <label htmlFor="hf-pod">Product / service you want sold</label>
                 <select
                   id="hf-pod"
                   name="pod"
@@ -260,31 +261,34 @@ export default function Hero() {
                   onChange={handleChange}
                 >
                   <option value="" disabled>
-                    Select revenue pod type
+                    Select product or service category
                   </option>
-                  <option value="Dedicated Outbound SDR Pod (Appointment Setting)">
-                    Dedicated Outbound SDR Pod (Appointment Setting)
+                  <option value="B2B SaaS & Software Platform">
+                    B2B SaaS &amp; Software Platform
                   </option>
-                  <option value="Full-Cycle Account Executives (Enterprise Closers)">
-                    Full-Cycle Account Executives (Enterprise Closers)
+                  <option value="Cybersecurity & Infrastructure Auth">
+                    Cybersecurity &amp; Infrastructure Auth
                   </option>
-                  <option value="Complete Growth Pod (SDRs + AEs)">
-                    Complete Growth Pod (SDRs + AEs)
+                  <option value="AI & Digital Platform Technology">
+                    AI &amp; Digital Platform Technology
                   </option>
-                  <option value="RevOps & CRM Infrastructure Architecture">
-                    RevOps &amp; CRM Infrastructure Architecture
+                  <option value="Enterprise Advisory & Professional Services">
+                    Enterprise Advisory &amp; Professional Services
+                  </option>
+                  <option value="Custom Tech Solution / Other">
+                    Custom Tech Solution / Other
                   </option>
                 </select>
-                <span className="err">Select a capability.</span>
+                <span className="err">Select your product or service type.</span>
               </div>
 
               <button className="btn-hero-submit" type="submit">
-                Book Strategy Call &rarr;
+                Get Sales Team Blueprint &rarr;
               </button>
 
               <div className="hero-form-trust">
                 <span>
-                  <svg viewBox="0 0 20 20" fill="currentColor">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -294,7 +298,7 @@ export default function Hero() {
                   14-Day Deployment
                 </span>
                 <span>
-                  <svg viewBox="0 0 20 20" fill="currentColor">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -304,14 +308,14 @@ export default function Hero() {
                   100% Confidential
                 </span>
                 <span>
-                  <svg viewBox="0 0 20 20" fill="currentColor">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                       clipRule="evenodd"
                     />
                   </svg>{" "}
-                  24h Response
+                  24h Response SLA
                 </span>
               </div>
             </form>
@@ -324,15 +328,14 @@ export default function Hero() {
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <circle cx="24" cy="24" r="20" />
                 <path d="M15 25l6 6 12-14" />
               </svg>
-              <h3>Thank You!</h3>
+              <h3>Blueprint Request Received!</h3>
               <p>
-                Your strategy request has been received. Our GTM leadership team
-                will contact you within one business day to confirm your
-                consultation session.
+                Our commercial leadership team will review your product and reach out within 24 hours with a custom enterprise buyer acquisition roadmap.
               </p>
             </div>
           )}
