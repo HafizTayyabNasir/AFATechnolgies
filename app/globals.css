@@ -255,24 +255,54 @@ ul{margin:0;padding:0;list-style:none}
 @keyframes pop{0%{opacity:0;transform:scale(.4)}100%{opacity:1;transform:scale(1)}}
 @keyframes label-in{to{opacity:1;transform:none}}
 
-/* ---------- Proof band (Deep Navy / Pro-Blue Contrast Band) ---------- */
-.proof{background:linear-gradient(165deg,var(--navy-800) 0%,var(--navy-900) 100%);color:#ffffff;padding-block:clamp(52px,6vw,84px) clamp(60px,7vw,98px);position:relative;border-top:1px solid rgba(0,189,242,0.18);overflow:hidden}
-.proof-title{text-align:center;color:var(--cyan-soft);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
+/* ---------- Proof band (Light & Elevated Executive Style) ---------- */
+.proof{background:linear-gradient(180deg,#ffffff 0%,#f5f8fc 50%,#edf4fa 100%);color:var(--ink);padding-block:clamp(52px,6vw,84px) clamp(56px,7vw,92px);position:relative;border-top:1px solid rgba(10,30,56,0.06);border-bottom:1px solid rgba(10,30,56,0.06);overflow:hidden}
+.proof-title{text-align:center;color:#475569;font-weight:700;font-size:0.88rem;letter-spacing:.06em;text-transform:uppercase}
 
-/* Infinite Silky Logo Marquee */
-.logos-marquee-wrapper{position:relative;width:100%;overflow:hidden;margin-top:28px;mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%)}
+/* Infinite Silky Logo Marquee (On Light Background) */
+.logos-marquee-wrapper{position:relative;width:100%;overflow:hidden;margin-top:24px;mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%)}
 .logos-marquee-track{display:flex;width:max-content;align-items:center;gap:clamp(44px,6vw,84px);animation:marqueeTrack 28s linear infinite;will-change:transform;list-style:none;margin:0;padding:12px 0}
 .logos-marquee-wrapper:hover .logos-marquee-track{animation-play-state:paused}
 @keyframes marqueeTrack{0%{transform:translateX(0)}100%{transform:translateX(-33.333%)}}
 
-.marquee-item{display:flex;align-items:center;justify-content:center;flex-shrink:0;user-select:none;opacity:.88;transition:all .28s cubic-bezier(0.16,1,0.3,1);filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3))}
-.marquee-item:hover{opacity:1;transform:scale(1.06);filter:drop-shadow(0 4px 14px rgba(0,189,242,0.35))}
+.marquee-item{display:flex;align-items:center;justify-content:center;flex-shrink:0;user-select:none;opacity:.82;transition:all .28s cubic-bezier(0.16,1,0.3,1)}
+.marquee-item:hover{opacity:1;transform:scale(1.05)}
 
 .marquee-logo{display:inline-flex;align-items:center;gap:12px;height:38px}
 .marquee-logo svg{height:28px;width:auto;display:block;flex-shrink:0}
 .marquee-logo img{height:28px;width:auto;max-width:160px;object-fit:contain;display:block}
-.marquee-brand-text{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:#ffffff;line-height:1}
-.marquee-brand-text.keystone-text{letter-spacing:.08em;font-size:1.15rem;font-weight:800}
+.marquee-brand-text{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:#0a1e38;line-height:1}
+.marquee-brand-text.keystone-text{letter-spacing:.08em;font-size:1.15rem;font-weight:800;color:#0a1e38}
+
+/* ---------- Modern Bento Metric Cards Layout ---------- */
+.metrics-deck{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.2vw,28px);margin-top:clamp(40px,5vw,60px)}
+
+.metric-bento-card{background:#ffffff;border:1px solid rgba(10,30,56,0.08);border-radius:20px;padding:clamp(22px,2.8vw,30px) clamp(18px,2.2vw,26px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 28px -10px rgba(10,30,56,0.06);transition:all .35s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+.metric-bento-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background .3s ease}
+
+.metric-bento-card:hover{transform:translateY(-5px);border-color:rgba(0,189,242,0.4);box-shadow:0 20px 42px -12px rgba(0,189,242,0.2)}
+.metric-bento-card:hover::before{background:linear-gradient(90deg,var(--cyan),var(--blue-500))}
+
+.metric-bento-header{margin-bottom:14px}
+.metric-pill{display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:5px 12px;border-radius:999px}
+.metric-pill--blue{background:rgba(0,122,255,0.08);color:#0066cc;border:1px solid rgba(0,122,255,0.2)}
+.metric-pill--green{background:rgba(16,185,129,0.08);color:#059669;border:1px solid rgba(16,185,129,0.22)}
+.metric-pill--cyan{background:rgba(0,189,242,0.1);color:#0284c7;border:1px solid rgba(0,189,242,0.25)}
+.metric-pill--amber{background:rgba(245,158,11,0.1);color:#b45309;border:1px solid rgba(245,158,11,0.25)}
+
+.metric-bento-body{flex:1;display:flex;flex-direction:column}
+.metric-bento-val{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2rem,3vw,2.75rem);letter-spacing:-.04em;line-height:1.1;color:#0a1e38;margin-bottom:10px}
+.metric-bento-desc{color:#475569;font-size:0.92rem;line-height:1.55;margin:0 0 16px}
+
+.metric-bento-footer{padding-top:14px;border-top:1px solid rgba(10,30,56,0.06);margin-top:auto}
+.metric-footer-tag{font-size:0.76rem;font-weight:700;color:#0284c7;letter-spacing:.02em;display:flex;align-items:center;gap:6px}
+
+@media (max-width:1024px){
+  .metrics-deck{grid-template-columns:repeat(2,1fr);gap:20px}
+}
+@media (max-width:560px){
+  .metrics-deck{grid-template-columns:1fr;gap:16px}
+}
 
 .proof .logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px clamp(28px,6vw,72px);margin-top:26px;color:#ffffff;opacity:.92}
 .proof .logos li{font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1;text-shadow:0 2px 10px rgba(0,0,0,0.3)}

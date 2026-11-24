@@ -40,7 +40,7 @@ export default function Proof() {
       render: (
         <span className="marquee-logo marquee-logo--najoomi">
           <Image
-            src="/logos/najoomi-logo-white.png"
+            src="/logos/najoomi-logo.png"
             alt="Najoomi Official Logo"
             width={130}
             height={36}
@@ -68,11 +68,11 @@ export default function Proof() {
           >
             <path
               d="M22 80V45C22 29.5 34.5 17 50 17C65.5 17 78 29.5 78 45V80H64V45C64 37.3 57.7 31 50 31C42.3 31 36 37.3 36 45V80H22Z"
-              fill="#F59E0B"
+              fill="#D97706"
               opacity="0.45"
             />
-            <polygon points="38 15 62 15 57 40 43 40" fill="#F59E0B" />
-            <rect x="22" y="76" width="56" height="8" rx="2" fill="#F59E0B" />
+            <polygon points="38 15 62 15 57 40 43 40" fill="#D97706" />
+            <rect x="22" y="76" width="56" height="8" rx="2" fill="#D97706" />
           </svg>
           <span className="marquee-brand-text keystone-text">KEYSTONE</span>
         </span>
@@ -84,7 +84,7 @@ export default function Proof() {
       render: (
         <span className="marquee-logo marquee-logo--accelerec">
           <Image
-            src="/logos/accelerec-logo-white.png"
+            src="/logos/accelerec-logo.png"
             alt="Accelerec Official Logo"
             width={140}
             height={36}
@@ -101,7 +101,7 @@ export default function Proof() {
   ];
 
   return (
-    <section className="proof" aria-label="Partners and key metrics">
+    <section className="proof proof--light" aria-label="Partners and key metrics">
       <div className="wrap">
         <p className="proof-title reveal">
           Trusted by high-growth technology and innovation leaders
@@ -134,22 +134,93 @@ export default function Proof() {
           </ul>
         </div>
 
-        <div className="metrics reveal reveal-stagger">
-          <div className="metric">
-            <strong>14 days</strong>
-            <span>From kickoff to your first qualified meetings</span>
+        {/* Modern Bento Metric Cards Layout */}
+        <div className="metrics-deck reveal reveal-stagger">
+          {/* Card 1 */}
+          <div className="metric-bento-card">
+            <div className="metric-bento-header">
+              <span className="metric-pill metric-pill--blue">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>Velocity SLA</span>
+              </span>
+            </div>
+            <div className="metric-bento-body">
+              <strong className="metric-bento-val">14 days</strong>
+              <p className="metric-bento-desc">
+                From initial kickoff to your first qualified executive discovery meetings booked.
+              </p>
+            </div>
+            <div className="metric-bento-footer">
+              <span className="metric-footer-tag">⚡ Fast-Track Pipeline Ramp</span>
+            </div>
           </div>
-          <div className="metric">
-            <strong>Up to 60%</strong>
-            <span>Lower customer acquisition cost than in-house hiring</span>
+
+          {/* Card 2 */}
+          <div className="metric-bento-card">
+            <div className="metric-bento-header">
+              <span className="metric-pill metric-pill--green">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+                <span>Cost Efficiency</span>
+              </span>
+            </div>
+            <div className="metric-bento-body">
+              <strong className="metric-bento-val">Up to 60%</strong>
+              <p className="metric-bento-desc">
+                Lower customer acquisition cost compared to traditional in-house sales recruitment.
+              </p>
+            </div>
+            <div className="metric-bento-footer">
+              <span className="metric-footer-tag">📉 Zero Fixed Headcount Overhead</span>
+            </div>
           </div>
-          <div className="metric">
-            <strong>3 regions</strong>
-            <span>EMEA, APAC and North America covered across time zones</span>
+
+          {/* Card 3 */}
+          <div className="metric-bento-card">
+            <div className="metric-bento-header">
+              <span className="metric-pill metric-pill--cyan">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span>Global Coverage</span>
+              </span>
+            </div>
+            <div className="metric-bento-body">
+              <strong className="metric-bento-val">3 regions</strong>
+              <p className="metric-bento-desc">
+                EMEA, APAC and North America covered simultaneously across target commercial time zones.
+              </p>
+            </div>
+            <div className="metric-bento-footer">
+              <span className="metric-footer-tag">🌐 24/5 Cross-Border Motion</span>
+            </div>
           </div>
-          <div className="metric">
-            <strong>4 partners</strong>
-            <span>Global scale-ups backed by our embedded pods</span>
+
+          {/* Card 4 */}
+          <div className="metric-bento-card">
+            <div className="metric-bento-header">
+              <span className="metric-pill metric-pill--amber">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>Scale-Up Trust</span>
+              </span>
+            </div>
+            <div className="metric-bento-body">
+              <strong className="metric-bento-val">4 partners</strong>
+              <p className="metric-bento-desc">
+                High-growth tech category leaders backed by our dedicated embedded sales pods.
+              </p>
+            </div>
+            <div className="metric-bento-footer">
+              <span className="metric-footer-tag">🤝 100% Embedded Pod SLA</span>
+            </div>
           </div>
         </div>
       </div>
