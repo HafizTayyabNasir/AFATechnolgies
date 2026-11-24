@@ -648,11 +648,17 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- Modern Bento Metric Cards Layout ---------- */
 .metrics-deck{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.2vw,28px);margin-top:0}
 
-.metric-bento-card{background:#ffffff;border:1px solid rgba(10,30,56,0.08);border-radius:20px;padding:clamp(22px,2.8vw,30px) clamp(18px,2.2vw,26px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 28px -10px rgba(10,30,56,0.06);transition:all .35s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
-.metric-bento-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background .3s ease}
-
-.metric-bento-card:hover{transform:translateY(-5px);border-color:rgba(0,189,242,0.4);box-shadow:0 20px 42px -12px rgba(0,189,242,0.2)}
-.metric-bento-card:hover::before{background:linear-gradient(90deg,var(--cyan),var(--blue-500))}
+.metric-bento-card{position:relative;background:rgba(10,30,56,0.08);border-radius:20px;padding:clamp(22px,2.8vw,30px) clamp(18px,2.2vw,26px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 28px -10px rgba(10,30,56,0.06),0 0 10px -2px rgba(0,189,242,0.12);transition:transform .35s cubic-bezier(0.16,1,0.3,1),box-shadow .35s ease;overflow:hidden;isolation:isolate}
+.metric-bento-card::before{content:"";position:absolute;top:50%;left:50%;width:300%;height:300%;transform:translate(-50%,-50%);background:conic-gradient(from 0deg,transparent 0deg,transparent 60deg,rgba(0,189,242,0.35) 80deg,#00bdf2 98deg,#2563eb 115deg,#a855f7 130deg,#00d4ff 145deg,rgba(0,212,255,0.35) 160deg,transparent 175deg,transparent 360deg);animation:bentoBeamRotate 4s linear infinite;z-index:1}
+.metric-bento-card::after{content:"";position:absolute;inset:2px;background:#ffffff;border-radius:18px;z-index:2;transition:background .3s ease}
+.metric-bento-card > *{position:relative;z-index:3}
+.metric-bento-card:nth-child(1)::before{animation-delay:0s}
+.metric-bento-card:nth-child(2)::before{animation-delay:-1s}
+.metric-bento-card:nth-child(3)::before{animation-delay:-2s}
+.metric-bento-card:nth-child(4)::before{animation-delay:-3s}
+.metric-bento-card:hover{transform:translateY(-5px);box-shadow:0 20px 42px -10px rgba(0,189,242,0.25),0 0 22px rgba(0,189,242,0.2)}
+@keyframes bentoBeamRotate{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.metric-bento-card::before{animation:none}}
 
 .metric-bento-header{margin-bottom:14px}
 .metric-pill{display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:5px 12px;border-radius:999px}
