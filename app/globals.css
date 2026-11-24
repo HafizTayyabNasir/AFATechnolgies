@@ -778,7 +778,7 @@ ul{margin:0;padding:0;list-style:none}
 .metric-bento-card:hover .metric-footer-icon{transform:translateX(3px) scale(1.1)}
 
 @keyframes bentoBeamRotate{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@media (prefers-reduced-motion: reduce){.metric-bento-card::before,.metric-card-sheen::after{animation:none}.metrics-deck .metric-bento-card{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.metric-bento-card::before,.metric-card-sheen::after,.process-step-card::before{animation:none}.metrics-deck .metric-bento-card{opacity:1;transform:none}}
 
 .metric-bento-header{margin-bottom:14px}
 .metric-pill{display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:5px 12px;border-radius:999px}
@@ -931,8 +931,13 @@ ul{margin:0;padding:0;list-style:none}
 .process-node-core{font-family:var(--display);font-size:.88rem;font-weight:800;color:#0c2b52;letter-spacing:-.02em}
 
 /* Step Cards */
-.process-step-card{background:#ffffff;border:1px solid rgba(10,30,56,0.09);border-radius:18px;padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;box-shadow:0 4px 18px -4px rgba(10,30,56,0.05);transition:transform .3s cubic-bezier(0.16,1,0.3,1),box-shadow .3s ease,border-color .3s ease;flex:1}
-.process-step-card:hover{transform:translateY(-5px);border-color:rgba(37,99,235,0.3);box-shadow:0 16px 36px -8px rgba(10,30,56,0.1)}
+.process-step-card{position:relative;background:rgba(10,30,56,0.08);border-radius:20px;padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;box-shadow:0 10px 28px -10px rgba(10,30,56,0.06),0 0 10px -2px rgba(0,189,242,0.12);transition:transform .35s cubic-bezier(0.16,1,0.3,1),box-shadow .35s ease;flex:1;overflow:hidden;isolation:isolate}
+.process-step-card::before{content:"";position:absolute;top:50%;left:50%;width:300%;height:300%;transform:translate(-50%,-50%);background:conic-gradient(from 0deg,transparent 0deg,transparent 15deg,rgba(168,85,247,0) 20deg,rgba(168,85,247,0.35) 40deg,#a855f7 65deg,#2563eb 88deg,#00bdf2 108deg,#00f5ff 119deg,#ffffff 120deg,transparent 120.5deg,transparent 360deg);animation:bentoBeamRotate 4s linear infinite;z-index:1}
+.process-step-item:nth-child(2) .process-step-card::before{animation-delay:-1.33s}
+.process-step-item:nth-child(3) .process-step-card::before{animation-delay:-2.66s}
+.process-step-card::after{content:"";position:absolute;inset:2px;background:#ffffff;border-radius:18px;z-index:2;transition:background .3s ease}
+.process-step-card > *{position:relative;z-index:3}
+.process-step-card:hover{transform:translateY(-6px);box-shadow:0 20px 42px -10px rgba(0,189,242,0.25),0 0 22px rgba(0,189,242,0.2)}
 
 .process-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
 .process-phase-badge{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 10px;border-radius:6px;background:#f1f5f9;color:#475569;border:1px solid #e2e8f0}
