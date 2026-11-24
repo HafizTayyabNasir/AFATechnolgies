@@ -3,9 +3,6 @@ import React from "react";
 export default function CyberCircularBg({ className = "" }: { className?: string }) {
   return (
     <div className={`cyber-circle-bg-container ${className}`} aria-hidden="true">
-      {/* Ambient background glow */}
-      <div className="cyber-circle-radial-glow" />
-
       <svg
         className="cyber-circle-svg"
         viewBox="0 0 900 900"
@@ -33,17 +30,7 @@ export default function CyberCircularBg({ className = "" }: { className?: string
             <stop offset="50%" stopColor="#10b981" stopOpacity="0.75" />
             <stop offset="100%" stopColor="#00bdf2" stopOpacity="0.3" />
           </linearGradient>
-
-          <radialGradient id="hudCoreGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#10b981" stopOpacity="0.22" />
-            <stop offset="35%" stopColor="#00bdf2" stopOpacity="0.12" />
-            <stop offset="70%" stopColor="#2563eb" stopOpacity="0.05" />
-            <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-          </radialGradient>
         </defs>
-
-        {/* Core Radial Atmosphere Glow */}
-        <circle cx="450" cy="450" r="420" fill="url(#hudCoreGlow)" />
 
         {/* LAYER 1: Outermost Telemetry Track (Clockwise, 60s) */}
         <g className="hud-layer hud-layer--outer-cw">

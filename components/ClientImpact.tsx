@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import CyberCircularBg from "./CyberCircularBg";
 
 interface FeatureBox {
   icon: React.ReactNode;
@@ -559,7 +558,6 @@ export default function ClientImpact() {
 
   return (
     <section className="section section--mist" id="client-impact">
-      <CyberCircularBg className="cyber-circle-bg--subtle" />
       <div className="wrap">
         {/* Section Header */}
         <div className="section-head reveal-slide-up">

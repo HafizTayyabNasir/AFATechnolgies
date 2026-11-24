@@ -2814,7 +2814,7 @@ ul{margin:0;padding:0;list-style:none}
 
   <!-- Rotating Cyber Circular Radar HUD Background -->
   <div class="cyber-circle-bg-container" aria-hidden="true">
-    <div class="cyber-circle-radial-glow"></div>
+    
     <svg class="cyber-circle-svg" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="hudGradEmeraldCyan" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -2834,14 +2834,7 @@ ul{margin:0;padding:0;list-style:none}
           <stop offset="50%" stop-color="#10b981" stop-opacity="0.75" />
           <stop offset="100%" stop-color="#00bdf2" stop-opacity="0.3" />
         </linearGradient>
-        <radialGradient id="hudCoreGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#10b981" stop-opacity="0.22" />
-          <stop offset="35%" stop-color="#00bdf2" stop-opacity="0.12" />
-          <stop offset="70%" stop-color="#2563eb" stop-opacity="0.05" />
-          <stop offset="100%" stop-color="transparent" stop-opacity="0" />
-        </radialGradient>
       </defs>
-      <circle cx="450" cy="450" r="420" fill="url(#hudCoreGlow)" />
       <g class="hud-layer hud-layer--outer-cw">
         <circle cx="450" cy="450" r="425" stroke="rgba(0, 189, 242, 0.15)" stroke-width="1.5" stroke-dasharray="4 8" />
         <circle cx="450" cy="450" r="408" stroke="url(#hudGradEmeraldCyan)" stroke-width="14" stroke-dasharray="180 50 70 30 240 60 90 40 140 70" stroke-linecap="round" />
