@@ -585,32 +585,34 @@ export default function ClientImpact() {
           </p>
         </div>
 
-        {/* Prominent Partner Logo Navigation Tabs */}
-        <div className="accel-tablist-wrap reveal">
-          <div className="accel-tablist" role="tablist" aria-label="Client case studies">
-            {casesData.map((c, i) => (
-              <button
-                key={c.id}
-                role="tab"
-                id={`tab-${c.id}`}
-                aria-selected={activeTab === i}
-                aria-controls={`panel-${c.id}`}
-                tabIndex={activeTab === i ? 0 : -1}
-                onClick={() => setActiveTab(i)}
-                onKeyDown={(e) => handleKeyDown(e, i)}
-                className={`accel-tab-pill accel-tab-pill--${c.id} ${
-                  activeTab === i ? "is-active" : ""
-                }`}
-                title={`View ${c.name} pipeline case study`}
-              >
-                {renderPartnerLogo(c.id, activeTab === i)}
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* Cases Main Layout: Left Vertical Tabs Dock + Right Showcase Container */}
+        <div className="accel-cases-layout reveal">
+          {/* Left Vertical Dock / Tablist */}
+          <aside className="accel-tablist-sidebar">
+            <div className="accel-tablist-vertical" role="tablist" aria-label="Client case studies">
+              {casesData.map((c, i) => (
+                <button
+                  key={c.id}
+                  role="tab"
+                  id={`tab-${c.id}`}
+                  aria-selected={activeTab === i}
+                  aria-controls={`panel-${c.id}`}
+                  tabIndex={activeTab === i ? 0 : -1}
+                  onClick={() => setActiveTab(i)}
+                  onKeyDown={(e) => handleKeyDown(e, i)}
+                  className={`accel-tab-pill accel-tab-pill--${c.id} ${
+                    activeTab === i ? "is-active" : ""
+                  }`}
+                  title={`View ${c.name} pipeline case study`}
+                >
+                  {renderPartnerLogo(c.id, activeTab === i)}
+                </button>
+              ))}
+            </div>
+          </aside>
 
-        {/* Main Showcase Container */}
-        <div className="accel-showcase-container reveal">
+          {/* Main Showcase Container */}
+          <div className="accel-showcase-container">
           {casesData.map((c, i) => (
             <article
               key={c.id}
@@ -787,6 +789,7 @@ export default function ClientImpact() {
             </article>
           ))}
         </div>
+      </div>
 
         {/* Section Bottom CTA */}
         <div className="cases-cta reveal">

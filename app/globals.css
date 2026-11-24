@@ -804,11 +804,78 @@ ul{margin:0;padding:0;list-style:none}
   color: #1d4ed8;
 }
 
+#client-impact .wrap {
+  width: min(1260px, 100% - 2 * var(--gutter));
+}
+
 #client-impact .eyebrow-badge svg {
   stroke: #2563eb;
 }
 
-/* Top Horizontal Pill Tabs */
+/* Left Vertical Tabs Dock & Layout */
+.accel-cases-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: clamp(20px, 2.5vw, 32px);
+  align-items: start;
+}
+
+.accel-tablist-sidebar {
+  position: sticky;
+  top: 96px;
+  z-index: 10;
+}
+
+.accel-tablist-vertical {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  padding: 10px;
+  border-radius: 22px;
+  gap: 10px;
+  border: 1.5px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 12px 32px -4px rgba(37, 99, 235, 0.12), 0 2px 8px rgba(10, 30, 56, 0.04);
+}
+
+.accel-tablist-vertical .accel-tab-pill {
+  appearance: none;
+  border: 1.5px solid transparent;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  min-height: 54px;
+  box-sizing: border-box;
+}
+
+.accel-tablist-vertical .accel-tab-pill:hover {
+  background: #edf5ff;
+  border-color: rgba(37, 99, 235, 0.25);
+  transform: translateX(3px);
+  color: #0f172a;
+}
+
+.accel-tablist-vertical .accel-tab-pill.is-active,
+.accel-tablist-vertical .accel-tab-pill[aria-selected="true"] {
+  background: #ffffff;
+  color: #0c2b52;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.18), 0 1px 4px rgba(37, 99, 235, 0.08);
+  border: 1.5px solid #2563eb;
+  transform: translateX(4px);
+}
+
+/* Fallback Top Horizontal Pill Tabs */
 .accel-tablist-wrap {
   display: flex;
   justify-content: center;
@@ -1520,6 +1587,47 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .accel-cases-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .accel-tablist-sidebar {
+    position: static;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  .accel-tablist-vertical {
+    flex-direction: row;
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 6px;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  .accel-tablist-vertical .accel-tab-pill {
+    width: auto;
+    min-height: auto;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: transparent;
+  }
+
+  .accel-tablist-vertical .accel-tab-pill:hover,
+  .accel-tablist-vertical .accel-tab-pill.is-active {
+    transform: none;
+  }
+
+  .accel-tablist-vertical .accel-tab-pill.is-active {
+    background: #ffffff;
+  }
+}
+
 @media (max-width: 1024px) {
   .accel-case-panel {
     grid-template-columns: 1fr;

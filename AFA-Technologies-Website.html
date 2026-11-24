@@ -776,7 +776,74 @@ ul{margin:0;padding:0;list-style:none}
 
 /* ---------- Case Studies (Accelerec-Inspired Interactive Product Showcase) ---------- */
 
-/* Top Horizontal Pill Tabs */
+#client-impact .wrap {
+  width: min(1260px, 100% - 2 * var(--gutter));
+}
+
+/* Left Vertical Tabs Dock & Layout */
+.accel-cases-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: clamp(20px, 2.5vw, 32px);
+  align-items: start;
+}
+
+.accel-tablist-sidebar {
+  position: sticky;
+  top: 96px;
+  z-index: 10;
+}
+
+.accel-tablist-vertical {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  padding: 10px;
+  border-radius: 22px;
+  gap: 10px;
+  border: 1.5px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 12px 32px -4px rgba(37, 99, 235, 0.12), 0 2px 8px rgba(10, 30, 56, 0.04);
+}
+
+.accel-tablist-vertical .accel-tab-pill {
+  appearance: none;
+  border: 1.5px solid transparent;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  min-height: 54px;
+  box-sizing: border-box;
+}
+
+.accel-tablist-vertical .accel-tab-pill:hover {
+  background: #edf5ff;
+  border-color: rgba(37, 99, 235, 0.25);
+  transform: translateX(3px);
+  color: #0f172a;
+}
+
+.accel-tablist-vertical .accel-tab-pill.is-active,
+.accel-tablist-vertical .accel-tab-pill[aria-selected="true"] {
+  background: #ffffff;
+  color: #0c2b52;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.18), 0 1px 4px rgba(37, 99, 235, 0.08);
+  border: 1.5px solid #2563eb;
+  transform: translateX(4px);
+}
+
+/* Fallback Top Horizontal Pill Tabs */
 .accel-tablist-wrap {
   display: flex;
   justify-content: center;
@@ -1302,6 +1369,47 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .accel-cases-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .accel-tablist-sidebar {
+    position: static;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  .accel-tablist-vertical {
+    flex-direction: row;
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 6px;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  .accel-tablist-vertical .accel-tab-pill {
+    width: auto;
+    min-height: auto;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: transparent;
+  }
+
+  .accel-tablist-vertical .accel-tab-pill:hover,
+  .accel-tablist-vertical .accel-tab-pill.is-active {
+    transform: none;
+  }
+
+  .accel-tablist-vertical .accel-tab-pill.is-active {
+    background: #ffffff;
+  }
+}
+
 @media (max-width: 1024px) {
   .accel-case-panel {
     grid-template-columns: 1fr;
@@ -2679,47 +2787,49 @@ ul{margin:0;padding:0;list-style:none}
       </p>
     </div>
 
-    <!-- Prominent Partner Logo Navigation Tabs -->
-    <div class="accel-tablist-wrap reveal">
-      <div class="accel-tablist" role="tablist" aria-label="Client case studies">
-        <button role="tab" id="tab-fortanixor" aria-selected="true" aria-controls="panel-fortanixor" tabindex="0" class="accel-tab-pill accel-tab-pill--fortanixor is-active" title="View Fortanixor pipeline case study">
-          <div class="partner-logo-pill">
-            <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo-svg" aria-hidden="true">
-              <path d="M50 115C50 115 10 95 10 50V15L50 5L90 15V50C90 95 50 115 50 115Z" fill="#4D79FF" />
-              <path d="M50 105C50 105 18 88 18 50V22L50 14L82 22V50C82 88 50 105 50 105Z" fill="#0a0814" />
-              <circle cx="50" cy="52" r="22" fill="#00BCD4" />
-            </svg>
-            <span class="partner-logo-text fortanixor-text">Fortanixor</span>
-          </div>
-        </button>
+    <!-- Cases Main Layout: Left Vertical Tabs Dock + Right Showcase Container -->
+    <div class="accel-cases-layout reveal">
+      <!-- Left Vertical Dock / Tabs Sidebar -->
+      <aside class="accel-tablist-sidebar">
+        <div class="accel-tablist-vertical" role="tablist" aria-label="Client case studies">
+          <button role="tab" id="tab-fortanixor" onclick="switchCaseTab(0)" aria-selected="true" aria-controls="panel-fortanixor" tabindex="0" class="accel-tab-pill accel-tab-pill--fortanixor is-active" title="View Fortanixor pipeline case study">
+            <div class="partner-logo-pill">
+              <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo-svg" aria-hidden="true">
+                <path d="M50 115C50 115 10 95 10 50V15L50 5L90 15V50C90 95 50 115 50 115Z" fill="#4D79FF" />
+                <path d="M50 105C50 105 18 88 18 50V22L50 14L82 22V50C82 88 50 105 50 105Z" fill="#0a0814" />
+                <circle cx="50" cy="52" r="22" fill="#00BCD4" />
+              </svg>
+              <span class="partner-logo-text fortanixor-text">Fortanixor</span>
+            </div>
+          </button>
 
-        <button role="tab" id="tab-najoomi" aria-selected="false" aria-controls="panel-najoomi" tabindex="-1" class="accel-tab-pill accel-tab-pill--najoomi" title="View Najoomi pipeline case study">
-          <div class="partner-logo-pill">
-            <img src="/logos/najoomi-logo.png" alt="Najoomi Logo" class="partner-logo-img" style="object-fit:contain;height:24px;width:auto;" />
-          </div>
-        </button>
+          <button role="tab" id="tab-najoomi" onclick="switchCaseTab(1)" aria-selected="false" aria-controls="panel-najoomi" tabindex="-1" class="accel-tab-pill accel-tab-pill--najoomi" title="View Najoomi pipeline case study">
+            <div class="partner-logo-pill">
+              <img src="/logos/najoomi-logo.png" alt="Najoomi Logo" class="partner-logo-img" style="object-fit:contain;height:24px;width:auto;" />
+            </div>
+          </button>
 
-        <button role="tab" id="tab-keystone" aria-selected="false" aria-controls="panel-keystone" tabindex="-1" class="accel-tab-pill accel-tab-pill--keystone" title="View Keystone pipeline case study">
-          <div class="partner-logo-pill">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo-svg" aria-hidden="true">
-              <path d="M22 80V45C22 29.5 34.5 17 50 17C65.5 17 78 29.5 78 45V80H64V45C64 37.3 57.7 31 50 31C42.3 31 36 37.3 36 45V80H22Z" fill="#F59E0B" opacity="0.45" />
-              <polygon points="38 15 62 15 57 40 43 40" fill="#F59E0B" />
-              <rect x="22" y="76" width="56" height="8" rx="2" fill="#F59E0B" />
-            </svg>
-            <span class="partner-logo-text keystone-text">KEYSTONE</span>
-          </div>
-        </button>
+          <button role="tab" id="tab-keystone" onclick="switchCaseTab(2)" aria-selected="false" aria-controls="panel-keystone" tabindex="-1" class="accel-tab-pill accel-tab-pill--keystone" title="View Keystone pipeline case study">
+            <div class="partner-logo-pill">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo-svg" aria-hidden="true">
+                <path d="M22 80V45C22 29.5 34.5 17 50 17C65.5 17 78 29.5 78 45V80H64V45C64 37.3 57.7 31 50 31C42.3 31 36 37.3 36 45V80H22Z" fill="#F59E0B" opacity="0.45" />
+                <polygon points="38 15 62 15 57 40 43 40" fill="#F59E0B" />
+                <rect x="22" y="76" width="56" height="8" rx="2" fill="#F59E0B" />
+              </svg>
+              <span class="partner-logo-text keystone-text">KEYSTONE</span>
+            </div>
+          </button>
 
-        <button role="tab" id="tab-accelerec" aria-selected="false" aria-controls="panel-accelerec" tabindex="-1" class="accel-tab-pill accel-tab-pill--accelerec" title="View Accelerec pipeline case study">
-          <div class="partner-logo-pill">
-            <img src="/logos/accelerec-logo.png" alt="Accelerec Logo" class="partner-logo-img" style="object-fit:contain;height:24px;width:auto;" />
-          </div>
-        </button>
-      </div>
-    </div>
+          <button role="tab" id="tab-accelerec" onclick="switchCaseTab(3)" aria-selected="false" aria-controls="panel-accelerec" tabindex="-1" class="accel-tab-pill accel-tab-pill--accelerec" title="View Accelerec pipeline case study">
+            <div class="partner-logo-pill">
+              <img src="/logos/accelerec-logo.png" alt="Accelerec Logo" class="partner-logo-img" style="object-fit:contain;height:24px;width:auto;" />
+            </div>
+          </button>
+        </div>
+      </aside>
 
-    <!-- Main Showcase Container -->
-    <div class="accel-showcase-container reveal">
+      <!-- Main Showcase Container -->
+      <div class="accel-showcase-container">
       <!-- 1. Fortanixor Panel -->
       <article class="accel-case-panel accel-case-panel--fortanixor" role="tabpanel" id="panel-fortanixor" aria-labelledby="tab-fortanixor">
         <div class="accel-col-content">
@@ -3108,6 +3218,7 @@ ul{margin:0;padding:0;list-style:none}
         </div>
       </article>
     </div>
+  </div>
 
     <!-- Section Bottom CTA -->
     <div class="cases-cta reveal">
