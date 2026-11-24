@@ -577,7 +577,9 @@ export default function ClientImpact() {
             </svg>
             <span>Verified Customer Results</span>
           </div>
-          <h2>Real partners. Real pipeline. Real results.</h2>
+          <h2>
+            Real partners. <span className="text-highlight-blue">Real pipeline.</span> Real results.
+          </h2>
           <p>
             See how AFA Technologies sells technology products and services to enterprise buyers across global markets.
           </p>

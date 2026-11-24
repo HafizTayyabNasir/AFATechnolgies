@@ -774,6 +774,40 @@ ul{margin:0;padding:0;list-style:none}
 
 /* ---------- Case Studies (Accelerec-Inspired Interactive Product Showcase) ---------- */
 
+/* Section Ambient Cyber-Blue Atmosphere */
+#client-impact {
+  position: relative;
+  background: 
+    radial-gradient(circle at 10% 15%, rgba(0, 189, 242, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 90% 65%, rgba(37, 99, 235, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.10) 0%, transparent 55%),
+    linear-gradient(180deg, #edf6ff 0%, #e2effe 50%, #eaf4ff 100%);
+  border-top: 1px solid rgba(0, 189, 242, 0.22);
+  border-bottom: 1px solid rgba(0, 189, 242, 0.22);
+  overflow: hidden;
+}
+
+#client-impact .section-head h2 {
+  color: #061a33;
+}
+
+#client-impact .text-highlight-blue {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+#client-impact .eyebrow-badge {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.28);
+  color: #1d4ed8;
+}
+
+#client-impact .eyebrow-badge svg {
+  stroke: #2563eb;
+}
+
 /* Top Horizontal Pill Tabs */
 .accel-tablist-wrap {
   display: flex;
@@ -784,19 +818,21 @@ ul{margin:0;padding:0;list-style:none}
 .accel-tablist {
   display: inline-flex;
   align-items: center;
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
   padding: 6px;
   border-radius: 999px;
-  gap: 6px;
+  gap: 8px;
   max-width: 100%;
-  border: 1px solid rgba(10, 30, 56, 0.06);
+  border: 1.5px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.12), 0 2px 6px rgba(10, 30, 56, 0.04);
 }
 
 .accel-tab-pill {
   appearance: none;
-  border: 0;
+  border: 1px solid transparent;
   background: transparent;
-  padding: 10px 22px;
+  padding: 8px 22px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -804,7 +840,7 @@ ul{margin:0;padding:0;list-style:none}
   font-family: var(--body);
   font-size: 0.92rem;
   font-weight: 600;
-  color: #475569;
+  color: #334155;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
@@ -812,16 +848,16 @@ ul{margin:0;padding:0;list-style:none}
 
 .accel-tab-pill:hover {
   color: #0f172a;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(224, 242, 254, 0.65);
 }
 
 .accel-tab-pill.is-active,
 .accel-tab-pill[aria-selected="true"] {
   background: #ffffff;
-  color: #0a1e38;
+  color: #0c2b52;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(10, 30, 56, 0.08), 0 1px 3px rgba(10, 30, 56, 0.04);
-  border: 1px solid rgba(10, 30, 56, 0.08);
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.18), 0 1px 3px rgba(37, 99, 235, 0.08);
+  border: 1.5px solid #2563eb;
 }
 
 .tab-pill-dot {
@@ -876,13 +912,37 @@ ul{margin:0;padding:0;list-style:none}
 
 /* Showcase Container */
 .accel-showcase-container {
-  background: #ffffff;
-  border: 1px solid rgba(10, 30, 56, 0.09);
+  background: linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
+  border: 1.5px solid rgba(37, 99, 235, 0.22);
   border-radius: 32px;
-  box-shadow: 0 24px 60px -15px rgba(10, 30, 56, 0.08);
+  box-shadow: 0 24px 64px -12px rgba(37, 99, 235, 0.14), 0 0 0 1px rgba(0, 189, 242, 0.12);
   padding: clamp(30px, 4.2vw, 54px);
   position: relative;
   overflow: hidden;
+}
+
+.accel-showcase-container::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(0, 189, 242, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.accel-showcase-container::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
 }
 
 .accel-case-panel {
@@ -1098,10 +1158,10 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 .accel-mockup-window {
-  background: #f8fafc;
-  border: 1px solid rgba(10, 30, 56, 0.12);
+  background: #edf5ff;
+  border: 1.5px solid rgba(37, 99, 235, 0.25);
   border-radius: 22px;
-  box-shadow: 0 20px 48px -12px rgba(10, 30, 56, 0.1);
+  box-shadow: 0 20px 48px -12px rgba(10, 30, 56, 0.15), 0 0 0 1px rgba(0, 189, 242, 0.16);
   overflow: hidden;
 }
 
@@ -1109,9 +1169,9 @@ ul{margin:0;padding:0;list-style:none}
 .mockup-window-header {
   display: flex;
   align-items: center;
-  padding: 12px 18px;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(10, 30, 56, 0.08);
+  padding: 13px 20px;
+  background: linear-gradient(90deg, #091a30 0%, #0c2b52 100%);
+  border-bottom: 1px solid rgba(0, 189, 242, 0.25);
   gap: 16px;
 }
 
@@ -1133,10 +1193,11 @@ ul{margin:0;padding:0;list-style:none}
 .dot--green { background: #27c93f; }
 
 .mockup-window-title {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7dd3fc;
   font-family: var(--mono, monospace);
+  letter-spacing: 0.02em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1155,12 +1216,13 @@ ul{margin:0;padding:0;list-style:none}
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 14px;
+  padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: linear-gradient(90deg, #e0f2fe 0%, #dbeafe 100%);
   font-size: 0.8rem;
-  font-weight: 600;
-  color: #1e293b;
+  font-weight: 700;
+  color: #0369a1;
   line-height: 1.4;
 }
 
@@ -1406,11 +1468,12 @@ ul{margin:0;padding:0;list-style:none}
 .mockup-window-footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 16px 18px;
-  border-top: 1px solid rgba(10, 30, 56, 0.08);
-  border-radius: 0 0 16px 16px;
+  padding: 18px 20px;
+  border-top: 1.5px solid rgba(37, 99, 235, 0.2);
+  border-radius: 0 0 20px 20px;
   text-align: center;
-  gap: 10px;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(0, 189, 242, 0.12) 100%);
 }
 
 .mockup-stat-cell {
