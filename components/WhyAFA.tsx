@@ -37,10 +37,11 @@ export default function WhyAFA() {
     const particles: Particle[] = [];
 
     const colorPalette = [
-      "rgba(0, 189, 242,", // Primary Cyber Cyan
-      "rgba(56, 189, 248,", // Sky Cyan
-      "rgba(99, 102, 241,", // Electric Indigo
-      "rgba(147, 197, 253,", // Light Soft Azure
+      "rgba(0, 225, 255,",   // Saturated Vivid Neon Cyan
+      "rgba(0, 162, 255,",   // Saturated Azure Blue
+      "rgba(124, 58, 237,",  // Vivid Electric Violet
+      "rgba(14, 165, 233,",  // Vibrant Sky Blue
+      "rgba(6, 214, 160,",   // Vivid Mint / Teal Cyan
     ];
 
     for (let i = 0; i < count; i++) {
@@ -49,14 +50,14 @@ export default function WhyAFA() {
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.65,
         vy: (Math.random() - 0.5) * 0.65,
-        radius: Math.random() * 1.8 + 1.2,
+        radius: Math.random() * 2.0 + 1.4,
         color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
-        alpha: Math.random() * 0.45 + 0.35,
+        alpha: Math.random() * 0.35 + 0.65, // Higher saturation & opacity (0.65 to 1.0)
       });
     }
 
-    const maxLineDist = 120;
-    const maxMouseDist = 150;
+    const maxLineDist = 125;
+    const maxMouseDist = 155;
 
     const render = () => {
       if (!isVisible) {
@@ -66,7 +67,7 @@ export default function WhyAFA() {
 
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw Connecting Network Constellation Lines
+      // 1. Draw Connecting Network Constellation Lines (Higher Saturation)
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -74,9 +75,9 @@ export default function WhyAFA() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxLineDist) {
-            const alpha = (1 - dist / maxLineDist) * 0.22;
-            ctx.strokeStyle = `rgba(0, 189, 242, ${alpha})`;
-            ctx.lineWidth = 0.85;
+            const alpha = (1 - dist / maxLineDist) * 0.38;
+            ctx.strokeStyle = `rgba(0, 220, 255, ${alpha})`;
+            ctx.lineWidth = 1.0;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -93,9 +94,9 @@ export default function WhyAFA() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxMouseDist) {
-            const alpha = (1 - dist / maxMouseDist) * 0.45;
-            ctx.strokeStyle = `rgba(0, 220, 255, ${alpha})`;
-            ctx.lineWidth = 1;
+            const alpha = (1 - dist / maxMouseDist) * 0.65;
+            ctx.strokeStyle = `rgba(0, 245, 255, ${alpha})`;
+            ctx.lineWidth = 1.25;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -104,19 +105,20 @@ export default function WhyAFA() {
         }
       }
 
-      // 3. Update & Draw Particles
+      // 3. Update & Draw Particles (Vibrant Core + Neon Halo)
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
+        // Core particle (Solid & Rich)
         ctx.fillStyle = `${p.color} ${p.alpha})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
 
-        // Subtle glow halo
-        ctx.fillStyle = `${p.color} ${p.alpha * 0.25})`;
+        // Vivid neon glow halo
+        ctx.fillStyle = `${p.color} ${p.alpha * 0.4})`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 2.2, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.radius * 2.8, 0, Math.PI * 2);
         ctx.fill();
 
         p.x += p.vx;
