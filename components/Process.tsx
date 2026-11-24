@@ -4,11 +4,6 @@ import Image from "next/image";
 export default function Process() {
   return (
     <section className="section section-process-cyber" id="process">
-      {/* Ambient cyber background glow & grid */}
-      <div className="process-ambient-glow process-ambient-glow--1" aria-hidden="true" />
-      <div className="process-ambient-glow process-ambient-glow--2" aria-hidden="true" />
-      <div className="process-grid-pattern" aria-hidden="true" />
-
       <div className="wrap">
         {/* Section Head with Eyebrow Badge */}
         <div className="section-head text-center reveal">
@@ -26,10 +21,9 @@ export default function Process() {
 
         {/* Futuristic Cyber Timeline Track & Bento Step Cards */}
         <div className="process-timeline-wrap reveal reveal-stagger">
-          {/* Animated Connecting Track with Travelling Photon Laser */}
+          {/* Connecting Track Rail */}
           <div className="process-timeline-track" aria-hidden="true">
             <div className="process-track-base" />
-            <div className="process-track-photon" />
           </div>
 
           <ol className="process-steps-grid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
@@ -40,7 +34,6 @@ export default function Process() {
                 <span className="process-node-core">01</span>
               </div>
               <div className="process-bento-card">
-                <div className="process-card-sheen" aria-hidden="true" />
                 <div className="process-card-top">
                   <span className="process-phase-tag process-phase-tag--blue">
                     Phase 01 • Calibration
@@ -89,7 +82,6 @@ export default function Process() {
                 <span className="process-node-core">02</span>
               </div>
               <div className="process-bento-card process-bento-card--featured">
-                <div className="process-card-sheen" aria-hidden="true" />
                 <div className="process-card-top">
                   <span className="process-phase-tag process-phase-tag--indigo">
                     Phase 02 • Pod Activation
@@ -133,7 +125,6 @@ export default function Process() {
                 <span className="process-node-core">03</span>
               </div>
               <div className="process-bento-card process-bento-card--launch">
-                <div className="process-card-sheen" aria-hidden="true" />
                 <div className="process-card-top">
                   <span className="process-phase-tag process-phase-tag--cyan">
                     Phase 03 • Velocity SLA
