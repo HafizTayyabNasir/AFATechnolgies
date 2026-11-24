@@ -250,6 +250,7 @@ export default function Proof() {
           <div className="metrics-deck reveal reveal-stagger">
             {/* Card 1 */}
             <div className="metric-bento-card">
+              <div className="metric-card-sheen" aria-hidden="true" />
               <div className="metric-bento-header">
                 <span className="metric-pill metric-pill--blue">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -265,12 +266,13 @@ export default function Proof() {
                 </p>
               </div>
               <div className="metric-bento-footer">
-                <span className="metric-footer-tag">⚡ Fast-Track Pipeline Ramp</span>
+                <span className="metric-footer-tag"><span className="metric-footer-icon">⚡</span> Fast-Track Pipeline Ramp</span>
               </div>
             </div>
 
             {/* Card 2 */}
             <div className="metric-bento-card">
+              <div className="metric-card-sheen" aria-hidden="true" />
               <div className="metric-bento-header">
                 <span className="metric-pill metric-pill--green">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -287,12 +289,13 @@ export default function Proof() {
                 </p>
               </div>
               <div className="metric-bento-footer">
-                <span className="metric-footer-tag">📉 Zero Fixed Headcount Overhead</span>
+                <span className="metric-footer-tag"><span className="metric-footer-icon">📉</span> Zero Fixed Headcount Overhead</span>
               </div>
             </div>
 
             {/* Card 3 */}
             <div className="metric-bento-card">
+              <div className="metric-card-sheen" aria-hidden="true" />
               <div className="metric-bento-header">
                 <span className="metric-pill metric-pill--cyan">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -310,12 +313,13 @@ export default function Proof() {
                 </p>
               </div>
               <div className="metric-bento-footer">
-                <span className="metric-footer-tag">🌐 24/5 Cross-Border Motion</span>
+                <span className="metric-footer-tag"><span className="metric-footer-icon">🌐</span> 24/5 Cross-Border Motion</span>
               </div>
             </div>
 
             {/* Card 4 */}
             <div className="metric-bento-card">
+              <div className="metric-card-sheen" aria-hidden="true" />
               <div className="metric-bento-header">
                 <span className="metric-pill metric-pill--amber">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -331,7 +335,7 @@ export default function Proof() {
                 </p>
               </div>
               <div className="metric-bento-footer">
-                <span className="metric-footer-tag">🤝 100% Embedded Pod SLA</span>
+                <span className="metric-footer-tag"><span className="metric-footer-icon">🤝</span> 100% Embedded Pod SLA</span>
               </div>
             </div>
           </div>
