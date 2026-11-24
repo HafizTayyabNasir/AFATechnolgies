@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import CyberCircularBg from "./CyberCircularBg";
 
 export default function Proof() {
   const partners = [
@@ -185,6 +186,7 @@ export default function Proof() {
       <section className="partners-bar" id="partners" aria-label="Featured partner companies">
         <div className="partners-laser-scanner" aria-hidden="true" />
         <div className="partners-ambient-aurora" aria-hidden="true" />
+        <CyberCircularBg />
 
         <div className="wrap">
           {/* Futuristic Eyebrow + Title */}

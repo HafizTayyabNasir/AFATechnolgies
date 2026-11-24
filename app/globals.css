@@ -343,6 +343,97 @@ ul{margin:0;padding:0;list-style:none}
   filter: blur(40px);
 }
 
+/* ========================================================
+   FUTURISTIC ROTATING CYBER HUD / CIRCULAR RADAR BG
+   ======================================================== */
+.cyber-circle-bg-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(620px, 65vw, 960px);
+  height: clamp(620px, 65vw, 960px);
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.88;
+  overflow: visible;
+}
+
+.cyber-circle-radial-glow {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 45%, rgba(16, 185, 129, 0.28) 0%, rgba(0, 189, 242, 0.22) 35%, rgba(37, 99, 235, 0.12) 65%, transparent 75%);
+  filter: blur(55px);
+  animation: cyberGlowBreathe 7s ease-in-out infinite alternate;
+}
+
+@keyframes cyberGlowBreathe {
+  0% { transform: scale(0.92); opacity: 0.65; }
+  100% { transform: scale(1.08); opacity: 0.95; }
+}
+
+.cyber-circle-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 16px rgba(0, 189, 242, 0.35)) drop-shadow(0 0 24px rgba(16, 185, 129, 0.22));
+}
+
+.cyber-circle-bg--subtle {
+  opacity: 0.28;
+  filter: hue-rotate(15deg);
+}
+
+/* Multi-Layer Continuous Rotation Keyframes */
+@keyframes hudSpinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hudSpinCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.hud-layer {
+  transform-origin: 450px 450px;
+  will-change: transform;
+}
+
+.hud-layer--outer-cw {
+  animation: hudSpinClockwise 55s linear infinite;
+}
+
+.hud-layer--ticks-ccw {
+  animation: hudSpinCounterClockwise 38s linear infinite;
+}
+
+.hud-layer--middle-cw {
+  animation: hudSpinClockwise 26s linear infinite;
+}
+
+.hud-layer--inner-ccw {
+  animation: hudSpinCounterClockwise 18s linear infinite;
+}
+
+.hud-layer--core-cw {
+  animation: hudSpinClockwise 12s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-layer--outer-cw,
+  .hud-layer--ticks-ccw,
+  .hud-layer--middle-cw,
+  .hud-layer--inner-ccw,
+  .hud-layer--core-cw {
+    animation: none;
+  }
+}
+
 /* Partners Bar Header */
 .partners-bar-header {
   display: flex;
