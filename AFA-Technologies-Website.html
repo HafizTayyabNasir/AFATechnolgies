@@ -1911,6 +1911,135 @@ ul{margin:0;padding:0;list-style:none}
 
 /* Reduced Motion */
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.reveal, .reveal-scale{opacity:1!important;transform:none!important}}
+
+.partner-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.partner-logo-svg {
+  height: 24px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.partner-logo-img {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.partner-logo-text {
+  font-family: var(--display, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0a1e38;
+}
+.keystone-text {
+  font-family: serif;
+  letter-spacing: 0.08em;
+  color: #d97706;
+}
+.fortanixor-text {
+  color: #0284c7;
+}
+.mockup-leads-grid,
+.mockup-deals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.mockup-deal-card {
+  background: #ffffff;
+  border: 1px solid rgba(10, 30, 56, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 3px 10px -2px rgba(10, 30, 56, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mockup-deal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(10, 30, 56, 0.08);
+}
+.deal-card-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.deal-account-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.deal-meta {
+  min-width: 0;
+}
+.deal-account-name {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #0a1e38;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+.deal-buyer-role {
+  display: block;
+  font-size: 0.72rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.deal-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.deal-value-badge {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0a1e38;
+  letter-spacing: -0.01em;
+}
+.deal-stage-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.deal-stage-pill--won {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+.deal-stage-pill--review {
+  background: rgba(99, 102, 241, 0.15);
+  color: #4f46e5;
+}
+.deal-stage-pill--active {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0284c7;
+}
+@media (max-width: 640px) {
+  .mockup-deals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2463,36 +2592,52 @@ ul{margin:0;padding:0;list-style:none}
     <!-- Section Header -->
     <div class="section-head reveal">
       <div class="eyebrow-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
         </svg>
         <span>Verified Customer Results</span>
       </div>
       <h2>Real partners. Real pipeline. Real results.</h2>
       <p>
-        See how AFA Technologies helps high-growth tech companies turn outbound
-        into an accountable, multi-region revenue channel.
+        See how AFA Technologies sells technology products and services to enterprise buyers across global markets.
       </p>
     </div>
 
-    <!-- Accelerec-Style Top Horizontal Pill Tabs -->
+    <!-- Prominent Partner Logo Navigation Tabs -->
     <div class="accel-tablist-wrap reveal">
       <div class="accel-tablist" role="tablist" aria-label="Client case studies">
-        <button class="accel-tab-pill accel-tab-pill--fortanixor is-active" role="tab" id="tab-fortanixor" aria-selected="true" aria-controls="panel-fortanixor" onclick="switchCaseTab(0)">
-          <span class="tab-pill-dot" style="background-color: #00BCD4;"></span>
-          <span class="tab-pill-label">Fortanixor Security</span>
+        <button role="tab" id="tab-fortanixor" aria-selected="true" aria-controls="panel-fortanixor" tabindex="0" class="accel-tab-pill accel-tab-pill--fortanixor is-active" title="View Fortanixor pipeline case study">
+          <div class="partner-logo-pill">
+            <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo-svg" aria-hidden="true">
+              <path d="M50 115C50 115 10 95 10 50V15L50 5L90 15V50C90 95 50 115 50 115Z" fill="#4D79FF" />
+              <path d="M50 105C50 105 18 88 18 50V22L50 14L82 22V50C82 88 50 105 50 105Z" fill="#0a0814" />
+              <circle cx="50" cy="52" r="22" fill="#00BCD4" />
+            </svg>
+            <span class="partner-logo-text fortanixor-text">Fortanixor</span>
+          </div>
         </button>
-        <button class="accel-tab-pill accel-tab-pill--najoomi" role="tab" id="tab-najoomi" aria-selected="false" aria-controls="panel-najoomi" tabindex="-1" onclick="switchCaseTab(1)">
-          <span class="tab-pill-dot" style="background-color: #a855f7;"></span>
-          <span class="tab-pill-label">Najoomi AI Platform</span>
+
+        <button role="tab" id="tab-najoomi" aria-selected="false" aria-controls="panel-najoomi" tabindex="-1" class="accel-tab-pill accel-tab-pill--najoomi" title="View Najoomi pipeline case study">
+          <div class="partner-logo-pill">
+            <img src="/logos/najoomi-logo.png" alt="Najoomi Logo" class="partner-logo-img" style="object-fit:contain;height:24px;width:auto;" />
+          </div>
         </button>
-        <button class="accel-tab-pill accel-tab-pill--keystone" role="tab" id="tab-keystone" aria-selected="false" aria-controls="panel-keystone" tabindex="-1" onclick="switchCaseTab(2)">
-          <span class="tab-pill-dot" style="background-color: #f59e0b;"></span>
-          <span class="tab-pill-label">Keystone Advisory</span>
+
+        <button role="tab" id="tab-keystone" aria-selected="false" aria-controls="panel-keystone" tabindex="-1" class="accel-tab-pill accel-tab-pill--keystone" title="View Keystone pipeline case study">
+          <div class="partner-logo-pill">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="partner-logo-svg" aria-hidden="true">
+              <path d="M22 80V45C22 29.5 34.5 17 50 17C65.5 17 78 29.5 78 45V80H64V45C64 37.3 57.7 31 50 31C42.3 31 36 37.3 36 45V80H22Z" fill="#F59E0B" opacity="0.45" />
+              <polygon points="38 15 62 15 57 40 43 40" fill="#F59E0B" />
+              <rect x="22" y="76" width="56" height="8" rx="2" fill="#F59E0B" />
+            </svg>
+            <span class="partner-logo-text keystone-text">KEYSTONE</span>
+          </div>
         </button>
-        <button class="accel-tab-pill accel-tab-pill--accelerec" role="tab" id="tab-accelerec" aria-selected="false" aria-controls="panel-accelerec" tabindex="-1" onclick="switchCaseTab(3)">
-          <span class="tab-pill-dot" style="background-color: #10b981;"></span>
-          <span class="tab-pill-label">ATS Recruitment</span>
+
+        <button role="tab" id="tab-accelerec" aria-selected="false" aria-controls="panel-accelerec" tabindex="-1" class="accel-tab-pill accel-tab-pill--accelerec" title="View Accelerec pipeline case study">
+          <div class="partner-logo-pill">
+            <img src="/logos/accelerec-logo.png" alt="Accelerec Logo" class="partner-logo-img" style="object-fit:contain;height:24px;width:auto;" />
+          </div>
         </button>
       </div>
     </div>
@@ -2502,161 +2647,94 @@ ul{margin:0;padding:0;list-style:none}
       <!-- 1. Fortanixor Panel -->
       <article class="accel-case-panel accel-case-panel--fortanixor" role="tabpanel" id="panel-fortanixor" aria-labelledby="tab-fortanixor">
         <div class="accel-col-content">
-          <div class="accel-module-badge" style="color: #00BCD4; background-color: rgba(0, 188, 212, 0.08);">
-            <span class="module-badge-dot" style="background-color: #00BCD4;"></span>
-            <span>Zero-Trust &amp; Cybersecurity Pod</span>
+          <div class="accel-module-badge" style="color:#00BCD4;background-color:rgba(0,188,212,0.08);">
+            <span class="module-badge-dot" style="background-color:#00BCD4;"></span>
+            <span>Zero-Trust &amp; Enterprise Security Pod</span>
           </div>
-
           <h3 class="accel-headline">
-            Accelerating enterprise pipeline, 
-            <span class="accel-headline-highlight" style="color: #00BCD4;">faster with Zero-Trust.</span>
+            Accelerating enterprise pipeline <span class="accel-headline-highlight" style="color:#00BCD4;">for next-gen security solutions.</span>
           </h3>
-
           <p class="accel-story-p">
-            Fortanixor needed to reach enterprise accounts and book high-intent security leadership meetings without adding fixed headcount ahead of critical growth milestones. AFA deployed an embedded outbound SDR pod tailored specifically to CISOs and IT Directors.
+            Fortanixor needed to engage Fortune 500 CISOs and security leaders without burning capital on slow, expensive in-house sales hiring. AFA deployed an embedded commercial sales pod with deep technical messaging, securing high-intent enterprise evaluations and executive meetings.
           </p>
-
           <div class="accel-features-section">
-            <span class="accel-features-title">EXPLORE ALL FEATURES</span>
+            <span class="accel-features-title">WHAT AFA TECHNOLOGIES DEPLOYED</span>
             <div class="accel-features-grid">
               <div class="accel-feat-box feat-box--purple">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><circle cx="11" cy="11" r="3"></circle></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Account Mapping</b>
-                  <span class="feat-box-desc">Precision CISO &amp; VP IT target accounts</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Account Mapping</b><span class="feat-box-desc">Targeted Fortune 500 CISOs and VP Security leaders</span></div>
               </div>
               <div class="accel-feat-box feat-box--green">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Multi-Touch Motion</b>
-                  <span class="feat-box-desc">Tailored executive LinkedIn &amp; email cadences</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Multi-Touch Outreach</b><span class="feat-box-desc">Tailored executive LinkedIn &amp; technical email briefs</span></div>
               </div>
               <div class="accel-feat-box feat-box--teal">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Zero-Trust Outreach</b>
-                  <span class="feat-box-desc">100% SOC2 &amp; technical compliance messaging</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Zero-Trust Verification</b><span class="feat-box-desc">100% technical compliance &amp; criteria pre-screening</span></div>
               </div>
               <div class="accel-feat-box feat-box--blue">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Meeting Qualification</b>
-                  <span class="feat-box-desc">Pre-vetted executive discovery calls booked</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">High-Intent Discovery</b><span class="feat-box-desc">Only decision-makers with active budget booked</span></div>
               </div>
             </div>
           </div>
-
-          <a href="#contact" class="accel-explore-link" style="color: #00BCD4;">
-            <span>Explore Fortanixor GTM Pod</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          <a href="#contact" class="accel-explore-link" style="color:#00BCD4;">
+            <span>Explore Fortanixor Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
           </a>
         </div>
-
         <div class="accel-col-mockup">
           <div class="accel-mockup-window accel-mockup-window--fortanixor">
             <div class="mockup-window-header">
-              <div class="window-dots" aria-hidden="true">
-                <span class="dot dot--red"></span>
-                <span class="dot dot--yellow"></span>
-                <span class="dot dot--green"></span>
-              </div>
-              <div class="mockup-window-title">AFA Engine • Pipeline Operations • Fortanixor CISO Pod</div>
+              <div class="window-dots"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div>
+              <div class="mockup-window-title">AFA Commercial Engine • Enterprise Pipeline • Fortanixor Security</div>
             </div>
-
             <div class="mockup-window-body">
-              <div class="mockup-status-banner" style="background-color: rgba(0, 188, 212, 0.08); border-color: rgba(0, 188, 212, 0.22);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00BCD4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                <span>✓ 100% Zero-Trust Compliance • 14-Day Pod Launch • 38 Enterprise Accounts Engaged</span>
+              <div class="mockup-status-banner" style="background-color:rgba(0,188,212,0.08);border-color:rgba(0,188,212,0.22);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00BCD4" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>✓ 48 Enterprise Accounts Engaged • $2.4M Qualified Pipeline • 100% CISO Verification</span>
               </div>
-
               <div class="mockup-kanban-deck">
                 <div class="mockup-kanban-headers">
-                  <div class="kanban-col-head"><span class="col-name">ENGAGED</span><span class="col-count">38</span></div>
-                  <div class="kanban-col-head"><span class="col-name">DISCOVERY</span><span class="col-count">14</span></div>
-                  <div class="kanban-col-head"><span class="col-name">QUALIFIED</span><span class="col-count">6</span></div>
+                  <div class="kanban-col-head"><span class="col-name">ACCOUNTS</span><span class="col-count">48</span></div>
+                  <div class="kanban-col-head"><span class="col-name">DISCOVERY</span><span class="col-count">16</span></div>
+                  <div class="kanban-col-head"><span class="col-name">PIPELINE</span><span class="col-count">$2.4M</span></div>
                 </div>
-
-                <div class="mockup-leads-grid">
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #0f766e;">DV</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">David Vance</strong>
-                        <span class="lead-role">Chief Information Security Officer</span>
-                      </div>
+                <div class="mockup-deals-grid">
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(0,188,212,0.08);color:#00BCD4;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Global FinTech Banking Corp</strong><span class="deal-buyer-role">CISO Office</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">FinTech Scale-Up</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 98</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$180,000 ACV</span><span class="deal-stage-pill deal-stage-pill--won">Security Audit Passed ✓</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #4338ca;">ER</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Elena Rostova</strong>
-                        <span class="lead-role">VP Global Cybersecurity</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(0,188,212,0.08);color:#00BCD4;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Enterprise CloudScale Tech</strong><span class="deal-buyer-role">VP Cyber Defense &amp; Infra</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Enterprise Cloud</span>
-                      <span class="lead-status-pill lead-status-pill--active">Today 3:00 PM</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$120,000 ACV</span><span class="deal-stage-pill deal-stage-pill--won">Technical POV Won</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #065f46;">MV</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Marcus Vance</strong>
-                        <span class="lead-role">Head of Infrastructure &amp; Auth</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(0,188,212,0.08);color:#00BCD4;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Tier-1 Supply Chain Logistics</strong><span class="deal-buyer-role">Head of Information Security</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Global Logistics</span>
-                      <span class="lead-status-pill lead-status-pill--success">Accepted ✓</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$240,000 ACV</span><span class="deal-stage-pill deal-stage-pill--review">Procurement Review</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #1e293b;">JB</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Julian Becker</strong>
-                        <span class="lead-role">Director Security Architecture</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(0,188,212,0.08);color:#00BCD4;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">HealthData Global Network</strong><span class="deal-buyer-role">Director Identity &amp; Auth</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">B2B SaaS 5 yr</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 94</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$95,000 ACV</span><span class="deal-stage-pill deal-stage-pill--active">Discovery Confirmed</span></div>
                   </div>
                 </div>
               </div>
-
-              <div class="mockup-window-footer" style="background-color: rgba(0, 188, 212, 0.08);">
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #00BCD4;">14 Days</strong>
-                  <span class="mockup-stat-label">Ramp to First Meetings</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #00BCD4;">100%</strong>
-                  <span class="mockup-stat-label">Zero-Trust Compliance</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #00BCD4;">3 Regions</strong>
-                  <span class="mockup-stat-label">Simultaneous Time Zones</span>
-                </div>
+              <div class="mockup-window-footer" style="background-color:rgba(0,188,212,0.08);">
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#00BCD4;">$2.4M+</strong><span class="mockup-stat-label">Enterprise Pipeline Generated</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#00BCD4;">38</strong><span class="mockup-stat-label">Executive Demos Delivered</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#00BCD4;">3.2x</strong><span class="mockup-stat-label">Average Deal Size Increase</span></div>
               </div>
             </div>
           </div>
@@ -2666,161 +2744,94 @@ ul{margin:0;padding:0;list-style:none}
       <!-- 2. Najoomi Panel -->
       <article class="accel-case-panel accel-case-panel--najoomi" role="tabpanel" id="panel-najoomi" aria-labelledby="tab-najoomi" hidden>
         <div class="accel-col-content">
-          <div class="accel-module-badge" style="color: #a855f7; background-color: rgba(168, 85, 247, 0.08);">
-            <span class="module-badge-dot" style="background-color: #a855f7;"></span>
-            <span>Digital Platform &amp; Conversational AI</span>
+          <div class="accel-module-badge" style="color:#a855f7;background-color:rgba(168,85,247,0.08);">
+            <span class="module-badge-dot" style="background-color:#a855f7;"></span>
+            <span>Digital Platform &amp; AI Commercialization</span>
           </div>
-
           <h3 class="accel-headline">
-            Building a scalable B2B acquisition engine, 
-            <span class="accel-headline-highlight" style="color: #a855f7;">powered by AI velocity.</span>
+            Turning conversational AI velocity <span class="accel-headline-highlight" style="color:#a855f7;">into predictable B2B revenue.</span>
           </h3>
-
           <p class="accel-story-p">
-            Najoomi wanted to turn high market interest into predictable commercial conversations. AFA deployed structured CRM pipeline stages, refined ICP segmentation, and dedicated sales development specialists to qualify and nurture sales pipelines.
+            Najoomi built an advanced conversational AI platform and needed rapid, multi-region commercial pipeline. AFA engineered ICP segmentation, deployed dedicated GTM outbound specialists, and established a steady stream of enterprise pilot opportunities.
           </p>
-
           <div class="accel-features-section">
-            <span class="accel-features-title">EXPLORE ALL FEATURES</span>
+            <span class="accel-features-title">WHAT AFA TECHNOLOGIES DEPLOYED</span>
             <div class="accel-features-grid">
               <div class="accel-feat-box feat-box--purple">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">ICP Segmentation</b>
-                  <span class="feat-box-desc">Targeted digital platform &amp; enterprise buyers</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">ICP Segmentation</b><span class="feat-box-desc">Targeted enterprise digital customer operations</span></div>
               </div>
               <div class="accel-feat-box feat-box--green">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">CRM Architecture</b>
-                  <span class="feat-box-desc">Full pipeline visibility from touch to close</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">CRM Architecture</b><span class="feat-box-desc">Full pipeline visibility from initial touch to demo close</span></div>
               </div>
               <div class="accel-feat-box feat-box--teal">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Speed to Lead</b>
-                  <span class="feat-box-desc">Rapid qualification workflows for inbound &amp; outbound</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Demo Acceleration</b><span class="feat-box-desc">Rapid qualification workflows for high-intent accounts</span></div>
               </div>
               <div class="accel-feat-box feat-box--blue">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Predictable Cadence</b>
-                  <span class="feat-box-desc">Consistent monthly qualified sales opportunities</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Multi-Region GTM</b><span class="feat-box-desc">Active outreach across Middle East, UK, and Europe</span></div>
               </div>
             </div>
           </div>
-
-          <a href="#contact" class="accel-explore-link" style="color: #a855f7;">
-            <span>Explore Najoomi Scale Engine</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          <a href="#contact" class="accel-explore-link" style="color:#a855f7;">
+            <span>Explore Najoomi Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
           </a>
         </div>
-
         <div class="accel-col-mockup">
           <div class="accel-mockup-window accel-mockup-window--najoomi">
             <div class="mockup-window-header">
-              <div class="window-dots" aria-hidden="true">
-                <span class="dot dot--red"></span>
-                <span class="dot dot--yellow"></span>
-                <span class="dot dot--green"></span>
-              </div>
-              <div class="mockup-window-title">AFA Engine • Pipeline Operations • Najoomi AI Platform</div>
+              <div class="window-dots"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div>
+              <div class="mockup-window-title">AFA Commercial Engine • Enterprise Pipeline • Najoomi AI Platform</div>
             </div>
-
             <div class="mockup-window-body">
-              <div class="mockup-status-banner" style="background-color: rgba(168, 85, 247, 0.08); border-color: rgba(168, 85, 247, 0.22);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                <span>✓ 3.8x Meeting Pipeline Velocity • Clean CRM Funnel • 42 Qualified Opportunities</span>
+              <div class="mockup-status-banner" style="background-color:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.22);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>✓ 64 Enterprise Accounts Reached • 24 Qualified Commercial Proposals • $2.1M GTM Pipeline</span>
               </div>
-
               <div class="mockup-kanban-deck">
                 <div class="mockup-kanban-headers">
-                  <div class="kanban-col-head"><span class="col-name">LEADS</span><span class="col-count">94</span></div>
-                  <div class="kanban-col-head"><span class="col-name">QUALIFIED</span><span class="col-count">28</span></div>
-                  <div class="kanban-col-head"><span class="col-name">BOOKED</span><span class="col-count">12</span></div>
+                  <div class="kanban-col-head"><span class="col-name">ENGAGED</span><span class="col-count">64</span></div>
+                  <div class="kanban-col-head"><span class="col-name">QUALIFIED</span><span class="col-count">24</span></div>
+                  <div class="kanban-col-head"><span class="col-name">PIPELINE</span><span class="col-count">$2.1M</span></div>
                 </div>
-
-                <div class="mockup-leads-grid">
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #6b21a8;">AM</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Amina Al-Mansoor</strong>
-                        <span class="lead-role">Head of Digital Experience</span>
-                      </div>
+                <div class="mockup-deals-grid">
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(168,85,247,0.08);color:#a855f7;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">OmniRetail Group (UK &amp; ME)</strong><span class="deal-buyer-role">Head of Digital CX</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Omnichannel Retail</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 96</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$145,000 ACV</span><span class="deal-stage-pill deal-stage-pill--won">Proposal Delivered ✓</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #4338ca;">TR</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Tariq Rahmani</strong>
-                        <span class="lead-role">Chief Technology Officer</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(168,85,247,0.08);color:#a855f7;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Apex Telecom International</strong><span class="deal-buyer-role">Chief Technology Officer</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Telecom Enterprise</span>
-                      <span class="lead-status-pill lead-status-pill--active">Today 11:30 AM</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$210,000 ACV</span><span class="deal-stage-pill deal-stage-pill--won">Workshop Completed</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #0f766e;">KZ</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Kareem Zaheer</strong>
-                        <span class="lead-role">VP Operations &amp; Automation</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(168,85,247,0.08);color:#a855f7;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">FinCorp Digital Banking</strong><span class="deal-buyer-role">VP Customer Support Ops</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Fintech Platform</span>
-                      <span class="lead-status-pill lead-status-pill--success">Demo Confirmed ✓</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$160,000 ACV</span><span class="deal-stage-pill deal-stage-pill--review">Live Pilot Scheduled</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #1e293b;">SH</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Sarah Hashmi</strong>
-                        <span class="lead-role">Director Enterprise Support</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(168,85,247,0.08);color:#a855f7;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">AeroLogistics Global</strong><span class="deal-buyer-role">Director Enterprise Solutions</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Logistics AI 4 yr</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 92</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$85,000 ACV</span><span class="deal-stage-pill deal-stage-pill--active">Discovery Completed</span></div>
                   </div>
                 </div>
               </div>
-
-              <div class="mockup-window-footer" style="background-color: rgba(168, 85, 247, 0.08);">
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #a855f7;">3.8x</strong>
-                  <span class="mockup-stat-label">Pipeline Velocity Ramp</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #a855f7;">42+</strong>
-                  <span class="mockup-stat-label">Sales Qualified Meetings</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #a855f7;">&lt; 24h</strong>
-                  <span class="mockup-stat-label">Lead Qualification Turnaround</span>
-                </div>
+              <div class="mockup-window-footer" style="background-color:rgba(168,85,247,0.08);">
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#a855f7;">$2.1M</strong><span class="mockup-stat-label">Qualified Sales Pipeline</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#a855f7;">44</strong><span class="mockup-stat-label">Executive Demos Booked</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#a855f7;">28%</strong><span class="mockup-stat-label">Lead-to-Opportunity Rate</span></div>
               </div>
             </div>
           </div>
@@ -2830,161 +2841,94 @@ ul{margin:0;padding:0;list-style:none}
       <!-- 3. Keystone Panel -->
       <article class="accel-case-panel accel-case-panel--keystone" role="tabpanel" id="panel-keystone" aria-labelledby="tab-keystone" hidden>
         <div class="accel-col-content">
-          <div class="accel-module-badge" style="color: #f59e0b; background-color: rgba(245, 158, 11, 0.08);">
-            <span class="module-badge-dot" style="background-color: #f59e0b;"></span>
-            <span>Enterprise Advisory &amp; Scale</span>
+          <div class="accel-module-badge" style="color:#f59e0b;background-color:rgba(245,158,11,0.08);">
+            <span class="module-badge-dot" style="background-color:#f59e0b;"></span>
+            <span>Enterprise Advisory &amp; Vertical Expansion</span>
           </div>
-
           <h3 class="accel-headline">
-            Unlocking new market verticals, 
-            <span class="accel-headline-highlight" style="color: #f59e0b;">freeing partners to close.</span>
+            Penetrating new market verticals <span class="accel-headline-highlight" style="color:#f59e0b;">while freeing partners to close.</span>
           </h3>
-
           <p class="accel-story-p">
-            Keystone's leadership was spending too much valuable time prospecting early-stage leads instead of focusing on high-value client delivery and closing. AFA's embedded Sales pod took over top-of-funnel account mapping and initial discovery qualification.
+            Keystone's senior partners were spending critical billable hours on cold prospecting instead of advising clients and closing large mandates. AFA took over top-of-funnel account mapping, booking senior executive advisory appointments across four new industry verticals.
           </p>
-
           <div class="accel-features-section">
-            <span class="accel-features-title">EXPLORE ALL FEATURES</span>
+            <span class="accel-features-title">WHAT AFA TECHNOLOGIES DEPLOYED</span>
             <div class="accel-features-grid">
               <div class="accel-feat-box feat-box--purple">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Vertical Expansion</b>
-                  <span class="feat-box-desc">Penetrated 4 new enterprise market verticals</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Vertical Expansion</b><span class="feat-box-desc">Successfully penetrated 4 new enterprise market verticals</span></div>
               </div>
               <div class="accel-feat-box feat-box--green">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Bespoke Sequencing</b>
-                  <span class="feat-box-desc">High-touch C-suite strategic advisory briefs</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Executive Briefs</b><span class="feat-box-desc">High-touch C-suite strategic advisory introductions</span></div>
               </div>
               <div class="accel-feat-box feat-box--teal">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Partner Time Reclaimed</b>
-                  <span class="feat-box-desc">Senior partners freed up strictly to close</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Time Reclaimed</b><span class="feat-box-desc">Senior partners freed 100% to focus on advisory closing</span></div>
               </div>
               <div class="accel-feat-box feat-box--blue">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Calendar Influx</b>
-                  <span class="feat-box-desc">Steady stream of qualified appointments on executive calendars</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Calendar Cadence</b><span class="feat-box-desc">Predictable stream of qualified appointments every month</span></div>
               </div>
             </div>
           </div>
-
-          <a href="#contact" class="accel-explore-link" style="color: #f59e0b;">
-            <span>Explore Keystone Expansion</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          <a href="#contact" class="accel-explore-link" style="color:#f59e0b;">
+            <span>Explore Keystone Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
           </a>
         </div>
-
         <div class="accel-col-mockup">
           <div class="accel-mockup-window accel-mockup-window--keystone">
             <div class="mockup-window-header">
-              <div class="window-dots" aria-hidden="true">
-                <span class="dot dot--red"></span>
-                <span class="dot dot--yellow"></span>
-                <span class="dot dot--green"></span>
-              </div>
-              <div class="mockup-window-title">AFA Engine • Pipeline Operations • Keystone Advisory Pod</div>
+              <div class="window-dots"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div>
+              <div class="mockup-window-title">AFA Commercial Engine • Enterprise Pipeline • Keystone Advisory</div>
             </div>
-
             <div class="mockup-window-body">
-              <div class="mockup-status-banner" style="background-color: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.22);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                <span>✓ 4 New Verticals Booked • Senior Partners 100% Focused on Closing • Zero Hiring Risk</span>
+              <div class="mockup-status-banner" style="background-color:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.22);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>✓ 4 New Vertical Markets Opened • 18 Retained Partner Deals • Senior Partners 100% Closing</span>
               </div>
-
               <div class="mockup-kanban-deck">
                 <div class="mockup-kanban-headers">
-                  <div class="kanban-col-head"><span class="col-name">TARGETED</span><span class="col-count">64</span></div>
-                  <div class="kanban-col-head"><span class="col-name">MEETINGS</span><span class="col-count">18</span></div>
-                  <div class="kanban-col-head"><span class="col-name">ENGAGED</span><span class="col-count">8</span></div>
+                  <div class="kanban-col-head"><span class="col-name">TARGETED</span><span class="col-count">52</span></div>
+                  <div class="kanban-col-head"><span class="col-name">ADVISORY</span><span class="col-count">18</span></div>
+                  <div class="kanban-col-head"><span class="col-name">PIPELINE</span><span class="col-count">$3.8M</span></div>
                 </div>
-
-                <div class="mockup-leads-grid">
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #b45309;">AK</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Arthur Kensington</strong>
-                        <span class="lead-role">Managing Director &amp; Founder</span>
-                      </div>
+                <div class="mockup-deals-grid">
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(245,158,11,0.08);color:#f59e0b;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Apex Capital Partners</strong><span class="deal-buyer-role">Managing Director &amp; General Partner</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Private Equity</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 97</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$320,000 Advisory</span><span class="deal-stage-pill deal-stage-pill--won">Closing Session ✓</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #92400e;">PL</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Patricia Lee</strong>
-                        <span class="lead-role">Chief Operating Officer</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(245,158,11,0.08);color:#f59e0b;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">BioPharma Solutions Holdings</strong><span class="deal-buyer-role">Chief Operating Officer (COO)</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Healthcare Tech</span>
-                      <span class="lead-status-pill lead-status-pill--active">Tomorrow 2:00 PM</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$190,000 Advisory</span><span class="deal-stage-pill deal-stage-pill--won">Scope Finalized</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #065f46;">RS</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Robert Sterling</strong>
-                        <span class="lead-role">VP Corporate Strategy</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(245,158,11,0.08);color:#f59e0b;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Nordic CleanTech Group</strong><span class="deal-buyer-role">VP Corporate Strategy</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Renewable Energy</span>
-                      <span class="lead-status-pill lead-status-pill--success">Partner Intro ✓</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$240,000 Advisory</span><span class="deal-stage-pill deal-stage-pill--review">Brief Delivered</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #1e293b;">CN</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Claire Newman</strong>
-                        <span class="lead-role">Head of Global Expansion</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(245,158,11,0.08);color:#f59e0b;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Horizon Global Logistics</strong><span class="deal-buyer-role">Head of Strategic Expansion</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">B2B Logistics</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 95</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$150,000 Advisory</span><span class="deal-stage-pill deal-stage-pill--active">Retainer Agreed</span></div>
                   </div>
                 </div>
               </div>
-
-              <div class="mockup-window-footer" style="background-color: rgba(245, 158, 11, 0.08);">
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #f59e0b;">4 Verticals</strong>
-                  <span class="mockup-stat-label">New Market Verticals</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #f59e0b;">60%</strong>
-                  <span class="mockup-stat-label">Partner Time Reclaimed</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #f59e0b;">100%</strong>
-                  <span class="mockup-stat-label">Executive Closing Focus</span>
-                </div>
+              <div class="mockup-window-footer" style="background-color:rgba(245,158,11,0.08);">
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#f59e0b;">4</strong><span class="mockup-stat-label">New Market Verticals Opened</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#f59e0b;">$3.8M</strong><span class="mockup-stat-label">Total Advisory Pipeline</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#f59e0b;">65%</strong><span class="mockup-stat-label">Partner Time Reclaimed</span></div>
               </div>
             </div>
           </div>
@@ -2994,161 +2938,94 @@ ul{margin:0;padding:0;list-style:none}
       <!-- 4. Accelerec Panel -->
       <article class="accel-case-panel accel-case-panel--accelerec" role="tabpanel" id="panel-accelerec" aria-labelledby="tab-accelerec" hidden>
         <div class="accel-col-content">
-          <div class="accel-module-badge" style="color: #10b981; background-color: rgba(16, 185, 129, 0.08);">
-            <span class="module-badge-dot" style="background-color: #10b981;"></span>
-            <span>ATS Module</span>
+          <div class="accel-module-badge" style="color:#10b981;background-color:rgba(16,185,129,0.08);">
+            <span class="module-badge-dot" style="background-color:#10b981;"></span>
+            <span>HR Tech Commercial Engine &amp; Software Sales</span>
           </div>
-
           <h3 class="accel-headline">
-            Hire the right people, 
-            <span class="accel-headline-highlight" style="color: #10b981;">faster with AI.</span>
+            Scaling enterprise software adoption <span class="accel-headline-highlight" style="color:#10b981;">across corporate HR leaders.</span>
           </h3>
-
           <p class="accel-story-p">
-            From your first job post to the final offer letter Accelerec's AI handles the slow, repetitive parts so your team focuses on great conversations not spreadsheets.
+            Accelerec developed a smart HRMS &amp; ATS software suite. AFA acted as their external commercial sales arm, prospecting corporate employers, booking high-converting platform demonstrations with People Officers, and scaling monthly software ARR.
           </p>
-
           <div class="accel-features-section">
-            <span class="accel-features-title">EXPLORE ALL FEATURES</span>
+            <span class="accel-features-title">WHAT AFA TECHNOLOGIES DEPLOYED</span>
             <div class="accel-features-grid">
               <div class="accel-feat-box feat-box--purple">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">AI Screening</b>
-                  <span class="feat-box-desc">Auto-rank every applicant</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">HR Executive Targeting</b><span class="feat-box-desc">Targeted Heads of Talent, VP People, and CPOs in 500+ employee firms</span></div>
               </div>
               <div class="accel-feat-box feat-box--green">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">AI Interview</b>
-                  <span class="feat-box-desc">Auto-screen every applicant</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 11 12 14 22 4"></polyline></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Live Product Demos</b><span class="feat-box-desc">Booked qualified software walk-throughs with key budget holders</span></div>
               </div>
               <div class="accel-feat-box feat-box--teal">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">TextConnect</b>
-                  <span class="feat-box-desc">SMS with 98% open rate</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">CAC Optimization</b><span class="feat-box-desc">Slashed client acquisition cost by 55% compared to internal hiring</span></div>
               </div>
               <div class="accel-feat-box feat-box--blue">
-                <div class="feat-box-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                </div>
-                <div class="feat-box-text">
-                  <b class="feat-box-title">Analytics</b>
-                  <span class="feat-box-desc">Time to hire &amp; pipeline data</span>
-                </div>
+                <div class="feat-box-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg></div>
+                <div class="feat-box-text"><b class="feat-box-title">Predictable ARR Engine</b><span class="feat-box-desc">Built a growing multi-million dollar annual software sales pipeline</span></div>
               </div>
             </div>
           </div>
-
-          <a href="#contact" class="accel-explore-link" style="color: #10b981;">
-            <span>see all ATS features</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          <a href="#contact" class="accel-explore-link" style="color:#10b981;">
+            <span>Explore Accelerec Case Study</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
           </a>
         </div>
-
         <div class="accel-col-mockup">
           <div class="accel-mockup-window accel-mockup-window--accelerec">
             <div class="mockup-window-header">
-              <div class="window-dots" aria-hidden="true">
-                <span class="dot dot--red"></span>
-                <span class="dot dot--yellow"></span>
-                <span class="dot dot--green"></span>
-              </div>
-              <div class="mockup-window-title">Accelerec- Candidate Pipeline • Senior Designer</div>
+              <div class="window-dots"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div>
+              <div class="mockup-window-title">AFA Commercial Engine • Enterprise Pipeline • Accelerec Platform</div>
             </div>
-
             <div class="mockup-window-body">
-              <div class="mockup-status-banner" style="background-color: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.22);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                <span>✓ AI screened 94 applications • Top 6 matched • 4 Interviews scheduled</span>
+              <div class="mockup-status-banner" style="background-color:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.22);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>✓ 72 Mid-Market &amp; Enterprise Accounts Engaged • 32 Qualified Product Demos • 92% Show-Up Rate</span>
               </div>
-
               <div class="mockup-kanban-deck">
                 <div class="mockup-kanban-headers">
-                  <div class="kanban-col-head"><span class="col-name">APPLIED</span><span class="col-count">94</span></div>
-                  <div class="kanban-col-head"><span class="col-name">INTERVIEW</span><span class="col-count">4</span></div>
-                  <div class="kanban-col-head"><span class="col-name">OFFER</span><span class="col-count">1</span></div>
+                  <div class="kanban-col-head"><span class="col-name">ACCOUNTS</span><span class="col-count">72</span></div>
+                  <div class="kanban-col-head"><span class="col-name">DEMOS</span><span class="col-count">32</span></div>
+                  <div class="kanban-col-head"><span class="col-name">PIPELINE</span><span class="col-count">$1.4M</span></div>
                 </div>
-
-                <div class="mockup-leads-grid">
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #065f46;">SA</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Sara Ahmed</strong>
-                        <span class="lead-role">Senior Designer</span>
-                      </div>
+                <div class="mockup-deals-grid">
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(16,185,129,0.08);color:#10b981;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Global Tech Consulting (12k Staff)</strong><span class="deal-buyer-role">Global Head of Talent Acquisition</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Figma 5 yr</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 96</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$84,000 ARR</span><span class="deal-stage-pill deal-stage-pill--won">Contract Review ✓</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #4338ca;">NR</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Nadia Rao</strong>
-                        <span class="lead-role">Brand Designer</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(16,185,129,0.08);color:#10b981;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">FinTech Unicorn Scale-Up</strong><span class="deal-buyer-role">VP People &amp; Culture</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Global Brand</span>
-                      <span class="lead-status-pill lead-status-pill--active">Today 2:00 PM</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$52,000 ARR</span><span class="deal-stage-pill deal-stage-pill--won">Platform Demo Won</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #064e3b;">JT</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">James Tan</strong>
-                        <span class="lead-role">Lead Designer</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(16,185,129,0.08);color:#10b981;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">Enterprise Retail Network</strong><span class="deal-buyer-role">Chief People Officer (CPO)</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Design System</span>
-                      <span class="lead-status-pill lead-status-pill--success">Accepted ✓</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$110,000 ARR</span><span class="deal-stage-pill deal-stage-pill--review">Executive Buy-in</span></div>
                   </div>
-                  <div class="mockup-lead-card">
-                    <div class="lead-card-left">
-                      <div class="lead-avatar" style="background-color: #0f766e;">MK</div>
-                      <div class="lead-meta">
-                        <strong class="lead-name">Mark Karim</strong>
-                        <span class="lead-role">Marketing Manager</span>
-                      </div>
+                  <div class="mockup-deal-card">
+                    <div class="deal-card-left">
+                      <div class="deal-account-icon" style="background-color:rgba(16,185,129,0.08);color:#10b981;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                      <div class="deal-meta"><strong class="deal-account-name">B2B Cloud Solutions</strong><span class="deal-buyer-role">Director Talent &amp; Ops</span></div>
                     </div>
-                    <div class="lead-card-right">
-                      <span class="lead-tag">Marketing 4 yr</span>
-                      <span class="lead-status-pill lead-status-pill--score">Score 91</span>
-                    </div>
+                    <div class="deal-card-right"><span class="deal-value-badge">$45,000 ARR</span><span class="deal-stage-pill deal-stage-pill--active">Demo Delivered</span></div>
                   </div>
                 </div>
               </div>
-
-              <div class="mockup-window-footer" style="background-color: rgba(16, 185, 129, 0.08);">
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #10b981;">70 %</strong>
-                  <span class="mockup-stat-label">Faster Hiring</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #10b981;">85%</strong>
-                  <span class="mockup-stat-label">Less Screening</span>
-                </div>
-                <div class="mockup-stat-cell">
-                  <strong class="mockup-stat-val" style="color: #10b981;">94</strong>
-                  <span class="mockup-stat-label">Apps Today</span>
-                </div>
+              <div class="mockup-window-footer" style="background-color:rgba(16,185,129,0.08);">
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#10b981;">$1.4M</strong><span class="mockup-stat-label">Software ARR Pipeline</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#10b981;">32</strong><span class="mockup-stat-label">Enterprise Product Demos</span></div>
+                <div class="mockup-stat-cell"><strong class="mockup-stat-val" style="color:#10b981;">55%</strong><span class="mockup-stat-label">Lower Acquisition Cost (CAC)</span></div>
               </div>
             </div>
           </div>
@@ -3158,7 +3035,7 @@ ul{margin:0;padding:0;list-style:none}
 
     <!-- Section Bottom CTA -->
     <div class="cases-cta reveal">
-      <p>Want verified outbound results like these?</p>
+      <p>Want verified enterprise pipeline results like these?</p>
       <a class="btn btn--navy" href="#contact">
         Book a growth strategy consultation
       </a>

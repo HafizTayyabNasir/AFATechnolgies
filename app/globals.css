@@ -836,6 +836,44 @@ ul{margin:0;padding:0;list-style:none}
   transform: scale(1.2);
 }
 
+.partner-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.partner-logo-svg {
+  height: 24px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.partner-logo-img {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.partner-logo-text {
+  font-family: var(--display, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0a1e38;
+}
+
+.keystone-text {
+  font-family: serif;
+  letter-spacing: 0.08em;
+  color: #d97706;
+}
+
+.fortanixor-text {
+  color: #0284c7;
+}
+
 /* Showcase Container */
 .accel-showcase-container {
   background: #ffffff;
@@ -1159,11 +1197,109 @@ ul{margin:0;padding:0;list-style:none}
   color: #0a1e38;
 }
 
-/* Leads Grid */
-.mockup-leads-grid {
+/* Leads & Deals Grid */
+.mockup-leads-grid,
+.mockup-deals-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.mockup-deal-card {
+  background: #ffffff;
+  border: 1px solid rgba(10, 30, 56, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 3px 10px -2px rgba(10, 30, 56, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mockup-deal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(10, 30, 56, 0.08);
+}
+
+.deal-card-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.deal-account-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.deal-meta {
+  min-width: 0;
+}
+
+.deal-account-name {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #0a1e38;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+
+.deal-buyer-role {
+  display: block;
+  font-size: 0.72rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deal-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.deal-value-badge {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0a1e38;
+  letter-spacing: -0.01em;
+}
+
+.deal-stage-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.deal-stage-pill--won {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.deal-stage-pill--review {
+  background: rgba(99, 102, 241, 0.15);
+  color: #4f46e5;
+}
+
+.deal-stage-pill--active {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0284c7;
 }
 
 .mockup-lead-card {
