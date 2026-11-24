@@ -15,8 +15,9 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, boolean> = {};
 
@@ -35,7 +36,28 @@ export default function Contact() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setIsSubmitted(true);
+      setIsSubmitting(true);
+      try {
+        await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            market: formData.market,
+            team: formData.team,
+            goal: formData.goal,
+            message: formData.message,
+            source: "Contact Section",
+          }),
+        });
+      } catch (err) {
+        console.warn("Contact form submission error:", err);
+      } finally {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      }
     }
   };
 
@@ -254,8 +276,8 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <button className="btn btn--navy" type="submit">
-                  Book my growth strategy call
+                <button className="btn btn--navy" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Book my growth strategy call"}
                 </button>
                 <p className="form-note">
                   We reply within one business day. Your details are never

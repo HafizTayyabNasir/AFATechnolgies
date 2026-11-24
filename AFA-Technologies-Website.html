@@ -3529,6 +3529,14 @@ ul{margin:0;padding:0;list-style:none}
       e.preventDefault();
       if(!validateForm(f)){var first=f.querySelector('.has-error input,.has-error select');if(first)first.focus();return}
       var data=Object.fromEntries(new FormData(f).entries());
+      data.source = fid === 'hero-lead-form' ? 'Hero Lead Form (HTML)' : 'Contact Section (HTML)';
+      try {
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).catch(function(err){ console.warn('Lead submission network notice:', err); });
+      } catch(e) {}
       f.style.display='none';
       if(d){
         d.classList.add('is-shown');

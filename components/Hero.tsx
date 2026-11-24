@@ -48,8 +48,9 @@ export default function Hero() {
   });
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, boolean> = {};
 
@@ -67,7 +68,26 @@ export default function Hero() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setIsSubmitted(true);
+      setIsSubmitting(true);
+      try {
+        await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            market: formData.market,
+            pod: formData.pod,
+            source: "Hero Lead Form",
+          }),
+        });
+      } catch (err) {
+        console.warn("Hero lead submission error:", err);
+      } finally {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      }
     }
   };
 
@@ -282,8 +302,8 @@ export default function Hero() {
                 <span className="err">Select your product or service type.</span>
               </div>
 
-              <button className="btn-hero-submit" type="submit">
-                Get Sales Team Blueprint &rarr;
+              <button className="btn-hero-submit" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Get Sales Team Blueprint \u2192"}
               </button>
 
               <div className="hero-form-trust">
