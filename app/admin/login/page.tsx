@@ -57,7 +57,7 @@ export default function AdminLoginPage() {
         {/* Brand Header */}
         <div className="admin-login-brand">
           <Image
-            src="/images/logo.webp"
+            src="/images/logo-icon.webp"
             alt="AFA Technologies Logo"
             width={48}
             height={48}

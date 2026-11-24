@@ -18,10 +18,10 @@ export default function Footer() {
           <div className="footer-col-brand">
             <a className="footer-brand-logo" href="#home" aria-label="AFA Technologies">
               <Image
-                src="/images/logo.webp"
+                src="/images/logo-footer.webp"
                 alt="AFA Technologies"
-                width={178}
-                height={36}
+                width={160}
+                height={46}
                 className="footer-logo-img"
               />
             </a>

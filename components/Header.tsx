@@ -43,8 +43,8 @@ export default function Header() {
           <Image
             src="/images/logo.webp"
             alt="AFA Technologies Logo"
-            width={168}
-            height={34}
+            width={160}
+            height={46}
             className="logo-img"
             priority
           />

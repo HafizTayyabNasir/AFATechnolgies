@@ -233,7 +233,7 @@ export default function AdminDashboardPage() {
         <div className="admin-header-wrap">
           <div className="admin-brand-left">
             <Image
-              src="/images/logo.webp"
+              src="/images/logo-icon.webp"
               alt="AFA Technologies Logo"
               width={34}
               height={34}
