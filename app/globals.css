@@ -1418,17 +1418,240 @@ ul{margin:0;padding:0;list-style:none}
 .form-done h3{font-size:1.7rem;margin-bottom:10px}
 .form-done p{color:var(--muted)}
 
-/* ---------- Footer ---------- */
-.footer{background:var(--navy-900);color:#a9c3d6;padding-top:clamp(52px,7vw,88px)}
+/* ---------- Accelerec-Themed Executive Footer ---------- */
+.footer{
+  position: relative;
+  background: radial-gradient(circle at 18% 28%, rgba(0, 229, 153, 0.08) 0%, transparent 55%),
+              radial-gradient(circle at 82% 65%, rgba(0, 189, 242, 0.06) 0%, transparent 50%),
+              linear-gradient(180deg, #02140d 0%, #052417 50%, #03180f 100%);
+  color: #a5c4b5;
+  padding-top: clamp(60px, 8vw, 100px);
+  padding-bottom: 32px;
+  border-top: 1px solid rgba(0, 229, 153, 0.15);
+  overflow: hidden;
+}
+
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.25fr;
+  gap: clamp(32px, 5vw, 64px);
+  padding-bottom: 56px;
+}
+
+.footer-brand-logo {
+  display: inline-block;
+  margin-bottom: 22px;
+  transition: transform 0.25s ease;
+}
+
+.footer-brand-logo:hover {
+  transform: translateY(-2px);
+}
+
+.footer-logo-img {
+  width: auto;
+  height: 38px;
+  display: block;
+  object-fit: contain;
+}
+
+.footer-brand-desc {
+  font-size: 0.96rem;
+  line-height: 1.68;
+  color: #c4dcd1;
+  max-width: 25rem;
+  margin: 0;
+}
+
+.footer-col-title {
+  font-family: var(--display, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav-list li {
+  margin-bottom: 12px;
+}
+
+.footer-nav-list a {
+  color: #b0cdc1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-nav-list a:hover {
+  color: #00e599;
+  transform: translateX(3px);
+}
+
+.footer-contact-details {
+  margin-bottom: 24px;
+}
+
+.footer-contact-line {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  color: #c4dcd1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-contact-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer-contact-val {
+  color: #b0cdc1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-val:hover {
+  color: #00e599;
+}
+
+/* Social Buttons Row */
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.social-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  filter: brightness(1.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.social-btn--facebook {
+  background: #1877F2;
+}
+
+.social-btn--instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-btn--youtube {
+  background: #FF0000;
+}
+
+.social-btn--linkedin {
+  background: #0077B5;
+}
+
+.social-btn--x {
+  background: #0a1118;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Trustpilot Review Badge */
+.footer-trustpilot-badge {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trustpilot-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trustpilot-title {
+  font-family: var(--display, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.trustpilot-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.tp-star {
+  color: #ffb800;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+/* Bottom Legal Bar */
+.footer-accelero-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.88rem;
+  color: #7b9c8e;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-legal-links a {
+  color: #8dafa1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #ffffff;
+}
+
+.footer-legal-divider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.82rem;
+}
+
+.footer-copy-text {
+  color: #6a8c7e;
+}
+
+/* Legacy fallbacks */
+.plate{display:inline-block;background:transparent;border-radius:12px;padding:4px}
+.plate img{height:38px;width:auto}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:clamp(24px,4vw,56px);padding-bottom:48px}
-.plate{display:inline-block;background:#fff;border-radius:16px;padding:14px 20px}
-.plate img{height:84px;width:auto}
 .footer-blurb{margin-top:20px;max-width:21rem;font-size:.98rem}
 .footer h4{font-family:var(--body);font-weight:700;font-size:.95rem;color:#fff;letter-spacing:0;margin-bottom:16px}
 .footer li{margin-bottom:10px}
 .footer a{text-decoration:none;color:#a9c3d6;transition:color .2s}
-.footer a:hover{color:var(--cyan)}
-.footer a.btn,.footer a.btn:hover{color:var(--navy-900)}
+.footer a:hover{color:#00e599}
 .footer-cta{border-top:1px solid rgba(255,255,255,.1);padding-block:28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
 .footer-cta p{font-family:var(--display);color:#fff;font-size:1.35rem;font-weight:600}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-block:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.9rem;color:#7f9cb2}
