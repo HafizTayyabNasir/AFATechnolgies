@@ -153,7 +153,7 @@ function ClientBrandLogo({
     case "najoomi":
       return (
         <Image
-          src="/logos/najoomi-logo.png"
+          src={context === "panel" ? "/logos/najoomi-logo-white.png" : "/logos/najoomi-logo.png"}
           alt="Najoomi Official Logo"
           width={context === "panel" ? 110 : 40}
           height={context === "panel" ? 30 : 22}
@@ -191,7 +191,7 @@ function ClientBrandLogo({
     case "accelerec":
       return (
         <Image
-          src="/logos/accelerec-logo.png"
+          src={context === "panel" ? "/logos/accelerec-logo-white.png" : "/logos/accelerec-logo.png"}
           alt="Accelerec Official Logo"
           width={context === "panel" ? 115 : 40}
           height={context === "panel" ? 30 : 22}
