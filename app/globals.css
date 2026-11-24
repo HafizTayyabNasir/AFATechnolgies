@@ -344,26 +344,22 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* ========================================================
-   FUTURISTIC STATIC CYBER HUD / CIRCULAR RADAR BG (TOP HALF)
+   FUTURISTIC ROTATING CYBER HUD / CIRCULAR RADAR BG
    ======================================================== */
 .cyber-circle-bg-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(640px, 70vw, 1000px);
-  height: clamp(640px, 70vw, 1000px);
+  width: clamp(620px, 65vw, 960px);
+  height: clamp(620px, 65vw, 960px);
   pointer-events: none;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.88;
-  clip-path: inset(0 0 50% 0);
-  -webkit-clip-path: inset(0 0 50% 0);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 50%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 50%);
-  overflow: hidden;
+  opacity: 0.9;
+  overflow: visible;
 }
 
 .cyber-circle-svg {
@@ -372,28 +368,50 @@ ul{margin:0;padding:0;list-style:none}
   overflow: visible;
 }
 
+/* Multi-Layer Continuous Rotation Keyframes */
+@keyframes hudSpinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hudSpinCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
 .hud-layer {
   transform-origin: 450px 450px;
+  will-change: transform;
 }
 
-/* Static Telemetry Dial - Non-rotating as requested */
-.hud-layer--outer-cw,
-.hud-layer--ticks-ccw,
-.hud-layer--middle-cw,
-.hud-layer--inner-ccw,
+.hud-layer--outer-cw {
+  animation: hudSpinClockwise 55s linear infinite;
+}
+
+.hud-layer--ticks-ccw {
+  animation: hudSpinCounterClockwise 38s linear infinite;
+}
+
+.hud-layer--middle-cw {
+  animation: hudSpinClockwise 26s linear infinite;
+}
+
+.hud-layer--inner-ccw {
+  animation: hudSpinCounterClockwise 18s linear infinite;
+}
+
 .hud-layer--core-cw {
-  animation: none !important;
+  animation: hudSpinClockwise 12s linear infinite;
 }
 
-/* Custom position and sizing for #why-afa section */
-.why-cyber-circle-bg {
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(720px, 80vw, 1150px);
-  height: clamp(720px, 80vw, 1150px);
-  opacity: 0.65;
-  z-index: 1;
+@media (prefers-reduced-motion: reduce) {
+  .hud-layer--outer-cw,
+  .hud-layer--ticks-ccw,
+  .hud-layer--middle-cw,
+  .hud-layer--inner-ccw,
+  .hud-layer--core-cw {
+    animation: none;
+  }
 }
 
 /* Partners Bar Header */

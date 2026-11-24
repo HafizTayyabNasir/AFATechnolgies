@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import CyberCircularBg from "./CyberCircularBg";
 
 interface Particle {
   x: number;
@@ -169,9 +168,6 @@ export default function WhyAFA() {
 
   return (
     <section className="section section--navy section-why-particles" id="why-afa" ref={sectionRef}>
-      {/* Static Top-Half Futuristic Cyber Circular HUD */}
-      <CyberCircularBg className="why-cyber-circle-bg" />
-
       {/* Dynamic Cyber Particles Network Canvas */}
       <canvas ref={canvasRef} className="why-particles-canvas" aria-hidden="true" />
 
