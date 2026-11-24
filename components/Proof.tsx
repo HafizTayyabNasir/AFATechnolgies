@@ -114,11 +114,22 @@ export default function Proof() {
     },
   ];
 
-  const handleCardClick = (clientId: string) => {
+  const handleCardClick = (e: React.MouseEvent, clientId: string) => {
+    e.preventDefault();
     if (typeof window !== "undefined") {
       const targetTab = document.getElementById(`tab-${clientId}`);
       if (targetTab) {
         targetTab.click();
+      }
+      const targetElement = document.querySelector('.accel-cases-layout') || document.getElementById('client-impact');
+      if (targetElement) {
+        const headerOffset = 85;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
     }
   };
@@ -127,7 +138,7 @@ export default function Proof() {
     <li key={`${keyPrefix}-${p.id}-${idx}`} className="marquee-item">
       <a
         href="#client-impact"
-        onClick={() => handleCardClick(p.id)}
+        onClick={(e) => handleCardClick(e, p.id)}
         className={`partner-cyber-card partner-cyber-card--${p.id}`}
         title={`Explore ${p.name} case study & outcomes`}
       >
