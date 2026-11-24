@@ -6,7 +6,7 @@ export default function Process() {
     <section className="section section-process-clean" id="process">
       <div className="wrap">
         {/* Section Head */}
-        <div className="section-head text-center reveal">
+        <div className="section-head text-center reveal-slide-up">
           <div className="eyebrow-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -20,15 +20,15 @@ export default function Process() {
         </div>
 
         {/* Clean Process Timeline */}
-        <div className="process-timeline-wrap reveal reveal-stagger">
+        <div className="process-timeline-wrap">
           {/* Subtle Clean Rail */}
           <div className="process-timeline-track" aria-hidden="true">
             <div className="process-track-base" />
           </div>
 
-          <ol className="process-steps-grid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          <ol className="process-steps-grid reveal-stagger" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {/* Step 1 */}
-            <li className="process-step-item">
+            <li className="process-step-item reveal-slide-left">
               <div className="process-node" aria-hidden="true">
                 <span className="process-node-core">01</span>
               </div>
@@ -57,7 +57,7 @@ export default function Process() {
             </li>
 
             {/* Step 2 */}
-            <li className="process-step-item">
+            <li className="process-step-item reveal-slide-up">
               <div className="process-node" aria-hidden="true">
                 <span className="process-node-core">02</span>
               </div>
@@ -86,7 +86,7 @@ export default function Process() {
             </li>
 
             {/* Step 3 */}
-            <li className="process-step-item">
+            <li className="process-step-item reveal-slide-right">
               <div className="process-node" aria-hidden="true">
                 <span className="process-node-core">03</span>
               </div>
@@ -117,7 +117,7 @@ export default function Process() {
         </div>
 
         {/* Clean Professional CTA Box */}
-        <div className="process-cta-wrap reveal">
+        <div className="process-cta-wrap reveal-slide-up">
           <div className="process-cta-box">
             <div className="process-cta-text">
               <h4>Ready to skip months of sales recruitment?</h4>

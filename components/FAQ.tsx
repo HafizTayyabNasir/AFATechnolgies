@@ -4,7 +4,7 @@ export default function FAQ() {
   return (
     <section className="section" id="faq">
       <div className="wrap">
-        <div className="section-head reveal">
+        <div className="section-head reveal-slide-up">
           <h2>Questions? We&apos;ve got answers.</h2>
         </div>
         <div className="faq reveal reveal-stagger">

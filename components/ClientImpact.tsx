@@ -560,7 +560,7 @@ export default function ClientImpact() {
     <section className="section section--mist" id="client-impact">
       <div className="wrap">
         {/* Section Header */}
-        <div className="section-head reveal">
+        <div className="section-head reveal-slide-up">
           <div className="eyebrow-badge">
             <svg
               width="14"
@@ -586,9 +586,9 @@ export default function ClientImpact() {
         </div>
 
         {/* Cases Main Layout: Left Vertical Tabs Dock + Right Showcase Container */}
-        <div className="accel-cases-layout reveal">
+        <div className="accel-cases-layout">
           {/* Left Vertical Dock / Tablist */}
-          <aside className="accel-tablist-sidebar">
+          <aside className="accel-tablist-sidebar reveal-slide-left">
             <div className="accel-tablist-vertical" role="tablist" aria-label="Client case studies">
               {casesData.map((c, i) => (
                 <button
@@ -612,7 +612,7 @@ export default function ClientImpact() {
           </aside>
 
           {/* Main Showcase Container */}
-          <div className="accel-showcase-container">
+          <div className="accel-showcase-container reveal-slide-right">
           {casesData.map((c, i) => (
             <article
               key={c.id}
@@ -792,7 +792,7 @@ export default function ClientImpact() {
       </div>
 
         {/* Section Bottom CTA */}
-        <div className="cases-cta reveal">
+        <div className="cases-cta reveal-slide-up">
           <p>Want verified enterprise pipeline results like these?</p>
           <a className="btn btn--navy" href="#contact">
             Book a growth strategy consultation

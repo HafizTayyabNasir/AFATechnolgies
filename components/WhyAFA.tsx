@@ -5,8 +5,8 @@ export default function WhyAFA() {
   return (
     <section className="section section--navy" id="why-afa">
       <div className="wrap why">
-        <div>
-          <div className="section-head reveal">
+        <div className="reveal-slide-left">
+          <div className="section-head">
             <h2 style={{ color: "#fff" }}>
               Global standards. Unmatched capital efficiency.
             </h2>
@@ -101,7 +101,7 @@ export default function WhyAFA() {
           </ul>
         </div>
 
-        <aside className="cover reveal-scale" aria-label="Time-zone coverage">
+        <aside className="cover reveal-slide-right" aria-label="Time-zone coverage">
           <h3>One team, three business days covered</h3>
           <p>
             Regional business hours (9 to 6) shown against a 24-hour day in

@@ -81,7 +81,7 @@ export default function Contact() {
     >
       <div className="wrap">
         <div className="contact-panel">
-          <div className="contact-copy reveal">
+          <div className="contact-copy reveal-slide-left">
             <h2>
               Ready to turn outbound into your most reliable growth channel?
             </h2>
@@ -157,7 +157,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="form-card reveal-scale">
+          <div className="form-card reveal-slide-right">
             {!isSubmitted ? (
               <form id="lead-form" noValidate onSubmit={handleSubmit}>
                 <h3>Tell us about your goals</h3>

@@ -2049,38 +2049,131 @@ ul{margin:0;padding:0;list-style:none}
    MODERN ACCELEREC / NAJOOMI STYLE ANIMATION ENGINE
    ======================================================== */
 
+/* Slim Executive Scroll Progress Indicator */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #00bdf2 0%, #2563eb 50%, #00f5ff 100%);
+  box-shadow: 0 0 10px rgba(0, 189, 242, 0.7);
+  z-index: 9999;
+  transition: width 0.08s ease-out;
+  pointer-events: none;
+}
+
+/* Hero Initial Page-Load Slide Animations */
+@keyframes heroSlideInLeft {
+  0% { opacity: 0; transform: translateX(-48px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes heroSlideInRight {
+  0% { opacity: 0; transform: translateX(48px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.hero-slide-in-left {
+  animation: heroSlideInLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero-slide-in-right {
+  animation: heroSlideInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
 /* Entrance Scroll Reveal */
 .reveal{
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(32px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
-
 .reveal.is-visible{
   opacity: 1;
   transform: translateY(0);
 }
-
+.reveal-slide-up{
+  opacity: 0;
+  transform: translateY(42px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-slide-up.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
 .reveal-scale{
   opacity: 0;
-  transform: scale(0.94);
+  transform: scale(0.92) translateY(20px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
-
 .reveal-scale.is-visible{
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
+}
+.reveal-slide-left{
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-slide-left.is-visible{
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-slide-right{
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-slide-right.is-visible{
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* Stagger Children Delays */
-.reveal-stagger > *:nth-child(1){ transition-delay: 0.04s; }
-.reveal-stagger > *:nth-child(2){ transition-delay: 0.12s; }
-.reveal-stagger > *:nth-child(3){ transition-delay: 0.20s; }
-.reveal-stagger > *:nth-child(4){ transition-delay: 0.28s; }
-.reveal-stagger > *:nth-child(5){ transition-delay: 0.36s; }
-.reveal-stagger > *:nth-child(6){ transition-delay: 0.44s; }
+/* Stagger Children Entrance */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: opacity, transform;
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > *:nth-child(1){ transition-delay: 0.06s; }
+.reveal-stagger > *:nth-child(2){ transition-delay: 0.16s; }
+.reveal-stagger > *:nth-child(3){ transition-delay: 0.26s; }
+.reveal-stagger > *:nth-child(4){ transition-delay: 0.36s; }
+.reveal-stagger > *:nth-child(5){ transition-delay: 0.46s; }
+.reveal-stagger > *:nth-child(6){ transition-delay: 0.56s; }
+.reveal-stagger > *:nth-child(7){ transition-delay: 0.66s; }
+.reveal-stagger > *:nth-child(8){ transition-delay: 0.76s; }
+
+/* Continuous Animated Laser on Process Timeline */
+.process-track-base {
+  position: absolute;
+  inset: 0;
+  background: #cbd5e1;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.process-track-base::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #00bdf2, #2563eb, transparent);
+  box-shadow: 0 0 10px #00bdf2;
+  animation: processLaserTrack 3.4s ease-in-out infinite;
+}
+@keyframes processLaserTrack {
+  0% { left: -25%; }
+  100% { left: 125%; }
+}
 
 /* Ambient Floating Keyframes */
 @keyframes floatSlow{
@@ -2267,31 +2360,8 @@ ul{margin:0;padding:0;list-style:none}
   box-shadow: 0 20px 48px -10px rgba(10, 30, 56, 0.12);
 }
 
-/* Sliding Scroll Reveal Variations */
-.reveal-slide-left{
-  opacity: 0;
-  transform: translateX(-35px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal-slide-left.is-visible{
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-slide-right{
-  opacity: 0;
-  transform: translateX(35px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal-slide-right.is-visible{
-  opacity: 1;
-  transform: translateX(0);
-}
-
 /* Reduced Motion */
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.reveal, .reveal-scale{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.reveal, .reveal-scale, .reveal-slide-left, .reveal-slide-right, .reveal-slide-up, .reveal-stagger > *{opacity:1!important;transform:none!important}}
 
 .partner-logo-pill {
   display: inline-flex;
@@ -2524,6 +2594,7 @@ ul{margin:0;padding:0;list-style:none}
 </style>
 </head>
 <body>
+<div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ===================== NAVIGATION ===================== -->
@@ -2553,7 +2624,7 @@ ul{margin:0;padding:0;list-style:none}
   <div class="hero-bg-accent"></div>
 
   <div class="wrap">
-    <div class="hero-copy">
+    <div class="hero-copy hero-slide-in-left">
       <div class="hero-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
         <span>B2B Commercial Sales Partner &bull; The Bridge Between Tech &amp; Enterprise Buyers</span>
@@ -2576,7 +2647,7 @@ ul{margin:0;padding:0;list-style:none}
     </div>
 
     <!-- Right Side: Consultation Booking Form -->
-    <div class="hero-form-card" aria-label="Book a Growth Strategy Call">
+    <div class="hero-form-card hero-slide-in-right" aria-label="Book a Growth Strategy Call">
       <form id="hero-lead-form" novalidate>
         <div class="hero-form-badge"><span class="hfb-dot"></span> 14-Day Fast Track Pod</div>
         <h3>Get a Dedicated Sales Team for Your Product</h3>
@@ -2651,7 +2722,7 @@ ul{margin:0;padding:0;list-style:none}
 
   <div class="wrap">
     <!-- Futuristic Eyebrow + Title -->
-    <div class="partners-bar-header reveal">
+    <div class="partners-bar-header reveal-slide-up">
       <div class="partners-status-badge">
         <span class="live-status-radar">
           <span class="radar-wave"></span>
@@ -2956,7 +3027,7 @@ ul{margin:0;padding:0;list-style:none}
     </div>
 
     <!-- Enterprise Capabilities Ticker Ribbon -->
-    <div class="partners-live-capabilities reveal">
+    <div class="partners-live-capabilities reveal-slide-up">
       <div class="cap-pill">
         <span class="cap-icon">⚡</span>
         <span>14-Day Rapid Ramp SLA</span>
@@ -3091,7 +3162,7 @@ ul{margin:0;padding:0;list-style:none}
     <!-- Cases Main Layout: Left Vertical Tabs Dock + Right Showcase Container -->
     <div class="accel-cases-layout reveal">
       <!-- Left Vertical Dock / Tabs Sidebar -->
-      <aside class="accel-tablist-sidebar">
+      <aside class="accel-tablist-sidebar reveal-slide-left">
         <div class="accel-tablist-vertical" role="tablist" aria-label="Client case studies">
           <button role="tab" id="tab-fortanixor" onclick="switchCaseTab(0)" aria-selected="true" aria-controls="panel-fortanixor" tabindex="0" class="accel-tab-pill accel-tab-pill--fortanixor is-active" title="View Fortanixor pipeline case study">
             <div class="partner-logo-pill">
@@ -3130,7 +3201,7 @@ ul{margin:0;padding:0;list-style:none}
       </aside>
 
       <!-- Main Showcase Container -->
-      <div class="accel-showcase-container">
+      <div class="accel-showcase-container reveal-slide-right">
       <!-- 1. Fortanixor Panel -->
       <article class="accel-case-panel accel-case-panel--fortanixor" role="tabpanel" id="panel-fortanixor" aria-labelledby="tab-fortanixor">
         <div class="accel-col-content">
@@ -3715,7 +3786,7 @@ ul{margin:0;padding:0;list-style:none}
     </div>
 
     <!-- Clean Professional CTA Box -->
-    <div class="process-cta-wrap reveal">
+    <div class="process-cta-wrap reveal-slide-up">
       <div class="process-cta-box">
         <div class="process-cta-text">
           <h4>Ready to skip months of sales recruitment?</h4>
@@ -3766,10 +3837,10 @@ ul{margin:0;padding:0;list-style:none}
     </div>
 
     <div class="battle-container reveal reveal-stagger">
-      <div class="battle-vs-badge" aria-hidden="true">VS</div>
+      <div class="battle-vs-badge reveal-scale" aria-hidden="true">VS</div>
 
       <!-- Traditional In-House Card -->
-      <div class="battle-card battle-card--traditional">
+      <div class="battle-card battle-card--traditional reveal-slide-left">
         <div class="battle-card__header">
           <span class="battle-tag battle-tag--warning">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3839,7 +3910,7 @@ ul{margin:0;padding:0;list-style:none}
       </div>
 
       <!-- AFA Revenue Pod Card -->
-      <div class="battle-card battle-card--afa">
+      <div class="battle-card battle-card--afa reveal-slide-right">
         <div class="battle-highlight-glow" aria-hidden="true"></div>
         <div class="battle-card__header">
           <span class="battle-tag battle-tag--recommended">
@@ -3905,7 +3976,7 @@ ul{margin:0;padding:0;list-style:none}
     </div>
 
     <!-- Action Banner -->
-    <div class="battle-banner reveal">
+    <div class="battle-banner reveal-slide-up">
       <div class="battle-banner__info">
         <h4 class="battle-banner__title">Stop waiting on recruiters. Start filling your calendar.</h4>
         <div class="battle-banner__perks">
@@ -3957,7 +4028,7 @@ ul{margin:0;padding:0;list-style:none}
         <li><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 24l7-8 5 4 10-12"/><path d="M20 8h7v7"/></svg><div><b>Capital efficiency</b><span>Predictable monthly pod pricing instead of six-figure hires.</span></div></li>
       </ul>
     </div>
-    <aside class="cover reveal-scale" aria-label="Time-zone coverage">
+    <aside class="cover reveal-slide-right" aria-label="Time-zone coverage">
       <h3>One team, three business days covered</h3>
       <p>Regional business hours (9 to 6) shown against a 24-hour day in Pakistan time.</p>
       <div class="cover-grid">
@@ -3994,7 +4065,7 @@ ul{margin:0;padding:0;list-style:none}
         </div>
       </div>
     </div>
-    <ul class="principles reveal reveal-stagger">
+    <ul class="principles reveal-slide-right reveal-stagger">
       <li><b>Pipeline over activity</b><span>We measure success in qualified meetings and closed revenue, not emails sent.</span></li>
       <li><b>Radical transparency</b><span>Live CRM visibility and weekly performance reviews, always.</span></li>
       <li><b>Built around you</b><span>Your ICP, your messaging, your stack. We adapt to your business, not the other way around.</span></li>
@@ -4021,7 +4092,7 @@ ul{margin:0;padding:0;list-style:none}
 <section class="section section--mist" id="contact" style="padding-top:clamp(40px,6vw,80px)">
   <div class="wrap">
     <div class="contact-panel">
-      <div class="contact-copy reveal">
+      <div class="contact-copy reveal-slide-left">
         <h2>Ready to turn outbound into your most reliable growth channel?</h2>
         <p>Schedule a 25-minute GTM strategy session with our leadership team to map out a custom sales pod for your target market.</p>
         <ul class="agenda">
@@ -4040,7 +4111,7 @@ ul{margin:0;padding:0;list-style:none}
           </div>
         </div>
       </div>
-      <div class="form-card reveal-scale">
+      <div class="form-card reveal-slide-right">
         <form id="lead-form" novalidate>
           <h3>Tell us about your goals</h3>
           <div class="row2">
@@ -4195,7 +4266,17 @@ ul{margin:0;padding:0;list-style:none}
     ['client-impact','solutions','process','why-afa','about','faq'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
   }
 
+  /* Top Scroll Progress Tracker */
+  window.addEventListener('scroll', function(){
+    var st = window.scrollY || document.documentElement.scrollTop;
+    var sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var p = sh > 0 ? (st / sh) * 100 : 0;
+    var bar = document.getElementById('scroll-progress-bar');
+    if(bar) bar.style.width = p + '%';
+  }, {passive: true});
+
   /* Scroll reveal animations (Accelerec / Najoomi style) */
+  var revealSelectors = '.reveal, .reveal-scale, .reveal-slide-left, .reveal-slide-right, .reveal-slide-up, .reveal-stagger';
   if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     var revealObserver = new IntersectionObserver(function(entries, obs){
       entries.forEach(function(entry){
@@ -4204,12 +4285,12 @@ ul{margin:0;padding:0;list-style:none}
           obs.unobserve(entry.target);
         }
       });
-    }, {rootMargin: '0px 0px -50px 0px', threshold: 0.1});
-    document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el){
+    }, {rootMargin: '0px 0px -40px 0px', threshold: 0.08});
+    document.querySelectorAll(revealSelectors).forEach(function(el){
       revealObserver.observe(el);
     });
   } else {
-    document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el){
+    document.querySelectorAll(revealSelectors).forEach(function(el){
       el.classList.add('is-visible');
     });
   }

@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section className="section section--mist" id="about">
       <div className="wrap about">
-        <div className="reveal">
+        <div className="reveal-slide-left">
           <h2>Your outsourced revenue engine, built to scale with you.</h2>
           <p className="body">
             AFA Technologies is a B2B Sales-as-a-Service company that builds,
@@ -37,7 +37,7 @@ export default function About() {
           </div>
         </div>
 
-        <ul className="principles reveal reveal-stagger">
+        <ul className="principles reveal-slide-right reveal-stagger">
           <li>
             <b>Pipeline over activity</b>
             <span>

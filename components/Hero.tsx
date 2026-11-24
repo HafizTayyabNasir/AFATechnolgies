@@ -106,7 +106,7 @@ export default function Hero() {
       <div className="hero-bg-accent"></div>
 
       <div className="wrap">
-        <div className="hero-copy">
+        <div className="hero-copy hero-slide-in-left">
           <div className="hero-pill">
             <svg
               viewBox="0 0 24 24"
@@ -193,7 +193,7 @@ export default function Hero() {
         </div>
 
         {/* Right Side: Consultation Booking Form */}
-        <div className="hero-form-card" aria-label="Get a Dedicated Sales Team for Your Product">
+        <div className="hero-form-card hero-slide-in-right" aria-label="Get a Dedicated Sales Team for Your Product">
           {!isSubmitted ? (
             <form id="hero-lead-form" noValidate onSubmit={handleSubmit}>
               <div className="hero-form-badge">

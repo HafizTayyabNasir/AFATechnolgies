@@ -2272,10 +2272,55 @@ ul{margin:0;padding:0;list-style:none}
    MODERN ACCELEREC / NAJOOMI STYLE ANIMATION ENGINE
    ======================================================== */
 
+/* Slim Executive Scroll Progress Indicator */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #00bdf2 0%, #2563eb 50%, #00f5ff 100%);
+  box-shadow: 0 0 10px rgba(0, 189, 242, 0.7);
+  z-index: 9999;
+  transition: width 0.08s ease-out;
+  pointer-events: none;
+}
+
+/* Hero Initial Page-Load Slide Animations */
+@keyframes heroSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-slide-in-left {
+  animation: heroSlideInLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-slide-in-right {
+  animation: heroSlideInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
 /* Entrance Scroll Reveal */
 .reveal{
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(32px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
@@ -2285,25 +2330,97 @@ ul{margin:0;padding:0;list-style:none}
   transform: translateY(0);
 }
 
+.reveal-slide-up{
+  opacity: 0;
+  transform: translateY(42px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-up.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .reveal-scale{
   opacity: 0;
-  transform: scale(0.94);
+  transform: scale(0.92) translateY(20px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .reveal-scale.is-visible{
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
 }
 
-/* Stagger Children Delays */
-.reveal-stagger > *:nth-child(1){ transition-delay: 0.04s; }
-.reveal-stagger > *:nth-child(2){ transition-delay: 0.12s; }
-.reveal-stagger > *:nth-child(3){ transition-delay: 0.20s; }
-.reveal-stagger > *:nth-child(4){ transition-delay: 0.28s; }
-.reveal-stagger > *:nth-child(5){ transition-delay: 0.36s; }
-.reveal-stagger > *:nth-child(6){ transition-delay: 0.44s; }
+/* Sliding Scroll Reveal Variations */
+.reveal-slide-left{
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-slide-left.is-visible{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-slide-right{
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-slide-right.is-visible{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger Children Entrance */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: opacity, transform;
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > *:nth-child(1){ transition-delay: 0.06s; }
+.reveal-stagger > *:nth-child(2){ transition-delay: 0.16s; }
+.reveal-stagger > *:nth-child(3){ transition-delay: 0.26s; }
+.reveal-stagger > *:nth-child(4){ transition-delay: 0.36s; }
+.reveal-stagger > *:nth-child(5){ transition-delay: 0.46s; }
+.reveal-stagger > *:nth-child(6){ transition-delay: 0.56s; }
+.reveal-stagger > *:nth-child(7){ transition-delay: 0.66s; }
+.reveal-stagger > *:nth-child(8){ transition-delay: 0.76s; }
+
+/* Continuous Animated Laser on Process Timeline */
+.process-track-base {
+  position: absolute;
+  inset: 0;
+  background: #cbd5e1;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.process-track-base::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #00bdf2, #2563eb, transparent);
+  box-shadow: 0 0 10px #00bdf2;
+  animation: processLaserTrack 3.4s ease-in-out infinite;
+}
+@keyframes processLaserTrack {
+  0% { left: -25%; }
+  100% { left: 125%; }
+}
 
 /* Ambient Floating Keyframes */
 @keyframes floatSlow{
@@ -2490,31 +2607,8 @@ ul{margin:0;padding:0;list-style:none}
   box-shadow: 0 20px 48px -10px rgba(10, 30, 56, 0.12);
 }
 
-/* Sliding Scroll Reveal Variations */
-.reveal-slide-left{
-  opacity: 0;
-  transform: translateX(-35px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal-slide-left.is-visible{
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-slide-right{
-  opacity: 0;
-  transform: translateX(35px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal-slide-right.is-visible{
-  opacity: 1;
-  transform: translateX(0);
-}
-
 /* Reduced Motion */
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.reveal, .reveal-scale{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.reveal, .reveal-scale, .reveal-slide-left, .reveal-slide-right, .reveal-slide-up, .reveal-stagger > *{opacity:1!important;transform:none!important}}
 /* ============================================================
    ADMIN PORTAL & LOGIN STYLING (CYBER & EXECUTIVE THEME)
 ============================================================ */

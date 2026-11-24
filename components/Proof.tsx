@@ -188,7 +188,7 @@ export default function Proof() {
 
         <div className="wrap">
           {/* Futuristic Eyebrow + Title */}
-          <div className="partners-bar-header reveal">
+          <div className="partners-bar-header reveal-slide-up">
             <div className="partners-status-badge">
               <span className="live-status-radar">
                 <span className="radar-wave"></span>
@@ -219,7 +219,7 @@ export default function Proof() {
           </div>
 
           {/* Enterprise Capabilities Ticker Ribbon */}
-          <div className="partners-live-capabilities reveal">
+          <div className="partners-live-capabilities reveal-slide-up">
             <div className="cap-pill">
               <span className="cap-icon">⚡</span>
               <span>14-Day Rapid Ramp SLA</span>

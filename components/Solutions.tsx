@@ -5,7 +5,7 @@ export default function Solutions() {
   return (
     <section className="section" id="solutions">
       <div className="wrap">
-        <div className="section-head reveal">
+        <div className="section-head reveal-slide-up">
           <h2>Modular revenue pods built for your growth stage.</h2>
           <p>
             Whether you need top-of-funnel pipeline velocity or end-to-end deal

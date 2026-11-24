@@ -4,7 +4,7 @@ export default function Advantage() {
   return (
     <section className="section" id="advantage">
       <div className="wrap">
-        <div className="section-head text-center reveal">
+        <div className="section-head text-center reveal-slide-up">
           <div className="eyebrow-badge">
             <svg
               width="14"
@@ -29,11 +29,11 @@ export default function Advantage() {
           </p>
         </div>
 
-        <div className="battle-container reveal reveal-stagger">
-          <div className="battle-vs-badge" aria-hidden="true">VS</div>
+        <div className="battle-container">
+          <div className="battle-vs-badge reveal-scale" aria-hidden="true">VS</div>
 
           {/* Traditional In-House Card */}
-          <div className="battle-card battle-card--traditional">
+          <div className="battle-card battle-card--traditional reveal-slide-left">
             <div className="battle-card__header">
               <span className="battle-tag battle-tag--warning">
                 <svg
@@ -163,7 +163,7 @@ export default function Advantage() {
           </div>
 
           {/* AFA Revenue Pod Card */}
-          <div className="battle-card battle-card--afa">
+          <div className="battle-card battle-card--afa reveal-slide-right">
             <div className="battle-highlight-glow" aria-hidden="true"></div>
             <div className="battle-card__header">
               <span className="battle-tag battle-tag--recommended">
@@ -285,7 +285,7 @@ export default function Advantage() {
         </div>
 
         {/* Action Banner */}
-        <div className="battle-banner reveal">
+        <div className="battle-banner reveal-slide-up">
           <div className="battle-banner__info">
             <h4 className="battle-banner__title">
               Stop waiting on recruiters. Start filling your calendar.
