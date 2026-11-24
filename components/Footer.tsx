@@ -26,7 +26,7 @@ export default function Footer() {
               />
             </a>
             <p className="footer-brand-desc">
-              AFA Technologies accelerates enterprise software &amp; B2B pipeline across North America, EMEA, and APAC. We connect high-growth products with qualified enterprise buyers without the overhead of in-house sales hiring.
+              AFA Technologies accelerates enterprise software &amp; B2B pipeline. We connect high-growth products with qualified enterprise buyers without the overhead of in-house sales hiring.
             </p>
           </div>
 

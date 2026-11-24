@@ -134,7 +134,7 @@ export default function Hero() {
           </h1>
 
           <p className="lead">
-            <strong>You build the technology &mdash; we generate the revenue.</strong> AFA Technologies is the commercial sales engine bridging high-growth B2B products and services with qualified enterprise buyers worldwide. Our dedicated outbound pods represent your brand, book high-intent meetings, and close deals across EMEA, APAC, and North America.
+            <strong>You build the technology &mdash; we generate the revenue.</strong> AFA Technologies is the commercial sales engine bridging high-growth B2B products and services with qualified enterprise buyers worldwide. Our dedicated outbound pods represent your brand, book high-intent meetings, and close deals.
           </p>
 
           <div className="hero-cta">
@@ -173,7 +173,7 @@ export default function Hero() {
               >
                 <path d="M4 10.5l4 4 8-9" />
               </svg>
-              Direct C-suite buyer access across EMEA, APAC &amp; US
+              Direct C-suite buyer access &amp; qualified enterprise meetings
             </li>
             <li>
               <svg

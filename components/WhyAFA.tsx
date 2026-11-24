@@ -55,7 +55,7 @@ export default function WhyAFA() {
               <div>
                 <b>Time-zone overlap</b>
                 <span>
-                  Live coverage across EMEA, APAC and US East business hours.
+                  Live coverage synchronized to your target client business hours.
                 </span>
               </div>
             </li>

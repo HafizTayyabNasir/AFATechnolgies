@@ -221,7 +221,7 @@ export default function Proof() {
             <span className="cap-sep">•</span>
             <div className="cap-pill">
               <span className="cap-icon">🌐</span>
-              <span>Multi-Region Motion (EMEA, APAC, NA)</span>
+              <span>Multi-Market Outbound Motion</span>
             </div>
             <span className="cap-sep">•</span>
             <div className="cap-pill">
@@ -293,9 +293,9 @@ export default function Proof() {
                 </span>
               </div>
               <div className="metric-bento-body">
-                <strong className="metric-bento-val">3 regions</strong>
+                <strong className="metric-bento-val">Global Coverage</strong>
                 <p className="metric-bento-desc">
-                  EMEA, APAC and North America covered simultaneously across target commercial time zones.
+                  Dedicated commercial coverage synchronized across your target enterprise business hours.
                 </p>
               </div>
               <div className="metric-bento-footer">
