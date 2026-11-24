@@ -101,11 +101,13 @@ export default function Proof() {
   ];
 
   return (
-    <section className="proof proof--light" aria-label="Partners and key metrics">
-      <div className="wrap">
-        <p className="proof-title reveal">
-          Trusted by high-growth technology and innovation leaders
-        </p>
+    <>
+      {/* 1. Distinct Partner Logos Marquee Bar */}
+      <section className="partners-bar" id="partners" aria-label="Featured partner companies">
+        <div className="wrap">
+          <p className="partners-bar-title reveal">
+            Trusted by high-growth technology and innovation leaders
+          </p>
 
         {/* Infinite Smooth Logo Marquee */}
         <div
@@ -133,7 +135,12 @@ export default function Proof() {
             ))}
           </ul>
         </div>
+      </div>
+    </section>
 
+    {/* 2. Key Metrics Bento Deck Section */}
+    <section className="proof-metrics-section" id="metrics" aria-label="Key delivery metrics and SLA">
+      <div className="wrap">
         {/* Modern Bento Metric Cards Layout */}
         <div className="metrics-deck reveal reveal-stagger">
           {/* Card 1 */}
@@ -225,5 +232,6 @@ export default function Proof() {
         </div>
       </div>
     </section>
+  </>
   );
 }

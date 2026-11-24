@@ -256,8 +256,16 @@ ul{margin:0;padding:0;list-style:none}
 @keyframes label-in{to{opacity:1;transform:none}}
 
 /* ---------- Proof band (Light & Elevated Executive Style) ---------- */
+/* ---------- Distinct Partner Logos Marquee Bar ---------- */
+.partners-bar{background:linear-gradient(180deg,#e4eff8 0%,#d8e6f4 50%,#cee0f0 100%);color:var(--ink);padding-block:clamp(28px,3.8vw,42px);position:relative;border-top:1px solid #c2d6ea;border-bottom:1.5px solid #b3cde4;box-shadow:inset 0 1px 0 rgba(255,255,255,0.85),0 6px 20px -6px rgba(10,30,56,0.08);overflow:hidden;z-index:2}
+.partners-bar-title,.proof-title{text-align:center;color:#1e3a5a;font-weight:700;font-size:0.88rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* ---------- Key Metrics Delivery Bento Section ---------- */
+.proof-metrics-section{background:linear-gradient(180deg,#f8fbfe 0%,#f0f6fc 100%);padding-block:clamp(44px,5.5vw,72px);border-bottom:1px solid rgba(10,30,56,0.07);position:relative}
+
+/* Fallback / Legacy Proof Class */
 .proof{background:linear-gradient(180deg,#ffffff 0%,#f5f8fc 50%,#edf4fa 100%);color:var(--ink);padding-block:clamp(52px,6vw,84px) clamp(56px,7vw,92px);position:relative;border-top:1px solid rgba(10,30,56,0.06);border-bottom:1px solid rgba(10,30,56,0.06);overflow:hidden}
-.proof-title{text-align:center;color:#475569;font-weight:700;font-size:0.88rem;letter-spacing:.06em;text-transform:uppercase}
+
 
 /* Infinite Silky Logo Marquee (On Light Background) */
 .logos-marquee-wrapper{position:relative;width:100%;overflow:hidden;margin-top:24px;mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%)}
@@ -275,7 +283,7 @@ ul{margin:0;padding:0;list-style:none}
 .marquee-brand-text.keystone-text{letter-spacing:.08em;font-size:1.15rem;font-weight:800;color:#0a1e38}
 
 /* ---------- Modern Bento Metric Cards Layout ---------- */
-.metrics-deck{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.2vw,28px);margin-top:clamp(40px,5vw,60px)}
+.metrics-deck{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.2vw,28px);margin-top:0}
 
 .metric-bento-card{background:#ffffff;border:1px solid rgba(10,30,56,0.08);border-radius:20px;padding:clamp(22px,2.8vw,30px) clamp(18px,2.2vw,26px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 28px -10px rgba(10,30,56,0.06);transition:all .35s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
 .metric-bento-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background .3s ease}
