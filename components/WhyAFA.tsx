@@ -1,9 +1,180 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+  color: string;
+  alpha: number;
+}
+
 export default function WhyAFA() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const section = sectionRef.current;
+    if (!canvas || !section) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animId: number;
+    let isVisible = true;
+    let width = (canvas.width = section.offsetWidth);
+    let height = (canvas.height = section.offsetHeight);
+
+    const mouse: { x: number | null; y: number | null } = { x: null, y: null };
+
+    // Responsive particle count based on section area
+    const count = Math.min(65, Math.max(30, Math.floor((width * height) / 14000)));
+    const particles: Particle[] = [];
+
+    const colorPalette = [
+      "rgba(0, 189, 242,", // Primary Cyber Cyan
+      "rgba(56, 189, 248,", // Sky Cyan
+      "rgba(99, 102, 241,", // Electric Indigo
+      "rgba(147, 197, 253,", // Light Soft Azure
+    ];
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.65,
+        vy: (Math.random() - 0.5) * 0.65,
+        radius: Math.random() * 1.8 + 1.2,
+        color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
+        alpha: Math.random() * 0.45 + 0.35,
+      });
+    }
+
+    const maxLineDist = 120;
+    const maxMouseDist = 150;
+
+    const render = () => {
+      if (!isVisible) {
+        animId = requestAnimationFrame(render);
+        return;
+      }
+
+      ctx.clearRect(0, 0, width, height);
+
+      // 1. Draw Connecting Network Constellation Lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxLineDist) {
+            const alpha = (1 - dist / maxLineDist) * 0.22;
+            ctx.strokeStyle = `rgba(0, 189, 242, ${alpha})`;
+            ctx.lineWidth = 0.85;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 2. Draw Interactive Mouse Connections
+      if (mouse.x !== null && mouse.y !== null) {
+        for (let i = 0; i < particles.length; i++) {
+          const dx = particles[i].x - mouse.x;
+          const dy = particles[i].y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxMouseDist) {
+            const alpha = (1 - dist / maxMouseDist) * 0.45;
+            ctx.strokeStyle = `rgba(0, 220, 255, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 3. Update & Draw Particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        ctx.fillStyle = `${p.color} ${p.alpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Subtle glow halo
+        ctx.fillStyle = `${p.color} ${p.alpha * 0.25})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 2.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce gently at section borders
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+      }
+
+      animId = requestAnimationFrame(render);
+    };
+
+    animId = requestAnimationFrame(render);
+
+    // Mouse Tracking for dynamic constellation link
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
+    section.addEventListener("mousemove", handleMouseMove);
+    section.addEventListener("mouseleave", handleMouseLeave);
+
+    // Resize Handler
+    const handleResize = () => {
+      if (!section || !canvas) return;
+      width = canvas.width = section.offsetWidth;
+      height = canvas.height = section.offsetHeight;
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Pause when scrolled out of view to save CPU/battery
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(section);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", handleResize);
+      section.removeEventListener("mousemove", handleMouseMove);
+      section.removeEventListener("mouseleave", handleMouseLeave);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section className="section section--navy" id="why-afa">
+    <section className="section section--navy section-why-particles" id="why-afa" ref={sectionRef}>
+      {/* Dynamic Cyber Particles Network Canvas */}
+      <canvas ref={canvasRef} className="why-particles-canvas" aria-hidden="true" />
+
       <div className="wrap why">
         <div className="reveal-slide-left">
           <div className="section-head">
