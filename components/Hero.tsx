@@ -134,7 +134,7 @@ export default function Hero() {
           </h1>
 
           <p className="lead">
-            <strong>You build the technology &mdash; we generate the revenue.</strong> AFA Technologies does not build software; we are the commercial sales bridge between your B2B products or services and qualified enterprise buyers. Our dedicated outbound pods represent your brand, book high-intent meetings, and close deals across EMEA, APAC, and North America.
+            <strong>You build the technology &mdash; we generate the revenue.</strong> AFA Technologies is the commercial sales engine bridging high-growth B2B products and services with qualified enterprise buyers worldwide. Our dedicated outbound pods represent your brand, book high-intent meetings, and close deals across EMEA, APAC, and North America.
           </p>
 
           <div className="hero-cta">
