@@ -11,7 +11,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="footer footer--accelero-theme">
+    <footer className="footer footer--afa-theme">
       <div className="wrap">
         <div className="footer-main-grid">
           {/* Column 1: Brand & Strategic Positioning */}
@@ -44,7 +44,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Worldwide Connect, Social Icons & Trustpilot */}
+          {/* Column 3: Worldwide Connect & Social Icons */}
           <div className="footer-col-connect">
             <h4 className="footer-col-title">Connect With Us Worldwide</h4>
             <div className="footer-contact-details">
@@ -119,23 +119,6 @@ export default function Footer() {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
-            </div>
-
-            {/* Trustpilot Review Badge */}
-            <div className="footer-trustpilot-badge">
-              <div className="trustpilot-header">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#00b67a" className="trustpilot-star-icon">
-                  <path d="M12 0l3.09 9.51h10l-8.09 5.88 3.09 9.51-8-5.88-8 5.88 3.09-9.51-8.09-5.88h10z"/>
-                </svg>
-                <span className="trustpilot-title">Trustpilot</span>
-              </div>
-              <div className="trustpilot-stars" aria-label="5 star rating">
-                <span className="tp-star">★</span>
-                <span className="tp-star">★</span>
-                <span className="tp-star">★</span>
-                <span className="tp-star">★</span>
-                <span className="tp-star">★</span>
-              </div>
             </div>
           </div>
         </div>

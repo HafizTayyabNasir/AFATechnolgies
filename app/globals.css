@@ -1617,16 +1617,17 @@ ul{margin:0;padding:0;list-style:none}
 .form-done h3{font-size:1.7rem;margin-bottom:10px}
 .form-done p{color:var(--muted)}
 
-/* ---------- Accelerec-Themed Executive Footer ---------- */
+/* ---------- AFA Executive Navy-Themed Footer ---------- */
 .footer{
   position: relative;
-  background: radial-gradient(circle at 18% 28%, rgba(0, 229, 153, 0.08) 0%, transparent 55%),
-              radial-gradient(circle at 82% 65%, rgba(0, 189, 242, 0.06) 0%, transparent 50%),
-              linear-gradient(180deg, #02140d 0%, #052417 50%, #03180f 100%);
-  color: #a5c4b5;
+  background: 
+    radial-gradient(circle at 18% 25%, rgba(0, 189, 242, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 82% 65%, rgba(37, 99, 235, 0.07) 0%, transparent 50%),
+    linear-gradient(180deg, #051426 0%, #071d37 50%, #030e1c 100%);
+  color: #a9c3d6;
   padding-top: clamp(60px, 8vw, 100px);
   padding-bottom: 32px;
-  border-top: 1px solid rgba(0, 229, 153, 0.15);
+  border-top: 1px solid rgba(0, 189, 242, 0.2);
   overflow: hidden;
 }
 
@@ -1657,7 +1658,7 @@ ul{margin:0;padding:0;list-style:none}
 .footer-brand-desc {
   font-size: 0.96rem;
   line-height: 1.68;
-  color: #c4dcd1;
+  color: #c4d7e8;
   max-width: 25rem;
   margin: 0;
 }
@@ -1682,7 +1683,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 .footer-nav-list a {
-  color: #b0cdc1;
+  color: #a9c3d6;
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.2s ease;
@@ -1690,7 +1691,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 .footer-nav-list a:hover {
-  color: #00e599;
+  color: #00bdf2;
   transform: translateX(3px);
 }
 
@@ -1701,7 +1702,7 @@ ul{margin:0;padding:0;list-style:none}
 .footer-contact-line {
   margin: 0 0 10px 0;
   font-size: 0.95rem;
-  color: #c4dcd1;
+  color: #c4d7e8;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1713,13 +1714,13 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 .footer-contact-val {
-  color: #b0cdc1;
+  color: #a9c3d6;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-contact-val:hover {
-  color: #00e599;
+  color: #00bdf2;
 }
 
 /* Social Buttons Row */
@@ -1727,7 +1728,7 @@ ul{margin:0;padding:0;list-style:none}
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 26px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
@@ -1741,13 +1742,13 @@ ul{margin:0;padding:0;list-style:none}
   color: #ffffff;
   text-decoration: none;
   transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .social-btn:hover {
   transform: translateY(-3px) scale(1.05);
   filter: brightness(1.15);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .social-btn--facebook {
@@ -1768,39 +1769,7 @@ ul{margin:0;padding:0;list-style:none}
 
 .social-btn--x {
   background: #0a1118;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Trustpilot Review Badge */
-.footer-trustpilot-badge {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.trustpilot-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.trustpilot-title {
-  font-family: var(--display, -apple-system, BlinkMacSystemFont, sans-serif);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-}
-
-.trustpilot-stars {
-  display: flex;
-  gap: 4px;
-}
-
-.tp-star {
-  color: #ffb800;
-  font-size: 1.35rem;
-  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* Bottom Legal Bar */
@@ -1813,7 +1782,7 @@ ul{margin:0;padding:0;list-style:none}
   align-items: center;
   gap: 16px;
   font-size: 0.88rem;
-  color: #7b9c8e;
+  color: #7f9cb2;
 }
 
 .footer-legal-links {
@@ -1824,7 +1793,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 .footer-legal-links a {
-  color: #8dafa1;
+  color: #8da6bc;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -1839,7 +1808,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 .footer-copy-text {
-  color: #6a8c7e;
+  color: #728c9f;
 }
 
 /* Legacy fallbacks */
