@@ -32,8 +32,8 @@ export default function WhyAFA() {
 
     const mouse: { x: number | null; y: number | null } = { x: null, y: null };
 
-    // Responsive particle count based on section area
-    const count = Math.min(65, Math.max(30, Math.floor((width * height) / 14000)));
+    // High density particle count (dense field of crisp pinpoint stars)
+    const count = Math.min(140, Math.max(70, Math.floor((width * height) / 6500)));
     const particles: Particle[] = [];
 
     const colorPalette = [
@@ -48,16 +48,16 @@ export default function WhyAFA() {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.65,
-        vy: (Math.random() - 0.5) * 0.65,
-        radius: Math.random() * 2.0 + 1.4,
+        vx: (Math.random() - 0.5) * 0.55,
+        vy: (Math.random() - 0.5) * 0.55,
+        radius: Math.random() * 0.8 + 0.9, // Crisp, small pinpoint dots (0.9px to 1.7px)
         color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
-        alpha: Math.random() * 0.35 + 0.65, // Higher saturation & opacity (0.65 to 1.0)
+        alpha: Math.random() * 0.4 + 0.55,
       });
     }
 
-    const maxLineDist = 125;
-    const maxMouseDist = 155;
+    const maxLineDist = 95;
+    const maxMouseDist = 135;
 
     const render = () => {
       if (!isVisible) {
@@ -67,7 +67,7 @@ export default function WhyAFA() {
 
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw Connecting Network Constellation Lines (Higher Saturation)
+      // 1. Draw Connecting Network Constellation Lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -75,9 +75,9 @@ export default function WhyAFA() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxLineDist) {
-            const alpha = (1 - dist / maxLineDist) * 0.38;
-            ctx.strokeStyle = `rgba(0, 220, 255, ${alpha})`;
-            ctx.lineWidth = 1.0;
+            const alpha = (1 - dist / maxLineDist) * 0.28;
+            ctx.strokeStyle = `rgba(0, 215, 255, ${alpha})`;
+            ctx.lineWidth = 0.75;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -94,9 +94,9 @@ export default function WhyAFA() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxMouseDist) {
-            const alpha = (1 - dist / maxMouseDist) * 0.65;
+            const alpha = (1 - dist / maxMouseDist) * 0.55;
             ctx.strokeStyle = `rgba(0, 245, 255, ${alpha})`;
-            ctx.lineWidth = 1.25;
+            ctx.lineWidth = 0.95;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -105,20 +105,14 @@ export default function WhyAFA() {
         }
       }
 
-      // 3. Update & Draw Particles (Vibrant Core + Neon Halo)
+      // 3. Update & Draw Particles (Crisp Small Pinpoint Dots)
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Core particle (Solid & Rich)
+        // Crisp small pinpoint dot
         ctx.fillStyle = `${p.color} ${p.alpha})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Vivid neon glow halo
-        ctx.fillStyle = `${p.color} ${p.alpha * 0.4})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 2.8, 0, Math.PI * 2);
         ctx.fill();
 
         p.x += p.vx;
