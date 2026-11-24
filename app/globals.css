@@ -255,34 +255,379 @@ ul{margin:0;padding:0;list-style:none}
 @keyframes pop{0%{opacity:0;transform:scale(.4)}100%{opacity:1;transform:scale(1)}}
 @keyframes label-in{to{opacity:1;transform:none}}
 
-/* ---------- Proof band (Light & Elevated Executive Style) ---------- */
-/* ---------- Distinct Partner Logos Marquee Bar ---------- */
-.partners-bar{background:linear-gradient(165deg,var(--navy-800) 0%,var(--navy-900) 100%);color:#ffffff;padding-block:clamp(32px,4vw,46px);position:relative;border-top:1px solid rgba(0,189,242,0.22);border-bottom:1.5px solid rgba(0,189,242,0.22);box-shadow:0 12px 32px -8px rgba(10,30,56,0.45);overflow:hidden;z-index:2}
-.partners-bar-title,.proof-title{text-align:center;color:var(--cyan-soft);font-weight:600;font-size:0.92rem;letter-spacing:.06em;text-transform:uppercase}
+/* ---------- Distinct Partner Logos Cyber Ecosystem Bar ---------- */
+.partners-bar {
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 189, 242, 0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 80% 100%, rgba(77, 121, 255, 0.08) 0%, transparent 50%),
+              linear-gradient(175deg, #061324 0%, var(--navy-800) 50%, #07172c 100%);
+  background-image: radial-gradient(rgba(0, 189, 242, 0.13) 1px, transparent 1px),
+                    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 189, 242, 0.12) 0%, transparent 60%),
+                    linear-gradient(175deg, #061324 0%, var(--navy-800) 50%, #07172c 100%);
+  background-size: 26px 26px, 100% 100%, 100% 100%;
+  color: #ffffff;
+  padding-block: clamp(40px, 4.8vw, 58px);
+  position: relative;
+  border-top: 1px solid rgba(0, 189, 242, 0.28);
+  border-bottom: 1.5px solid rgba(0, 189, 242, 0.28);
+  box-shadow: 0 16px 40px -10px rgba(5, 17, 34, 0.6);
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Sweeping Top Cyber Laser Scanner */
+.partners-laser-scanner {
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 189, 242, 0.5) 30%, #ffffff 50%, rgba(0, 189, 242, 0.5) 70%, transparent 100%);
+  box-shadow: 0 0 14px 2px #00bdf2, 0 0 28px 4px rgba(0, 189, 242, 0.6);
+  animation: laserScan 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes laserScan {
+  0% { left: -35%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+/* Ambient Radial Aurora */
+.partners-ambient-aurora {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 260px;
+  background: radial-gradient(ellipse at center, rgba(0, 189, 242, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(40px);
+}
+
+/* Partners Bar Header */
+.partners-bar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Radar Pulse Beacon */
+.partners-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 189, 242, 0.08);
+  border: 1px solid rgba(0, 189, 242, 0.28);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--cyan-soft);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.live-status-radar {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-core {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.radar-wave {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(16, 185, 129, 0.7);
+  animation: radarWave 2s cubic-bezier(0.1, 0.6, 0.4, 1) infinite;
+}
+
+@keyframes radarWave {
+  0% { transform: scale(0.4); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.status-badge-title { color: #e0f2fe; }
+.status-badge-dot { color: rgba(0, 189, 242, 0.5); font-weight: 900; }
+.status-badge-sla { color: var(--cyan); }
+
+.partners-bar-headline {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 600;
+  color: #f1f5f9;
+  letter-spacing: -0.01em;
+  margin: 0;
+  max-width: 650px;
+  line-height: 1.4;
+  background: linear-gradient(180deg, #ffffff 30%, #cce7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Infinite Marquee Track */
+.logos-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  z-index: 2;
+}
+
+.logos-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: clamp(20px, 2.8vw, 32px);
+  animation: marqueeTrack 32s linear infinite;
+  will-change: transform;
+  list-style: none;
+  margin: 0;
+  padding: 14px 0 20px;
+}
+
+.logos-marquee-wrapper:hover .logos-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeTrack {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* Glassmorphic Cyber Pod Card */
+.partner-cyber-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(11, 28, 54, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 189, 242, 0.2);
+  border-radius: 16px;
+  padding: 12px 18px 12px 16px;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px -6px rgba(4, 14, 28, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.cyber-card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cyber-card-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cyber-card-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cyber-brand-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cyber-brand-text {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.cyber-brand-text.keystone-text {
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.cyber-card-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+}
+
+.cyber-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.cyber-card-tagline {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.cyber-card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cyber-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cyber-status-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.cyber-card-arrow {
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Card Hover Elevation & Signature Brand Auroras */
+.partner-cyber-card:hover {
+  transform: translateY(-5px) scale(1.025);
+  background: rgba(13, 34, 66, 0.88);
+}
+
+.partner-cyber-card:hover .cyber-card-glow {
+  opacity: 1;
+}
+
+.partner-cyber-card:hover .cyber-card-arrow {
+  color: #ffffff;
+  transform: translate(2px, -2px);
+}
+
+/* Fortanixor Hover */
+.partner-cyber-card--fortanixor:hover {
+  border-color: rgba(0, 188, 212, 0.65);
+  box-shadow: 0 16px 36px -8px rgba(0, 188, 212, 0.45), inset 0 0 16px rgba(0, 188, 212, 0.15);
+}
+
+/* Najoomi Hover */
+.partner-cyber-card--najoomi:hover {
+  border-color: rgba(168, 85, 247, 0.65);
+  box-shadow: 0 16px 36px -8px rgba(168, 85, 247, 0.45), inset 0 0 16px rgba(168, 85, 247, 0.15);
+}
+
+/* Keystone Hover */
+.partner-cyber-card--keystone:hover {
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow: 0 16px 36px -8px rgba(245, 158, 11, 0.45), inset 0 0 16px rgba(245, 158, 11, 0.15);
+}
+
+/* Accelerec Hover */
+.partner-cyber-card--accelerec:hover {
+  border-color: rgba(16, 185, 129, 0.65);
+  box-shadow: 0 16px 36px -8px rgba(16, 185, 129, 0.45), inset 0 0 16px rgba(16, 185, 129, 0.15);
+}
+
+/* Capabilities Ticker Ribbon */
+.partners-live-capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.8vw, 18px);
+  margin-top: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.cap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 4px 12px;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.cap-pill:hover {
+  background: rgba(0, 189, 242, 0.1);
+  border-color: rgba(0, 189, 242, 0.3);
+  color: #ffffff;
+}
+
+.cap-icon { font-size: 0.85rem; }
+.cap-sep { color: rgba(0, 189, 242, 0.4); font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+  .cap-sep { display: none; }
+  .partners-live-capabilities { gap: 8px; }
+  .partner-cyber-card { padding: 10px 14px; gap: 10px; }
+}
 
 /* ---------- Key Metrics Delivery Bento Section ---------- */
 .proof-metrics-section{background:linear-gradient(180deg,#f8fbfe 0%,#f0f6fc 100%);padding-block:clamp(44px,5.5vw,72px);border-bottom:1px solid rgba(10,30,56,0.07);position:relative}
 
 /* Fallback / Legacy Proof Class */
 .proof{background:linear-gradient(180deg,#ffffff 0%,#f5f8fc 50%,#edf4fa 100%);color:var(--ink);padding-block:clamp(52px,6vw,84px) clamp(56px,7vw,92px);position:relative;border-top:1px solid rgba(10,30,56,0.06);border-bottom:1px solid rgba(10,30,56,0.06);overflow:hidden}
-
-
-/* Infinite Silky Logo Marquee (On Light Background) */
-.logos-marquee-wrapper{position:relative;width:100%;overflow:hidden;margin-top:24px;mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%)}
-.logos-marquee-track{display:flex;width:max-content;align-items:center;gap:clamp(44px,6vw,84px);animation:marqueeTrack 28s linear infinite;will-change:transform;list-style:none;margin:0;padding:12px 0}
-.logos-marquee-wrapper:hover .logos-marquee-track{animation-play-state:paused}
-@keyframes marqueeTrack{0%{transform:translateX(0)}100%{transform:translateX(-33.333%)}}
-
-.marquee-item{display:flex;align-items:center;justify-content:center;flex-shrink:0;user-select:none;opacity:.82;transition:all .28s cubic-bezier(0.16,1,0.3,1)}
-.marquee-item:hover{opacity:1;transform:scale(1.05)}
-
-.marquee-logo{display:inline-flex;align-items:center;gap:12px;height:38px}
-.marquee-logo svg{height:28px;width:auto;display:block;flex-shrink:0}
-.marquee-logo img{height:28px;width:auto;max-width:160px;object-fit:contain;display:block}
-.marquee-brand-text{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:#ffffff;line-height:1}
-.partners-bar .marquee-brand-text{color:#ffffff}
-.partners-bar .marquee-brand-text.keystone-text{color:#ffffff}
-.marquee-brand-text.keystone-text{letter-spacing:.08em;font-size:1.15rem;font-weight:800;color:#ffffff}
 
 /* ---------- Modern Bento Metric Cards Layout ---------- */
 .metrics-deck{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.2vw,28px);margin-top:0}
