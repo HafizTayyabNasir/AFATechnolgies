@@ -40,7 +40,7 @@ export default function Proof() {
       render: (
         <span className="marquee-logo marquee-logo--najoomi">
           <Image
-            src="/logos/najoomi-logo.png"
+            src="/logos/najoomi-logo-white.png"
             alt="Najoomi Official Logo"
             width={130}
             height={36}
@@ -68,11 +68,11 @@ export default function Proof() {
           >
             <path
               d="M22 80V45C22 29.5 34.5 17 50 17C65.5 17 78 29.5 78 45V80H64V45C64 37.3 57.7 31 50 31C42.3 31 36 37.3 36 45V80H22Z"
-              fill="#D97706"
+              fill="#F59E0B"
               opacity="0.45"
             />
-            <polygon points="38 15 62 15 57 40 43 40" fill="#D97706" />
-            <rect x="22" y="76" width="56" height="8" rx="2" fill="#D97706" />
+            <polygon points="38 15 62 15 57 40 43 40" fill="#F59E0B" />
+            <rect x="22" y="76" width="56" height="8" rx="2" fill="#F59E0B" />
           </svg>
           <span className="marquee-brand-text keystone-text">KEYSTONE</span>
         </span>
@@ -84,7 +84,7 @@ export default function Proof() {
       render: (
         <span className="marquee-logo marquee-logo--accelerec">
           <Image
-            src="/logos/accelerec-logo.png"
+            src="/logos/accelerec-logo-white.png"
             alt="Accelerec Official Logo"
             width={140}
             height={36}

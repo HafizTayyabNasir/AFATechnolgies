@@ -257,8 +257,8 @@ ul{margin:0;padding:0;list-style:none}
 
 /* ---------- Proof band (Light & Elevated Executive Style) ---------- */
 /* ---------- Distinct Partner Logos Marquee Bar ---------- */
-.partners-bar{background:linear-gradient(180deg,#e4eff8 0%,#d8e6f4 50%,#cee0f0 100%);color:var(--ink);padding-block:clamp(28px,3.8vw,42px);position:relative;border-top:1px solid #c2d6ea;border-bottom:1.5px solid #b3cde4;box-shadow:inset 0 1px 0 rgba(255,255,255,0.85),0 6px 20px -6px rgba(10,30,56,0.08);overflow:hidden;z-index:2}
-.partners-bar-title,.proof-title{text-align:center;color:#1e3a5a;font-weight:700;font-size:0.88rem;letter-spacing:.08em;text-transform:uppercase}
+.partners-bar{background:linear-gradient(165deg,var(--navy-800) 0%,var(--navy-900) 100%);color:#ffffff;padding-block:clamp(32px,4vw,46px);position:relative;border-top:1px solid rgba(0,189,242,0.22);border-bottom:1.5px solid rgba(0,189,242,0.22);box-shadow:0 12px 32px -8px rgba(10,30,56,0.45);overflow:hidden;z-index:2}
+.partners-bar-title,.proof-title{text-align:center;color:var(--cyan-soft);font-weight:600;font-size:0.92rem;letter-spacing:.06em;text-transform:uppercase}
 
 /* ---------- Key Metrics Delivery Bento Section ---------- */
 .proof-metrics-section{background:linear-gradient(180deg,#f8fbfe 0%,#f0f6fc 100%);padding-block:clamp(44px,5.5vw,72px);border-bottom:1px solid rgba(10,30,56,0.07);position:relative}
@@ -279,8 +279,10 @@ ul{margin:0;padding:0;list-style:none}
 .marquee-logo{display:inline-flex;align-items:center;gap:12px;height:38px}
 .marquee-logo svg{height:28px;width:auto;display:block;flex-shrink:0}
 .marquee-logo img{height:28px;width:auto;max-width:160px;object-fit:contain;display:block}
-.marquee-brand-text{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:#0a1e38;line-height:1}
-.marquee-brand-text.keystone-text{letter-spacing:.08em;font-size:1.15rem;font-weight:800;color:#0a1e38}
+.marquee-brand-text{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:#ffffff;line-height:1}
+.partners-bar .marquee-brand-text{color:#ffffff}
+.partners-bar .marquee-brand-text.keystone-text{color:#ffffff}
+.marquee-brand-text.keystone-text{letter-spacing:.08em;font-size:1.15rem;font-weight:800;color:#ffffff}
 
 /* ---------- Modern Bento Metric Cards Layout ---------- */
 .metrics-deck{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.2vw,28px);margin-top:0}
