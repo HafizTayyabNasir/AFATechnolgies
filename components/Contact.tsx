@@ -132,9 +132,13 @@ export default function Contact() {
             </ul>
 
             <p className="contact-alt">
-              Prefer email? Write to{" "}
-              <a href="mailto:hello@afatechnologies.online">
-                hello@afatechnologies.online
+              Prefer direct outreach? Write to{" "}
+              <a href="mailto:Hello@afatechnologiesltd.com">
+                Hello@afatechnologiesltd.com
+              </a>{" "}
+              or call{" "}
+              <a href="tel:+923436622666">
+                +92 343 6622666
               </a>
             </p>
 

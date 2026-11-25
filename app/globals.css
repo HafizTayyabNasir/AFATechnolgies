@@ -2103,7 +2103,12 @@ ul{margin:0;padding:0;list-style:none}
   color: #c4d7e8;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.footer-contact-icon {
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 .footer-contact-label {
